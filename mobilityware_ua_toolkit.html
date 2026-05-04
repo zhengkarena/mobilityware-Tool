@@ -1,0 +1,757 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>UA Toolkit · MobilityWare</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Geist:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns@3.0.0/dist/chartjs-adapter-date-fns.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+<style>
+:root{
+  --bg:#0F0F11; --raised:#17171B; --card:#1B1B21; --inset:#131318;
+  --border:#2A2A32; --border-strong:#3A3A44;
+  --text:#ECEAE3; --text-2:#C8C5BC; --text-mu:#8E8C84; --text-faint:#5E5C56;
+  --crimson:#B83A3A; --amber:#C7943A; --sage:#6A8C5A; --slate:#5A7A95; --plum:#8A6A9C; --terra:#B07A5A;
+  --neg:#8C4040;
+  --f-display:'Fraunces',Georgia,serif;
+  --f-body:'Geist',ui-sans-serif,system-ui,sans-serif;
+  --f-mono:'JetBrains Mono',ui-monospace,monospace;
+  --r:6px; --r-lg:10px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:var(--f-body);font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+button{font-family:inherit;font-size:inherit;cursor:pointer;color:inherit;background:none;border:none;padding:0}
+input,select{font-family:inherit;font-size:inherit;color:inherit}
+a{color:var(--text-2)}
+::selection{background:rgba(199,148,58,0.35)}
+
+/* ─── top bar ─── */
+.topbar{position:sticky;top:0;z-index:50;background:var(--raised);border-bottom:1px solid var(--border)}
+.topbar-row{display:flex;align-items:center;gap:18px;padding:10px 22px}
+.topbar-row.r1{padding-bottom:6px}
+.topbar-row.r2{padding-top:0;border-top:0;flex-wrap:wrap;row-gap:8px}
+.brand{display:flex;flex-direction:column;line-height:1.1}
+.brand-line{display:flex;align-items:baseline;gap:8px;font-family:var(--f-display);font-size:20px;font-weight:500;letter-spacing:-0.01em}
+.brand-glyph{color:var(--amber);font-size:18px}
+.brand-sub{font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);letter-spacing:0.02em;margin-top:2px}
+.topbar-spacer{flex:1}
+.pill{display:inline-flex;align-items:center;gap:7px;padding:5px 11px;border-radius:999px;border:1px solid var(--border-strong);background:var(--inset);font-family:var(--f-mono);font-size:11px;color:var(--text-2)}
+.pill .dot{width:7px;height:7px;border-radius:999px;background:var(--sage)}
+.pill.user .dot{background:var(--amber)}
+.btn{display:inline-flex;align-items:center;gap:7px;padding:7px 13px;border-radius:var(--r);border:1px solid var(--border-strong);background:var(--card);color:var(--text);font-size:12.5px;font-weight:500;transition:border-color .12s,background .12s}
+.btn:hover{border-color:var(--text-faint);background:#20202A}
+.btn-primary{background:var(--amber);border-color:var(--amber);color:#0F0F11;font-weight:600}
+.btn-primary:hover{background:#D4A04A;border-color:#D4A04A}
+.btn-ghost{background:transparent}
+.btn-sm{padding:4px 9px;font-size:11.5px}
+
+/* filter row */
+.filter-group{display:flex;align-items:center;gap:8px}
+.filter-label{font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em}
+.filter-sep{width:1px;height:18px;background:var(--border);margin:0 4px}
+.select{appearance:none;-webkit-appearance:none;background:var(--inset);color:var(--text);border:1px solid var(--border-strong);border-radius:var(--r);padding:6px 26px 6px 10px;font-size:12.5px;cursor:pointer;background-image:linear-gradient(45deg,transparent 50%,var(--text-mu) 50%),linear-gradient(135deg,var(--text-mu) 50%,transparent 50%);background-position:calc(100% - 13px) 50%,calc(100% - 9px) 50%;background-size:4px 4px;background-repeat:no-repeat}
+.select:focus{outline:none;border-color:var(--amber)}
+.toggle{display:inline-flex;background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);overflow:hidden}
+.toggle button{padding:6px 11px;font-size:12px;color:var(--text-mu);border-right:1px solid var(--border-strong)}
+.toggle button:last-child{border-right:none}
+.toggle button.active{background:var(--card);color:var(--text);box-shadow:inset 0 -2px 0 var(--amber)}
+.toggle button:hover:not(.active){color:var(--text-2)}
+.chips{display:flex;gap:5px;flex-wrap:wrap;max-width:520px}
+.chip{padding:5px 10px;border-radius:999px;border:1px solid var(--border-strong);background:var(--inset);color:var(--text-mu);font-size:11.5px;font-family:var(--f-mono);transition:border-color .1s,color .1s,background .1s}
+.chip:hover{color:var(--text-2);border-color:var(--text-faint)}
+.chip[aria-pressed="true"]{background:var(--card);color:var(--amber);border-color:var(--amber)}
+.dates{display:flex;align-items:center;gap:6px}
+.date-presets{display:inline-flex;background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);overflow:hidden}
+.date-presets button{padding:6px 9px;font-size:11.5px;font-family:var(--f-mono);color:var(--text-mu);border-right:1px solid var(--border-strong)}
+.date-presets button:last-child{border-right:none}
+.date-presets button.active{background:var(--card);color:var(--text);box-shadow:inset 0 -2px 0 var(--amber)}
+.date-input{background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);padding:5px 8px;font-size:11.5px;font-family:var(--f-mono);color:var(--text);color-scheme:dark}
+.date-input:focus{outline:none;border-color:var(--amber)}
+.dates.custom-hidden .custom-only{display:none}
+
+/* tab nav */
+.tabnav{position:sticky;top:0;z-index:40;background:var(--bg);border-bottom:1px solid var(--border);padding:0 22px;display:flex;gap:0;overflow-x:auto}
+.tabnav.under-topbar{top:var(--topbar-h,0)}
+.tabbtn{padding:12px 18px;font-size:12.5px;color:var(--text-mu);border-bottom:2px solid transparent;white-space:nowrap;display:inline-flex;gap:10px;align-items:baseline;font-family:var(--f-body);font-weight:500;letter-spacing:0.01em}
+.tabbtn .num{font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);letter-spacing:0.04em}
+.tabbtn:hover{color:var(--text-2)}
+.tabbtn.active{color:var(--text);border-bottom-color:var(--amber)}
+.tabbtn.active .num{color:var(--amber)}
+
+/* main */
+main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
+.tab{display:none}
+.tab.active{display:block}
+.tab-header{margin-bottom:20px}
+.tab-eyebrow{font-family:var(--f-mono);font-size:10.5px;color:var(--crimson);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px}
+.tab-title{font-family:var(--f-display);font-size:30px;font-weight:500;letter-spacing:-0.015em;line-height:1.1;margin:0 0 10px 0}
+.tab-framing{font-size:14.5px;color:var(--text-2);max-width:780px;line-height:1.55}
+
+.placeholder-card{background:var(--card);border:1px dashed var(--border-strong);border-radius:var(--r-lg);padding:28px;color:var(--text-mu);font-family:var(--f-mono);font-size:12.5px}
+.placeholder-card .filtered-count{color:var(--amber);font-weight:500}
+.placeholder-card .ph-row{display:flex;gap:24px;flex-wrap:wrap}
+.placeholder-card .ph-row > div{display:flex;flex-direction:column;gap:2px}
+.placeholder-card .ph-label{font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em}
+.placeholder-card .ph-val{color:var(--text);font-size:14px}
+
+/* upload banner */
+.upload-banner{background:var(--inset);border-bottom:1px solid var(--border);padding:8px 22px;font-size:12px;color:var(--text-2);display:none;align-items:center;gap:14px;font-family:var(--f-mono)}
+.upload-banner.visible{display:flex}
+.upload-banner .reset-link{color:var(--amber);cursor:pointer;text-decoration:underline;text-decoration-color:rgba(199,148,58,0.4);text-underline-offset:2px}
+.upload-banner .reset-link:hover{text-decoration-color:var(--amber)}
+
+/* utility */
+.kbd{font-family:var(--f-mono);font-size:11px;color:var(--text-mu);background:var(--inset);padding:1px 5px;border-radius:3px;border:1px solid var(--border)}
+@media (max-width:1100px){
+  .topbar-row{flex-wrap:wrap}
+  .chips{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="topbar" id="topbar">
+  <div class="topbar-row r1">
+    <div class="brand">
+      <div class="brand-line"><span class="brand-glyph">♦</span><span>UA Toolkit</span></div>
+      <div class="brand-sub">Interactive analyst toolkit · simulated data · upload CSV to use yours</div>
+    </div>
+    <div class="topbar-spacer"></div>
+    <span class="pill" id="data-pill"><span class="dot"></span><span id="data-pill-label">Demo data</span></span>
+    <button class="btn btn-primary" id="btn-upload">Upload data</button>
+    <button class="btn" id="btn-reset">Reset filters</button>
+    <button class="btn" id="btn-export">Export view</button>
+  </div>
+  <div class="topbar-row r2" id="filter-row">
+    <div class="filter-group">
+      <span class="filter-label">Game</span>
+      <select class="select" id="f-game">
+        <option value="all">All</option>
+      </select>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">OS</span>
+      <div class="toggle" id="f-os">
+        <button data-v="iOS">iOS</button>
+        <button data-v="both" class="active">Both</button>
+        <button data-v="Android">Android</button>
+      </div>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Channel</span>
+      <div class="chips" id="f-channels"></div>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Geo</span>
+      <div class="chips" id="f-geos"></div>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Segment</span>
+      <select class="select" id="f-segment">
+        <option value="all">All</option>
+        <option value="whales">Whales</option>
+        <option value="engaged_nonpayers">Engaged Non-Payers</option>
+        <option value="at_risk">At-Risk</option>
+        <option value="dormant_high_value">Dormant High-Value</option>
+        <option value="new_cohort">New Cohort</option>
+      </select>
+    </div>
+    <div class="filter-sep"></div>
+    <div class="filter-group">
+      <span class="filter-label">Date</span>
+      <div class="dates custom-hidden" id="f-date">
+        <div class="date-presets">
+          <button data-v="7d">7d</button>
+          <button data-v="30d" class="active">30d</button>
+          <button data-v="90d">90d</button>
+          <button data-v="custom">Custom</button>
+        </div>
+        <input class="date-input custom-only" type="date" id="f-date-start">
+        <input class="date-input custom-only" type="date" id="f-date-end">
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="upload-banner" id="upload-banner">
+  <span id="upload-banner-text"></span>
+  <span class="reset-link" id="upload-banner-reset">Reset to demo data</span>
+</div>
+
+<nav class="tabnav" id="tabnav">
+  <button class="tabbtn active" data-tab="t1"><span class="num">01</span><span>Portfolio</span></button>
+  <button class="tabbtn" data-tab="t2"><span class="num">02</span><span>Funnel</span></button>
+  <button class="tabbtn" data-tab="t3"><span class="num">03</span><span>Attribution</span></button>
+  <button class="tabbtn" data-tab="t4"><span class="num">04</span><span>A/B Test</span></button>
+  <button class="tabbtn" data-tab="t5"><span class="num">05</span><span>Audiences</span></button>
+  <button class="tabbtn" data-tab="t6"><span class="num">06</span><span>Campaign Designer</span></button>
+  <button class="tabbtn" data-tab="t7"><span class="num">07</span><span>Compare Plans</span></button>
+</nav>
+
+<main>
+  <section class="tab active" id="t1">
+    <div class="tab-header">
+      <div class="tab-eyebrow">Tab 01</div>
+      <h1 class="tab-title">Portfolio Overview</h1>
+      <p class="tab-framing">Portfolio-level performance across the selected slice. Every number on this page reacts to the filters above &mdash; change a filter to slice the portfolio.</p>
+    </div>
+    <div class="placeholder-card">
+      <div class="ph-row">
+        <div><span class="ph-label">Filtered rows</span><span class="ph-val"><span class="filtered-count">0</span></span></div>
+        <div><span class="ph-label">Spend (sum)</span><span class="ph-val" data-stat="spend">$0</span></div>
+        <div><span class="ph-label">Installs (sum)</span><span class="ph-val" data-stat="installs">0</span></div>
+        <div><span class="ph-label">Blended CPI</span><span class="ph-val" data-stat="cpi">$0.00</span></div>
+        <div><span class="ph-label">Date range</span><span class="ph-val" data-stat="daterange">&mdash;</span></div>
+      </div>
+      <div style="margin-top:14px;color:var(--text-faint);font-size:11.5px">Tab content lands in checkpoint 5 (Portfolio Overview build). The placeholder above proves the filter pipeline reaches every tab.</div>
+    </div>
+  </section>
+  <section class="tab" id="t2">
+    <div class="tab-header"><div class="tab-eyebrow">Tab 02</div><h1 class="tab-title">Funnel Analyzer</h1><p class="tab-framing">Six-step conversion funnel from impression to first IAP, broken down by channel, game, segment, or geo.</p></div>
+    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 9.</div>
+  </section>
+  <section class="tab" id="t3">
+    <div class="tab-header"><div class="tab-eyebrow">Tab 03</div><h1 class="tab-title">Attribution Lab</h1><p class="tab-framing">Four attribution methods, four numbers, same campaign. The fragmentation problem rendered.</p></div>
+    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 6.</div>
+  </section>
+  <section class="tab" id="t4">
+    <div class="tab-header"><div class="tab-eyebrow">Tab 04</div><h1 class="tab-title">A/B Test Lab</h1><p class="tab-framing">Test design, sample size, simulated readout. Bayesian framing alongside frequentist.</p></div>
+    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 7.</div>
+  </section>
+  <section class="tab" id="t5">
+    <div class="tab-header"><div class="tab-eyebrow">Tab 05</div><h1 class="tab-title">Audience Segments</h1><p class="tab-framing">Five segments, ARPU multipliers, channel composition, recommended actions.</p></div>
+    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 8.</div>
+  </section>
+  <section class="tab" id="t6">
+    <div class="tab-header"><div class="tab-eyebrow">Tab 06 &middot; centerpiece</div><h1 class="tab-title">Campaign Designer</h1><p class="tab-framing">Pick an objective, set a budget, generate a plan. Channel mix, creative direction, KPIs, test design, expected outcome.</p></div>
+    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 4 (built first &mdash; centerpiece).</div>
+  </section>
+  <section class="tab" id="t7">
+    <div class="tab-header"><div class="tab-eyebrow">Tab 07</div><h1 class="tab-title">Compare Plans</h1><p class="tab-framing">Side-by-side comparison of saved plans with a recommended winner.</p></div>
+    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 10.</div>
+  </section>
+</main>
+
+<script>
+'use strict';
+
+/* ─────────────────────────────────────────────────────────────
+   Constants & dimensions
+   ──────────────────────────────────────────────────────────── */
+
+const GAMES   = ['Solitaire','Spider Solitaire','TriPeaks','Bubble Shooter Pop'];
+const CHANNELS= ['Google UAC','ASA','Meta','AppLovin','Unity','Moloco','ironSource','TikTok','InMobi','Liftoff'];
+const GEOS    = ['US','UK','CA','AU','BR','MX','JP','KR'];
+const OSES    = ['iOS','Android'];
+
+// Channel base CPI on iOS in US (USD). Anchored to:
+//  - AppsFlyer Performance Index 2025 (Unity ~$2.50, AppLovin/Vungle ~$3.00 median)
+//  - AppTweak Apple Ads Benchmarks 2025 (ASA casual CPT $0.40-$0.90 → CPI low end of category)
+//  - Liftoff 2025 Casual Gaming Apps Report (iOS casual ~$1.41 — that figure is hypercasual-weighted;
+//    mid-casual card sits higher per Section 11 anchor)
+//  - Moloco 2025 State of Mobile Gaming (top 1% iOS bid prices +140% in 2024 — Meta/CPP premium)
+const CHANNEL_CPI_IOS = {
+  'ASA':2.40, 'Google UAC':3.40, 'TikTok':2.90, 'Moloco':4.80, 'InMobi':4.10,
+  'AppLovin':3.90, 'Unity':3.80, 'ironSource':4.30, 'Liftoff':5.20, 'Meta':6.40
+};
+// Channel quality 1-5 (drives D7 ROAS, retention, whale share)
+const CHANNEL_QUALITY = {
+  'ASA':5, 'Google UAC':4, 'Moloco':4, 'InMobi':3, 'Meta':3,
+  'AppLovin':3, 'TikTok':3, 'Unity':2, 'ironSource':2, 'Liftoff':2
+};
+// Channel mix weights (sum=100). Anchored to Section 11 ranges.
+const CHANNEL_W = {
+  'Google UAC':28, 'Meta':20, 'ASA':13, 'AppLovin':10, 'Unity':9,
+  'Moloco':7, 'ironSource':5, 'TikTok':4, 'InMobi':2, 'Liftoff':2
+};
+// Channel trust (Tab 3): 1-5, low = network self-report inflation, high = trustworthy
+const CHANNEL_TRUST = {
+  'ASA':5, 'Google UAC':4, 'Moloco':4, 'InMobi':3, 'Meta':2,
+  'TikTok':2, 'AppLovin':3, 'Unity':3, 'ironSource':3, 'Liftoff':3
+};
+
+const GAME_W   = {'Solitaire':50,'Spider Solitaire':20,'TriPeaks':17,'Bubble Shooter Pop':13};
+// Per-game monetization tier (multiplies ROAS); Solitaire monetization most mature.
+const GAME_MON = {'Solitaire':1.05,'Spider Solitaire':1.00,'TriPeaks':0.98,'Bubble Shooter Pop':0.85};
+
+// Geo weights anchored to MobilityWare's US-heavy footprint plus typical T1+T2 mix.
+const GEO_W       = {'US':40,'UK':12,'JP':11,'CA':8,'KR':8,'BR':8,'MX':7,'AU':6};
+// Geo CPI multiplier — Tier 1 markets ≈1.0×, JP slight premium, LATAM ~0.35-0.40×
+const GEO_CPI_MUL = {'US':1.00,'UK':0.85,'CA':0.90,'AU':0.85,'JP':1.10,'KR':1.00,'MX':0.40,'BR':0.35};
+
+const OS_W       = {'iOS':55,'Android':45};
+// Mid-casual iOS:Android CPI ratio ≈ 2.5× (NOT the ~10× from Liftoff hypercasual figures)
+const OS_CPI_MUL = {'iOS':1.00,'Android':0.40};
+
+const GAME_KEYS = {'Solitaire':'sol','Spider Solitaire':'spider','TriPeaks':'tri','Bubble Shooter Pop':'bubble'};
+
+/* ─────────────────────────────────────────────────────────────
+   Seeded RNG (mulberry32) — deterministic across reloads
+   ──────────────────────────────────────────────────────────── */
+
+// Seed: 0xMW2026 is not valid hex. Encode 'M'=0x4D, 'W'=0x57 → 0x4D572026.
+const SEED = 0x4D572026;
+function mulberry32(a){
+  return function(){
+    a|=0; a=a+0x6D2B79F5|0;
+    let t=Math.imul(a^a>>>15, a|1);
+    t^=t+Math.imul(t^t>>>7, t|61);
+    return ((t^t>>>14)>>>0)/4294967296;
+  };
+}
+const rng = mulberry32(SEED);
+function jitter(min,max){return min+(max-min)*rng()}
+function clamp(v,a,b){return Math.max(a,Math.min(b,v))}
+function round2(n){return Math.round(n*100)/100}
+function round3(n){return Math.round(n*1000)/1000}
+
+/* ─────────────────────────────────────────────────────────────
+   Demo data generator
+   ──────────────────────────────────────────────────────────── */
+
+const TODAY = new Date(2026,4,3); // May 3 2026 — last full day of demo data (system date is May 4)
+const DAYS_BACK = 90;
+
+function generateDemoData(){
+  // Reset RNG to ensure reproducibility regardless of when called.
+  const r = mulberry32(SEED);
+  const rows = [];
+
+  const start = new Date(TODAY); start.setDate(start.getDate() - (DAYS_BACK-1));
+
+  for(let d=0; d<DAYS_BACK; d++){
+    const date = new Date(start); date.setDate(start.getDate()+d);
+    const dateStr = date.toISOString().slice(0,10);
+    const dow = date.getDay();
+    const isWeekend = dow===0 || dow===6;
+    // Slow seasonality: install volume drifts slightly over 90 days.
+    const seasonal = 1.0 + Math.sin(d/18)*0.04 + (d/90)*0.03;
+
+    for(const game of GAMES){
+      const gw = GAME_W[game];
+      for(const channel of CHANNELS){
+        const cw = CHANNEL_W[channel];
+        for(const geo of GEOS){
+          const geoW = GEO_W[geo];
+          for(const os of OSES){
+            const osW = OS_W[os];
+
+            // Joint daily allocation. Total daily portfolio spend ≈ $850K.
+            // (gw×cw×geoW×osW)/1e8 × budget
+            const baseAlloc = (gw*cw*geoW*osW) / 1e8 * 150000;
+
+            // Activity gating: small combos run sparsely, big combos run daily.
+            // Maps baseAlloc=$200 → 100% active; <$200 → fractional active rate.
+            const activeProb = Math.min(1, baseAlloc/200);
+            if(r() > activeProb) continue;
+
+            // Per-row noise & weekend boost
+            const dailyNoise = 0.85 + r()*0.30; // ±15%
+            const weekendBoost = (isWeekend && (channel==='TikTok'||channel==='Meta')) ? 1.10 : 1.0;
+            let spend = baseAlloc * dailyNoise * weekendBoost * seasonal;
+
+            // ───── ANOMALY 3: Bubble Shooter Pop / TikTok / BR ─────
+            //   Half-funded emerging-market pilot. Multiplier 0.55 = ~45% under-funded vs MX-equivalent —
+            //   clearly under MX in charts while still firing every day (parity CPI, just less spend).
+            //   This is the "emerging-markets pilots fail by being half-funded" thread from Tab 6.
+            if(game==='Bubble Shooter Pop' && channel==='TikTok' && geo==='BR'){
+              spend *= 0.55;
+            }
+
+            if(spend < 4) continue; // below this it's noise, not a campaign
+
+            // CPI base
+            let cpi = CHANNEL_CPI_IOS[channel] * GEO_CPI_MUL[geo] * OS_CPI_MUL[os];
+            cpi *= (0.92 + r()*0.16); // ±8% per-row noise
+
+            // ───── ANOMALY 1: Solitaire / Moloco / iOS — CPI spike from day 60+ ─────
+            //   Diagnostic Tab 3 surfaces: probabilistic-to-SKAN ratio drifts toward
+            //   "suspect" (>1.7×) per Aarki/Singular thresholds.
+            const isAnom1 = (game==='Solitaire' && channel==='Moloco' && os==='iOS' && d>=60);
+            if(isAnom1) cpi *= 1.30;
+
+            // ───── ANOMALY 2: TriPeaks / AppLovin / Android — creative win from day 50+ ─────
+            //   eCPI -15%, ROAS lift +20%. Magnitude realistic for a winning concept.
+            const isAnom2 = (game==='TriPeaks' && channel==='AppLovin' && os==='Android' && d>=50);
+            if(isAnom2) cpi *= 0.85;
+
+            const installs = Math.max(1, Math.round(spend / cpi));
+
+            // ROAS D7 base from channel quality 0.10–0.28 corridor.
+            // Anchored: AppsFlyer Performance Index 2025 (NA iOS casual ROAS 2.5×–4× lifetime,
+            // implies D7 share ~14-22% range for casual card monetization curves).
+            const q = CHANNEL_QUALITY[channel];
+            let roasD7 = (0.10 + (q/5)*0.18) * GAME_MON[game] * (os==='iOS'?1.05:0.95);
+            roasD7 *= (0.85 + r()*0.30);
+            if(isAnom2) roasD7 *= 1.20;
+            roasD7 = clamp(roasD7, 0.05, 0.45);
+
+            // D30 ≈ D7 × 2.5–2.9
+            const roasD30 = clamp(roasD7 * (2.55 + r()*0.40), 0.10, 0.95);
+
+            // Retention curves anchored to GameAnalytics 2025 + Section 11.
+            // iOS top-quartile D1 31-33%; we model 30-40% based on channel quality.
+            const retD1 = clamp((0.30 + (q/5)*0.10) * (os==='iOS'?1.05:0.95) * (0.92+r()*0.16), 0.18, 0.50);
+            const retD7 = clamp(retD1 * (0.27 + r()*0.10), 0.04, 0.22);
+            const retD30= clamp(retD7 * (0.36 + r()*0.10), 0.012, 0.080);
+
+            rows.push({
+              date: dateStr,
+              game, channel, geo, os,
+              spend_usd: round2(spend),
+              installs,
+              roas_d7: round3(roasD7),
+              roas_d30: round3(roasD30),
+              retention_d1: round3(retD1),
+              retention_d7: round3(retD7),
+              retention_d30: round3(retD30)
+            });
+          }
+        }
+      }
+    }
+  }
+  return rows;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Data layer
+   ──────────────────────────────────────────────────────────── */
+
+let DEMO_DATA = null;       // generated once
+let DATA_SOURCE = null;     // points to DEMO_DATA or USER_DATA
+let DATA_SOURCE_NAME = 'demo'; // 'demo' | filename
+let DIMS = null;            // distinct values present in the active source
+
+const FILTERS = {
+  game: 'all',
+  channels: [],   // empty = all
+  os: 'both',     // 'iOS' | 'Android' | 'both'
+  geos: [],       // empty = all
+  segment: 'all',
+  datePreset: '30d', // '7d' | '30d' | '90d' | 'custom'
+  dateStart: null,
+  dateEnd: null
+};
+
+function setDataSource(rows, name){
+  DATA_SOURCE = rows;
+  DATA_SOURCE_NAME = name;
+  DIMS = computeDims(rows);
+  populateFilterOptions(DIMS);
+  updateDataPill();
+  applyFilters(true);
+}
+
+function computeDims(rows){
+  const d = {games:new Set(), channels:new Set(), geos:new Set(), oses:new Set(), dateMin:null, dateMax:null};
+  for(const r of rows){
+    d.games.add(r.game); d.channels.add(r.channel); d.geos.add(r.geo); d.oses.add(r.os);
+    if(d.dateMin===null || r.date<d.dateMin) d.dateMin=r.date;
+    if(d.dateMax===null || r.date>d.dateMax) d.dateMax=r.date;
+  }
+  // preserve canonical ordering for known dimensions; append unknowns at end
+  const order = (canonical, present) => [...canonical.filter(x=>present.has(x)), ...[...present].filter(x=>!canonical.includes(x))];
+  return {
+    games: order(GAMES, d.games),
+    channels: order(CHANNELS, d.channels),
+    geos: order(GEOS, d.geos),
+    oses: order(OSES, d.oses),
+    dateMin: d.dateMin, dateMax: d.dateMax
+  };
+}
+
+function computeDateRange(){
+  if(FILTERS.datePreset==='custom' && FILTERS.dateStart && FILTERS.dateEnd){
+    return {start: FILTERS.dateStart, end: FILTERS.dateEnd};
+  }
+  const days = FILTERS.datePreset==='7d' ? 7 : FILTERS.datePreset==='90d' ? 90 : 30;
+  const end = DIMS.dateMax;
+  const endDate = new Date(end);
+  const startDate = new Date(endDate); startDate.setDate(endDate.getDate() - (days-1));
+  return {start: startDate.toISOString().slice(0,10), end};
+}
+
+function getFilteredData(){
+  if(!DATA_SOURCE) return [];
+  const {start,end} = computeDateRange();
+  const game = FILTERS.game;
+  const channels = FILTERS.channels;
+  const geos = FILTERS.geos;
+  const os = FILTERS.os;
+  const channelSet = channels.length ? new Set(channels) : null;
+  const geoSet = geos.length ? new Set(geos) : null;
+  const out = [];
+  for(let i=0;i<DATA_SOURCE.length;i++){
+    const r = DATA_SOURCE[i];
+    if(r.date < start || r.date > end) continue;
+    if(game !== 'all' && r.game !== game) continue;
+    if(channelSet && !channelSet.has(r.channel)) continue;
+    if(geoSet && !geoSet.has(r.geo)) continue;
+    if(os !== 'both' && r.os !== os) continue;
+    out.push(r);
+  }
+  return out;
+  // NOTE: segment filter is intentionally not row-level; it's applied per-tab
+  // (segments are derived overlays on the canonical row schema, not row attributes).
+}
+
+const bus = new EventTarget();
+let _filterTimer = null;
+function applyFilters(immediate=false){
+  clearTimeout(_filterTimer);
+  const fire = ()=>{
+    const slice = getFilteredData();
+    bus.dispatchEvent(new CustomEvent('data:changed', {detail:{slice, range:computeDateRange()}}));
+  };
+  if(immediate) fire(); else _filterTimer = setTimeout(fire, 150);
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Filter UI bindings
+   ──────────────────────────────────────────────────────────── */
+
+function populateFilterOptions(dims){
+  // Game dropdown
+  const gameSel = document.getElementById('f-game');
+  gameSel.innerHTML = '<option value="all">All</option>' + dims.games.map(g=>`<option value="${escAttr(g)}">${esc(g)}</option>`).join('');
+  // restore filter or reset if value invalid
+  if(FILTERS.game!=='all' && !dims.games.includes(FILTERS.game)) FILTERS.game='all';
+  gameSel.value = FILTERS.game;
+
+  // Channel chips
+  const chWrap = document.getElementById('f-channels');
+  chWrap.innerHTML = dims.channels.map(c=>`<button class="chip" data-v="${escAttr(c)}" aria-pressed="false">${esc(c)}</button>`).join('');
+  // drop any selected channels not in dims
+  FILTERS.channels = FILTERS.channels.filter(c=>dims.channels.includes(c));
+  chWrap.querySelectorAll('.chip').forEach(b=>{
+    if(FILTERS.channels.includes(b.dataset.v)) b.setAttribute('aria-pressed','true');
+  });
+
+  // Geo chips
+  const geoWrap = document.getElementById('f-geos');
+  geoWrap.innerHTML = dims.geos.map(g=>`<button class="chip" data-v="${escAttr(g)}" aria-pressed="false">${esc(g)}</button>`).join('');
+  FILTERS.geos = FILTERS.geos.filter(g=>dims.geos.includes(g));
+  geoWrap.querySelectorAll('.chip').forEach(b=>{
+    if(FILTERS.geos.includes(b.dataset.v)) b.setAttribute('aria-pressed','true');
+  });
+
+  // OS toggle: if current OS not available, fall back to 'both'
+  if(FILTERS.os!=='both' && !dims.oses.includes(FILTERS.os)) FILTERS.os='both';
+  syncOsToggle();
+
+  // Date custom range bounds
+  document.getElementById('f-date-start').min = dims.dateMin;
+  document.getElementById('f-date-start').max = dims.dateMax;
+  document.getElementById('f-date-end').min = dims.dateMin;
+  document.getElementById('f-date-end').max = dims.dateMax;
+  if(!FILTERS.dateStart) FILTERS.dateStart = dims.dateMin;
+  if(!FILTERS.dateEnd) FILTERS.dateEnd = dims.dateMax;
+  document.getElementById('f-date-start').value = FILTERS.dateStart;
+  document.getElementById('f-date-end').value = FILTERS.dateEnd;
+}
+
+function syncOsToggle(){
+  document.querySelectorAll('#f-os button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.v===FILTERS.os);
+  });
+}
+function syncDatePresets(){
+  document.querySelectorAll('#f-date .date-presets button').forEach(b=>{
+    b.classList.toggle('active', b.dataset.v===FILTERS.datePreset);
+  });
+  document.getElementById('f-date').classList.toggle('custom-hidden', FILTERS.datePreset!=='custom');
+}
+
+function bindFilters(){
+  document.getElementById('f-game').addEventListener('change', e=>{
+    FILTERS.game = e.target.value; applyFilters();
+  });
+  document.getElementById('f-os').addEventListener('click', e=>{
+    const b = e.target.closest('button'); if(!b) return;
+    FILTERS.os = b.dataset.v; syncOsToggle(); applyFilters();
+  });
+  document.getElementById('f-channels').addEventListener('click', e=>{
+    const b = e.target.closest('button.chip'); if(!b) return;
+    const v = b.dataset.v;
+    const pressed = b.getAttribute('aria-pressed')==='true';
+    b.setAttribute('aria-pressed', String(!pressed));
+    if(pressed) FILTERS.channels = FILTERS.channels.filter(x=>x!==v);
+    else FILTERS.channels = [...FILTERS.channels, v];
+    applyFilters();
+  });
+  document.getElementById('f-geos').addEventListener('click', e=>{
+    const b = e.target.closest('button.chip'); if(!b) return;
+    const v = b.dataset.v;
+    const pressed = b.getAttribute('aria-pressed')==='true';
+    b.setAttribute('aria-pressed', String(!pressed));
+    if(pressed) FILTERS.geos = FILTERS.geos.filter(x=>x!==v);
+    else FILTERS.geos = [...FILTERS.geos, v];
+    applyFilters();
+  });
+  document.getElementById('f-segment').addEventListener('change', e=>{
+    FILTERS.segment = e.target.value; applyFilters();
+  });
+  document.querySelectorAll('#f-date .date-presets button').forEach(b=>{
+    b.addEventListener('click', ()=>{
+      FILTERS.datePreset = b.dataset.v;
+      syncDatePresets();
+      applyFilters();
+    });
+  });
+  document.getElementById('f-date-start').addEventListener('change', e=>{
+    FILTERS.dateStart = e.target.value; if(FILTERS.datePreset==='custom') applyFilters();
+  });
+  document.getElementById('f-date-end').addEventListener('change', e=>{
+    FILTERS.dateEnd = e.target.value; if(FILTERS.datePreset==='custom') applyFilters();
+  });
+
+  // top-bar buttons
+  document.getElementById('btn-reset').addEventListener('click', resetFilters);
+  document.getElementById('btn-export').addEventListener('click', exportCsv);
+  document.getElementById('btn-upload').addEventListener('click', ()=>{
+    alert('Upload modal lands in checkpoint 3. For now: filter pipeline runs on demo data.');
+  });
+  document.getElementById('upload-banner-reset').addEventListener('click', ()=>{
+    setDataSource(DEMO_DATA,'demo');
+    const b=document.getElementById('upload-banner'); b.classList.remove('visible');
+  });
+}
+
+function resetFilters(){
+  FILTERS.game='all';
+  FILTERS.channels=[];
+  FILTERS.os='both';
+  FILTERS.geos=[];
+  FILTERS.segment='all';
+  FILTERS.datePreset='30d';
+  FILTERS.dateStart = DIMS.dateMin;
+  FILTERS.dateEnd = DIMS.dateMax;
+
+  document.getElementById('f-game').value='all';
+  document.getElementById('f-segment').value='all';
+  document.querySelectorAll('#f-channels .chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+  document.querySelectorAll('#f-geos .chip').forEach(b=>b.setAttribute('aria-pressed','false'));
+  syncOsToggle();
+  syncDatePresets();
+  document.getElementById('f-date-start').value = FILTERS.dateStart;
+  document.getElementById('f-date-end').value = FILTERS.dateEnd;
+  applyFilters(true);
+}
+
+function updateDataPill(){
+  const pill = document.getElementById('data-pill');
+  const label = document.getElementById('data-pill-label');
+  if(DATA_SOURCE_NAME==='demo'){
+    pill.classList.remove('user');
+    label.textContent='Demo data';
+  }else{
+    pill.classList.add('user');
+    label.textContent='My data: '+DATA_SOURCE_NAME;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Export — produces a CSV that the upload validator (next checkpoint)
+   will accept on roundtrip. Schema columns match the upload spec.
+   ──────────────────────────────────────────────────────────── */
+
+const EXPORT_COLS = ['date','game','channel','geo','os','spend_usd','installs','roas_d7','roas_d30','retention_d1','retention_d7','retention_d30'];
+
+function exportCsv(){
+  const slice = getFilteredData();
+  const header = EXPORT_COLS.join(',');
+  const lines = slice.map(r => EXPORT_COLS.map(c => csvCell(r[c])).join(','));
+  const blob = new Blob([header+'\n'+lines.join('\n')+'\n'], {type:'text/csv;charset=utf-8'});
+  const today = new Date().toISOString().slice(0,10);
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = `mw_ua_export_${today}.csv`;
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+}
+function csvCell(v){
+  if(v==null) return '';
+  const s = String(v);
+  return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tab nav
+   ──────────────────────────────────────────────────────────── */
+
+function bindTabs(){
+  document.getElementById('tabnav').addEventListener('click', e=>{
+    const b = e.target.closest('.tabbtn'); if(!b) return;
+    const id = b.dataset.tab;
+    document.querySelectorAll('.tabbtn').forEach(x=>x.classList.toggle('active', x===b));
+    document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active', x.id===id));
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Skeleton wiring: placeholder counters react to filter changes
+   ──────────────────────────────────────────────────────────── */
+
+function bindSkeletonListeners(){
+  bus.addEventListener('data:changed', e=>{
+    const slice = e.detail.slice;
+    document.querySelectorAll('.filtered-count').forEach(el=>{
+      el.textContent = slice.length.toLocaleString();
+    });
+    // Tab 1 placeholder: a few summary stats
+    const t1 = document.getElementById('t1');
+    if(t1){
+      const totalSpend = slice.reduce((s,r)=>s+r.spend_usd,0);
+      const totalInst = slice.reduce((s,r)=>s+r.installs,0);
+      const cpi = totalInst>0 ? totalSpend/totalInst : 0;
+      const setStat = (k,v)=>{const el=t1.querySelector(`[data-stat="${k}"]`); if(el) el.textContent=v;};
+      setStat('spend', '$'+Math.round(totalSpend).toLocaleString());
+      setStat('installs', totalInst.toLocaleString());
+      setStat('cpi', '$'+cpi.toFixed(2));
+      const r = e.detail.range;
+      setStat('daterange', r.start+' → '+r.end);
+    }
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Helpers
+   ──────────────────────────────────────────────────────────── */
+
+function esc(s){return String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]))}
+function escAttr(s){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+
+/* ─────────────────────────────────────────────────────────────
+   Init
+   ──────────────────────────────────────────────────────────── */
+
+function init(){
+  // measure topbar height for sticky offset of tab nav
+  const topbar = document.getElementById('topbar');
+  const setH = ()=>document.documentElement.style.setProperty('--topbar-h', topbar.offsetHeight+'px');
+  setH(); window.addEventListener('resize', setH);
+  document.getElementById('tabnav').classList.add('under-topbar');
+
+  DEMO_DATA = generateDemoData();
+  console.info('[UA Toolkit] generated demo data:', DEMO_DATA.length, 'rows');
+  bindFilters();
+  bindTabs();
+  bindSkeletonListeners();
+  setDataSource(DEMO_DATA, 'demo');
+  syncDatePresets();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+
+</body>
+</html>
