@@ -350,6 +350,74 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 .t4-framing-callout{background:var(--inset);border-left:2px solid var(--amber);padding:11px 16px;margin-top:6px;border-radius:0 var(--r) var(--r) 0;font-size:12.5px;color:var(--text-2);line-height:1.55}
 .t4-framing-callout .label{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
 
+/* ─── Tab 2 · Funnel Analyzer ─── */
+.t2-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
+.t2-section .plan-h{margin-bottom:14px}
+.t2-funnel{display:flex;flex-direction:column;gap:8px}
+.t2-funnel-step{display:grid;grid-template-columns:130px minmax(0,1fr) 110px 92px;gap:14px;align-items:center;padding:5px 0}
+.t2-funnel-label{font-family:var(--f-mono);font-size:11px;color:var(--text);text-transform:uppercase;letter-spacing:0.05em;font-weight:500}
+.t2-funnel-label .step-num{color:var(--text-faint);font-weight:400;margin-right:6px}
+.t2-funnel-bar-track{height:18px;background:var(--inset);border:1px solid var(--border);border-radius:3px;position:relative;overflow:hidden}
+.t2-funnel-bar{height:100%;background:var(--slate);transition:width .3s ease}
+.t2-funnel-bar.healthy{background:var(--sage)}
+.t2-funnel-bar.watch{background:var(--amber)}
+.t2-funnel-bar.critical{background:var(--neg)}
+.t2-funnel-bar.stable_suspicious{background:var(--slate)}
+.t2-funnel-bar.neutral{background:var(--text-faint)}
+.t2-funnel-count{font-family:var(--f-mono);font-size:12px;color:var(--text-2);text-align:right;font-variant-numeric:tabular-nums}
+.t2-funnel-rate{font-family:var(--f-mono);font-size:11.5px;text-align:right}
+.t2-funnel-rate .pct{font-weight:500}
+.t2-funnel-rate.healthy .pct{color:var(--sage)}
+.t2-funnel-rate.watch .pct{color:var(--amber)}
+.t2-funnel-rate.critical .pct{color:var(--neg)}
+.t2-funnel-rate.stable_suspicious .pct{color:var(--slate)}
+.t2-funnel-rate.neutral .pct{color:var(--text-mu)}
+.t2-funnel-rate .lbl{display:block;font-size:9px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;font-weight:400}
+
+.t2-insights{display:flex;flex-direction:column;gap:8px}
+.t2-insight{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;background:var(--inset);border:1px solid var(--border);border-radius:var(--r);font-size:12.5px;line-height:1.5}
+.t2-insight .sev-tag{font-family:var(--f-mono);font-size:9.5px;text-transform:uppercase;letter-spacing:0.05em;padding:2px 7px;border-radius:3px;flex-shrink:0;font-weight:500;border:1px solid var(--border-strong);background:var(--bg)}
+.t2-insight.critical{border-color:rgba(140,64,64,0.5)}
+.t2-insight.critical .sev-tag{color:var(--neg);border-color:rgba(140,64,64,0.5)}
+.t2-insight.watch{border-color:rgba(199,148,58,0.4)}
+.t2-insight.watch .sev-tag{color:var(--amber);border-color:rgba(199,148,58,0.4)}
+.t2-insight.healthy{border-color:rgba(106,140,90,0.4)}
+.t2-insight.healthy .sev-tag{color:var(--sage);border-color:rgba(106,140,90,0.4)}
+.t2-insight.stable_suspicious{border-color:rgba(90,122,149,0.4)}
+.t2-insight.stable_suspicious .sev-tag{color:var(--slate);border-color:rgba(90,122,149,0.4)}
+.t2-insight .body{color:var(--text-2)}
+.t2-insight .body strong{color:var(--text);font-weight:500;font-family:var(--f-mono)}
+
+.t2-breakdown-toggle{display:inline-flex;background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);overflow:hidden}
+.t2-breakdown-toggle button{padding:6px 12px;font-size:11.5px;color:var(--text-mu);border-right:1px solid var(--border-strong);font-family:inherit}
+.t2-breakdown-toggle button:last-child{border-right:none}
+.t2-breakdown-toggle button.active{background:var(--card);color:var(--text);box-shadow:inset 0 -2px 0 var(--amber)}
+.t2-breakdown-toggle button:hover:not(.active){color:var(--text-2)}
+
+.t2-breakdown{display:flex;flex-direction:column;gap:14px}
+.t2-mini-funnel{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:11px 14px}
+.t2-mini-h{font-family:var(--f-display);font-size:14px;font-weight:500;letter-spacing:-0.005em;color:var(--text);margin:0 0 7px;display:flex;justify-content:space-between;align-items:baseline}
+.t2-mini-h .meta{font-family:var(--f-mono);font-size:10.5px;color:var(--text-mu);font-weight:400}
+.t2-mini-bars{display:flex;flex-direction:column;gap:4px}
+.t2-mini-row{display:grid;grid-template-columns:90px minmax(0,1fr) 80px 56px;gap:9px;align-items:center;font-size:11px;font-family:var(--f-mono)}
+.t2-mini-row .lbl{color:var(--text-mu);font-size:10px;text-transform:uppercase;letter-spacing:0.04em}
+.t2-mini-row .track{height:10px;background:var(--bg);border:1px solid var(--border);border-radius:2px;overflow:hidden}
+.t2-mini-row .fill{height:100%;background:var(--slate);transition:width .3s}
+.t2-mini-row .count{color:var(--text-2);text-align:right;font-variant-numeric:tabular-nums}
+.t2-mini-row .rate{color:var(--amber);text-align:right;font-weight:500}
+.t2-mini-row .rate.zero{color:var(--text-faint);font-weight:400}
+.t2-mini-row .rate.high{color:var(--sage)}
+.t2-mini-row .rate.low{color:var(--neg)}
+
+.t2-benchmarks{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:11px;margin-bottom:8px}
+.t2-benchmarks th{text-align:left;padding:7px 10px 7px 0;color:var(--text-faint);font-weight:400;text-transform:uppercase;letter-spacing:0.05em;font-size:10px;border-bottom:1px solid var(--border-strong)}
+.t2-benchmarks td{padding:8px 10px 8px 0;color:var(--text-2);border-bottom:1px solid rgba(42,42,50,0.45);vertical-align:top;line-height:1.5}
+.t2-benchmarks td:first-child{color:var(--text);font-weight:500}
+.t2-benchmarks td.range{color:var(--amber)}
+.t2-benchmarks td.source{font-size:10px;color:var(--text-mu)}
+.t2-benchmarks tr:last-child td{border-bottom:none}
+.t2-benchmarks-footer{font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);font-style:italic;margin-top:8px;line-height:1.5}
+
 /* ─── Tab 5 · Audience Segments ─── */
 .t5-segment-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
 @media (max-width:1300px){.t5-segment-grid{grid-template-columns:repeat(3,1fr)}}
@@ -602,8 +670,32 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     </div>
   </section>
   <section class="tab" id="t2">
-    <div class="tab-header"><div class="tab-eyebrow">Tab 02</div><h1 class="tab-title">Funnel Analyzer</h1><p class="tab-framing">Six-step conversion funnel from impression to first IAP, broken down by channel, game, segment, or geo.</p></div>
-    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 9.</div>
+    <div class="tab-header"><div class="tab-eyebrow">Tab 02</div><h1 class="tab-title">Funnel Analyzer</h1><p class="tab-framing">Six-step conversion funnel from impression to first IAP. Each step's rate is benchmarked against industry data &mdash; deviations surface as severity-tagged insights below the funnel.</p></div>
+    <div class="t2-section">
+      <div class="plan-h"><span>Portfolio funnel</span><span class="h-meta" id="t2-funnel-meta">6 steps · Impression → First IAP</span></div>
+      <div class="t2-funnel" id="t2-funnel"></div>
+    </div>
+    <div class="t2-section">
+      <div class="plan-h"><span>Drop-off insights</span><span class="h-meta">vs casual card benchmarks</span></div>
+      <div class="t2-insights" id="t2-insights"></div>
+    </div>
+    <div class="t2-section">
+      <div class="plan-h">
+        <span>Funnel breakdown</span>
+        <div class="t2-breakdown-toggle" id="t2-breakdown-toggle">
+          <button data-v="game">By game</button>
+          <button data-v="channel">By channel</button>
+          <button data-v="segment" class="active">By segment</button>
+          <button data-v="geo">By geo</button>
+        </div>
+      </div>
+      <div class="t2-breakdown" id="t2-breakdown"></div>
+    </div>
+    <div class="t2-section">
+      <div class="plan-h"><span>Industry benchmarks</span><span class="h-meta">casual card games &mdash; directional, not exact</span></div>
+      <table class="t2-benchmarks" id="t2-benchmarks-table"></table>
+      <div class="t2-benchmarks-footer">Benchmarks consolidated from public industry reports. Demo data anchored to mid-of-range; slice-specific filters can push toward edges.</div>
+    </div>
   </section>
   <section class="tab" id="t3">
     <div class="tab-header"><div class="tab-eyebrow">Tab 03</div><h1 class="tab-title">Attribution Lab</h1><p class="tab-framing">Four methods, four numbers, same campaign &mdash; the data-fragmentation problem rendered. Each card shows the method's view of the currently filtered slice. The synthesis below collapses the four into one decision-relevant number.</p></div>
@@ -1274,6 +1366,7 @@ function bindSkeletonListeners(){
       el.textContent = slice.length.toLocaleString();
     });
     renderTab1(slice);
+    renderTab2(slice);
     renderTab3(slice);
     renderTab5(slice);
     if(typeof t4RenderSampleReadout === 'function') t4RenderSampleReadout();
@@ -2434,6 +2527,334 @@ function bindTab4(){
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Tab 2 · Funnel Analyzer
+   6-step funnel: Impression → Click → Install → Onboarding →
+   D7 Active → First IAP. Per-channel CTR/CVR drive top-of-funnel,
+   per-segment rates drive downstream when broken out by segment.
+   Benchmarks consolidated from research (Liftoff, AppsFlyer,
+   GameAnalytics, Adjust). Severity flagging vs benchmark mid.
+   ──────────────────────────────────────────────────────────── */
+
+// Per-channel CTR (ad creative click rate) and CVR (click → install).
+// Anchored to research:
+//   Liftoff 2025 Casual Gaming Apps Report — CTR ranges by placement
+//   AppsFlyer Performance Index 2025 — CVR by channel type
+//   ASA's higher CTR reflects search-intent vs display impression-based CTR
+const FUNNEL_CHANNEL = {
+  'ASA':         {ctr: 0.080, cvr: 0.18},
+  'Google UAC':  {ctr: 0.018, cvr: 0.35},
+  'Meta':        {ctr: 0.012, cvr: 0.30},
+  'TikTok':      {ctr: 0.016, cvr: 0.30},
+  'AppLovin':    {ctr: 0.014, cvr: 0.18},
+  'Unity':       {ctr: 0.013, cvr: 0.16},
+  'Moloco':      {ctr: 0.015, cvr: 0.22},
+  'InMobi':      {ctr: 0.013, cvr: 0.20},
+  'ironSource':  {ctr: 0.012, cvr: 0.18},
+  'Liftoff':     {ctr: 0.010, cvr: 0.15}
+};
+// Downstream rates (channel-agnostic at portfolio level; segment-specific below).
+const PORTFOLIO_FUNNEL_RATES = {
+  installToOnboard: 0.70,
+  onboardToD7Active: 0.40,
+  d7ToFirstIap: 0.07
+};
+// Segment-specific funnel rates. Whales D7→IAP at 0.49 = 7× portfolio (in 5-10× spec range).
+// Weighted across segment shares, portfolio rates fall out to the PORTFOLIO_FUNNEL_RATES anchors.
+const SEGMENT_FUNNEL_RATES = {
+  whales:             {installToOnboard:0.85, onboardToD7Active:0.65, d7ToFirstIap:0.49},
+  engaged_nonpayers:  {installToOnboard:0.78, onboardToD7Active:0.50, d7ToFirstIap:0.00},
+  at_risk:            {installToOnboard:0.55, onboardToD7Active:0.20, d7ToFirstIap:0.02},
+  dormant_high_value: {installToOnboard:0.80, onboardToD7Active:0.55, d7ToFirstIap:0.10},
+  new_cohort:         {installToOnboard:0.70, onboardToD7Active:0.40, d7ToFirstIap:0.020}
+};
+const FUNNEL_BENCHMARKS = [
+  {key:'ctr',           step:'CTR (impression → click)', min:0.010, max:0.035, mid:0.022, source:'Liftoff 2025 Casual Gaming Apps Report'},
+  {key:'cvr',           step:'CVR (click → install)',    min:0.18,  max:0.40,  mid:0.28,  source:'AppsFlyer Performance Index 2025'},
+  {key:'install_to_ob', step:'Install → Onboarding',     min:0.60,  max:0.80,  mid:0.70,  source:'Adjust 2025 Mobile App Benchmarks'},
+  {key:'ob_to_d7',      step:'Onboarding → D7 Active',   min:0.35,  max:0.50,  mid:0.42,  source:'GameAnalytics 2025 Mobile Gaming Benchmarks'},
+  {key:'d7_to_iap',     step:'D7 → First IAP',           min:0.04,  max:0.10,  mid:0.07,  source:'AppsFlyer Performance Index 2025 (casual card)'}
+];
+
+const T2 = {breakdown: 'segment'};
+
+function funnelSeverity(rate, bm){
+  if(rate == null) return 'neutral';
+  const halfRange = (bm.max - bm.min) / 2;
+  if(rate < bm.min - halfRange*0.5) return 'critical';
+  if(rate < bm.min) return 'watch';
+  if(rate > bm.max + halfRange*0.5) return 'stable_suspicious';
+  return 'healthy';
+}
+
+function computePortfolioFunnel(slice){
+  // Aggregate channel-weighted impressions/clicks; fixed downstream rates.
+  let installs = 0, clicks = 0, impressions = 0;
+  const byCh = new Map();
+  for(const r of slice){
+    byCh.set(r.channel, (byCh.get(r.channel) || 0) + r.installs);
+    installs += r.installs;
+  }
+  for(const [ch, n] of byCh){
+    const cfg = FUNNEL_CHANNEL[ch] || {ctr:0.012, cvr:0.20};
+    const ch_clicks = n / cfg.cvr;
+    clicks += ch_clicks;
+    impressions += ch_clicks / cfg.ctr;
+  }
+  const onboarded = installs * PORTFOLIO_FUNNEL_RATES.installToOnboard;
+  const d7Active  = onboarded * PORTFOLIO_FUNNEL_RATES.onboardToD7Active;
+  const firstIap  = d7Active * PORTFOLIO_FUNNEL_RATES.d7ToFirstIap;
+
+  const ctr = impressions > 0 ? clicks / impressions : null;
+  const cvr = clicks > 0 ? installs / clicks : null;
+  return {
+    impressions, clicks, installs, onboarded, d7Active, firstIap,
+    rates: {
+      ctr,
+      cvr,
+      install_to_ob: PORTFOLIO_FUNNEL_RATES.installToOnboard,
+      ob_to_d7:      PORTFOLIO_FUNNEL_RATES.onboardToD7Active,
+      d7_to_iap:     PORTFOLIO_FUNNEL_RATES.d7ToFirstIap
+    }
+  };
+}
+
+function computeChannelFunnel(slice, ch){
+  let installs = 0;
+  for(const r of slice){ if(r.channel===ch) installs += r.installs; }
+  const cfg = FUNNEL_CHANNEL[ch] || {ctr:0.012, cvr:0.20};
+  const clicks = installs / cfg.cvr;
+  const impressions = clicks / cfg.ctr;
+  const onboarded = installs * PORTFOLIO_FUNNEL_RATES.installToOnboard;
+  const d7Active  = onboarded * PORTFOLIO_FUNNEL_RATES.onboardToD7Active;
+  const firstIap  = d7Active * PORTFOLIO_FUNNEL_RATES.d7ToFirstIap;
+  return {impressions, clicks, installs, onboarded, d7Active, firstIap,
+    rates:{ctr:cfg.ctr, cvr:cfg.cvr,
+      install_to_ob:PORTFOLIO_FUNNEL_RATES.installToOnboard,
+      ob_to_d7:PORTFOLIO_FUNNEL_RATES.onboardToD7Active,
+      d7_to_iap:PORTFOLIO_FUNNEL_RATES.d7ToFirstIap}};
+}
+
+function computeSegmentFunnel(slice, segKey){
+  // Segment installs come from the Tab 5 apportionment; downstream rates from SEGMENT_FUNNEL_RATES.
+  // Top-of-funnel CTR/CVR uses portfolio channel mix (segments share the prospecting acquisition).
+  const data = computeSegments(slice);
+  const segInstalls = data.installs[segKey] || 0;
+  const portfolio = computePortfolioFunnel(slice);
+  // Apportion impressions/clicks proportionally to segment share of installs
+  const totalInstalls = data.totalInstalls || 1;
+  const share = segInstalls / totalInstalls;
+  const impressions = portfolio.impressions * share;
+  const clicks = portfolio.clicks * share;
+  const rates = SEGMENT_FUNNEL_RATES[segKey];
+  const onboarded = segInstalls * rates.installToOnboard;
+  const d7Active  = onboarded * rates.onboardToD7Active;
+  const firstIap  = d7Active * rates.d7ToFirstIap;
+  return {impressions, clicks, installs:segInstalls, onboarded, d7Active, firstIap,
+    rates:{ctr:portfolio.rates.ctr, cvr:portfolio.rates.cvr,
+      install_to_ob:rates.installToOnboard,
+      ob_to_d7:rates.onboardToD7Active,
+      d7_to_iap:rates.d7ToFirstIap}};
+}
+
+function computeGameFunnel(slice, game){
+  const sub = slice.filter(r => r.game === game);
+  return computePortfolioFunnel(sub);
+}
+function computeGeoFunnel(slice, geo){
+  const sub = slice.filter(r => r.geo === geo);
+  return computePortfolioFunnel(sub);
+}
+
+function fmtRate(r){return r==null ? '—' : (r*100).toFixed(2)+'%'}
+
+function renderFunnelBars(f, opts){
+  // 6 horizontal bars; widths sqrt-scaled relative to impressions (top of funnel)
+  const top = f.impressions || 1;
+  const steps = [
+    {label:'Impression',  count:f.impressions, rateKey:null,           rate:null},
+    {label:'Click',       count:f.clicks,      rateKey:'ctr',          rate:f.rates.ctr},
+    {label:'Install',     count:f.installs,    rateKey:'cvr',          rate:f.rates.cvr},
+    {label:'Onboarded',   count:f.onboarded,   rateKey:'install_to_ob',rate:f.rates.install_to_ob},
+    {label:'D7 Active',   count:f.d7Active,    rateKey:'ob_to_d7',     rate:f.rates.ob_to_d7},
+    {label:'First IAP',   count:f.firstIap,    rateKey:'d7_to_iap',    rate:f.rates.d7_to_iap}
+  ];
+  return steps.map((s, i) => {
+    const widthPct = top > 0 ? Math.max(0.5, Math.sqrt(s.count / top) * 100) : 0;
+    let sev = 'neutral';
+    if(s.rateKey){
+      const bm = FUNNEL_BENCHMARKS.find(b => b.key === s.rateKey);
+      if(bm) sev = funnelSeverity(s.rate, bm);
+    }
+    const stepNum = String(i+1).padStart(2,'0');
+    const rateStr = s.rate != null ? fmtRate(s.rate) : '';
+    const rateLbl = s.rateKey === 'ctr' ? 'CTR'
+                  : s.rateKey === 'cvr' ? 'CVR'
+                  : s.rateKey ? 'from prev' : '';
+    return `<div class="t2-funnel-step">
+      <div class="t2-funnel-label"><span class="step-num">${stepNum}</span>${esc(s.label)}</div>
+      <div class="t2-funnel-bar-track" title="${rateStr ? 'rate: '+rateStr : 'top of funnel'}"><div class="t2-funnel-bar ${sev}" style="width:${widthPct.toFixed(1)}%"></div></div>
+      <div class="t2-funnel-count">${fmtCompact(s.count)}</div>
+      <div class="t2-funnel-rate ${sev}">${rateStr ? `<span class="pct">${rateStr}</span><span class="lbl">${rateLbl}</span>` : '<span class="lbl">top of funnel</span>'}</div>
+    </div>`;
+  }).join('');
+}
+
+function renderMiniFunnel(label, meta, f){
+  const top = f.impressions || 1;
+  const steps = [
+    {label:'Impression',  count:f.impressions, rate:null,                cls:''},
+    {label:'Click',       count:f.clicks,      rate:f.rates.ctr,         bm:'ctr'},
+    {label:'Install',     count:f.installs,    rate:f.rates.cvr,         bm:'cvr'},
+    {label:'Onboarded',   count:f.onboarded,   rate:f.rates.install_to_ob,bm:'install_to_ob'},
+    {label:'D7 Active',   count:f.d7Active,    rate:f.rates.ob_to_d7,    bm:'ob_to_d7'},
+    {label:'First IAP',   count:f.firstIap,    rate:f.rates.d7_to_iap,   bm:'d7_to_iap'}
+  ];
+  const rows = steps.map(s => {
+    const widthPct = top > 0 ? Math.max(0.5, Math.sqrt(s.count / top) * 100) : 0;
+    let rateCls = '';
+    if(s.bm){
+      const bm = FUNNEL_BENCHMARKS.find(b => b.key === s.bm);
+      if(bm){
+        if(s.rate === 0) rateCls = 'zero';
+        else if(s.rate >= bm.mid) rateCls = 'high';
+        else if(s.rate < bm.min) rateCls = 'low';
+      }
+    }
+    const rateStr = s.rate != null ? fmtRate(s.rate) : '';
+    return `<div class="t2-mini-row">
+      <span class="lbl">${esc(s.label)}</span>
+      <div class="track"><div class="fill" style="width:${widthPct.toFixed(1)}%"></div></div>
+      <span class="count">${fmtCompact(s.count)}</span>
+      <span class="rate ${rateCls}">${rateStr}</span>
+    </div>`;
+  }).join('');
+  return `<div class="t2-mini-funnel">
+    <div class="t2-mini-h"><span>${esc(label)}</span><span class="meta">${esc(meta)}</span></div>
+    <div class="t2-mini-bars">${rows}</div>
+  </div>`;
+}
+
+function renderTab2(slice){
+  if(!document.getElementById('t2-funnel')) return;
+  const f = computePortfolioFunnel(slice);
+  document.getElementById('t2-funnel').innerHTML = renderFunnelBars(f);
+
+  // Drop-off insights — surface non-healthy steps (and key healthy ones for context)
+  const insightSteps = [
+    {key:'ctr',           rate:f.rates.ctr,          name:'Impression → Click (CTR)'},
+    {key:'cvr',           rate:f.rates.cvr,          name:'Click → Install (CVR)'},
+    {key:'install_to_ob', rate:f.rates.install_to_ob,name:'Install → Onboarding'},
+    {key:'ob_to_d7',      rate:f.rates.ob_to_d7,     name:'Onboarding → D7 Active'},
+    {key:'d7_to_iap',     rate:f.rates.d7_to_iap,    name:'D7 → First IAP'}
+  ];
+  const insightCopy = {
+    ctr: {
+      critical: rate => `<strong>${fmtRate(rate)}</strong> — well below the 1.0% floor. Likely creative fatigue or wrong placement mix; refresh creative rotation.`,
+      watch:    rate => `<strong>${fmtRate(rate)}</strong> — slightly below 1.0% floor. Worth a creative-rotation A/B test (Tab 4).`,
+      healthy:  rate => `<strong>${fmtRate(rate)}</strong> — within the 1.0–3.5% Liftoff casual band. No action.`,
+      stable_suspicious: rate => `<strong>${fmtRate(rate)}</strong> — above the casual ceiling. Targeting may be too narrow; check volume.`
+    },
+    cvr: {
+      critical: rate => `<strong>${fmtRate(rate)}</strong> — Click → Install rate well below the 18% floor. Likely creative-vs-store-page mismatch; A/B test the Apple/Play Store page (Tab 4).`,
+      watch:    rate => `<strong>${fmtRate(rate)}</strong> — Click → Install slightly below benchmark. Check store-page CVR before increasing spend.`,
+      healthy:  rate => `<strong>${fmtRate(rate)}</strong> — within the 18–40% AppsFlyer band for casual. Healthy.`,
+      stable_suspicious: rate => `<strong>${fmtRate(rate)}</strong> — above benchmark. Likely high-intent search-skewed mix (e.g., ASA-heavy slice). Volume cap likely.`
+    },
+    install_to_ob: {
+      critical: rate => `<strong>${fmtRate(rate)}</strong> — Install → Onboarding well below 60%. Onboarding flow is leaking — review session-1 friction.`,
+      watch:    rate => `<strong>${fmtRate(rate)}</strong> — Install → Onboarding slightly below 60%. Profile session-1 drop-off events.`,
+      healthy:  rate => `<strong>${fmtRate(rate)}</strong> — within 60–80% Adjust band. Onboarding healthy.`,
+      stable_suspicious: rate => `<strong>${fmtRate(rate)}</strong> — above 80%. May reflect aggressive auto-onboarding (no friction at all); cross-check against D7 retention.`
+    },
+    ob_to_d7: {
+      critical: rate => `<strong>${fmtRate(rate)}</strong> — Onboarding → D7 well below 35% floor. Sticky-content gap — review event cadence (live-ops drives this).`,
+      watch:    rate => `<strong>${fmtRate(rate)}</strong> — Onboarding → D7 slightly below 35%. Live-ops engagement may be soft.`,
+      healthy:  rate => `<strong>${fmtRate(rate)}</strong> — within 35–50% GameAnalytics 2025 band. Stickiness healthy.`,
+      stable_suspicious: rate => `<strong>${fmtRate(rate)}</strong> — above 50%. Either exceptional retention or skewed segment mix; verify with Tab 5.`
+    },
+    d7_to_iap: {
+      critical: rate => `<strong>${fmtRate(rate)}</strong> — D7 → First IAP well below 4%. Meta-game depth and IAP placement gap; coordinate with product (Tab 6 framing).`,
+      watch:    rate => `<strong>${fmtRate(rate)}</strong> — D7 → First IAP slightly below 4%. Paywall placement A/B may unlock 1-2pp.`,
+      healthy:  rate => `<strong>${fmtRate(rate)}</strong> — within 4–10% AppsFlyer casual-card band. At the meta-game ceiling for portfolio.`,
+      stable_suspicious: rate => `<strong>${fmtRate(rate)}</strong> — above 10%. Whale-segment-heavy slice (verify on Tab 5); ceiling not generalizable.`
+    }
+  };
+  const insightsHtml = insightSteps.map(s => {
+    const bm = FUNNEL_BENCHMARKS.find(b => b.key === s.key);
+    if(!bm) return '';
+    const sev = funnelSeverity(s.rate, bm);
+    const copy = insightCopy[s.key][sev](s.rate);
+    return `<div class="t2-insight ${sev}">
+      <span class="sev-tag">${esc(sev.replace('_',' '))}</span>
+      <div class="body">${esc(s.name)}: ${copy}</div>
+    </div>`;
+  }).join('');
+  document.getElementById('t2-insights').innerHTML = insightsHtml;
+
+  // Breakdown
+  renderBreakdown(slice);
+
+  // Industry benchmarks table
+  document.getElementById('t2-benchmarks-table').innerHTML = `
+    <thead><tr><th>Step</th><th>Benchmark range</th><th>Mid</th><th>Source</th></tr></thead>
+    <tbody>${FUNNEL_BENCHMARKS.map(b => `<tr>
+      <td>${esc(b.step)}</td>
+      <td class="range">${(b.min*100).toFixed(1)}% – ${(b.max*100).toFixed(1)}%</td>
+      <td>${(b.mid*100).toFixed(1)}%</td>
+      <td class="source">${esc(b.source)}</td>
+    </tr>`).join('')}</tbody>`;
+}
+
+function renderBreakdown(slice){
+  const container = document.getElementById('t2-breakdown');
+  const mode = T2.breakdown;
+  let funnels = [];
+  if(mode === 'segment'){
+    for(const seg of T5_SEGMENTS){
+      const f = computeSegmentFunnel(slice, seg.key);
+      const sizeShare = computeSegments(slice).installs[seg.key] / (computeSegments(slice).totalInstalls || 1);
+      funnels.push({label:seg.name, meta:`${(sizeShare*100).toFixed(1)}% of slice · ARPU ${seg.arpuMult.toFixed(2)}×`, f});
+    }
+  } else if(mode === 'channel'){
+    const channelInstalls = new Map();
+    for(const r of slice){ channelInstalls.set(r.channel, (channelInstalls.get(r.channel)||0) + r.installs); }
+    const sorted = [...channelInstalls.entries()].sort((a,b)=>b[1]-a[1]).slice(0,6);
+    for(const [ch] of sorted){
+      const f = computeChannelFunnel(slice, ch);
+      funnels.push({label:ch, meta:`${fmtCompact(f.installs)} installs`, f});
+    }
+  } else if(mode === 'game'){
+    const gamesInSlice = [...new Set(slice.map(r=>r.game))];
+    const ordered = GAMES.filter(g => gamesInSlice.includes(g));
+    for(const g of ordered){
+      const f = computeGameFunnel(slice, g);
+      funnels.push({label:g, meta:`${fmtCompact(f.installs)} installs`, f});
+    }
+  } else if(mode === 'geo'){
+    const geosInSlice = [...new Set(slice.map(r=>r.geo))];
+    const ordered = GEOS.filter(g => geosInSlice.includes(g));
+    const sorted = ordered.map(g => ({geo:g, f:computeGeoFunnel(slice, g)})).sort((a,b)=>b.f.installs-a.f.installs).slice(0,6);
+    for(const {geo, f} of sorted){
+      funnels.push({label:geo, meta:`${fmtCompact(f.installs)} installs`, f});
+    }
+  }
+  if(funnels.length === 0){
+    container.innerHTML = `<div class="t2-history-empty">No data for this breakdown in current slice.</div>`;
+    return;
+  }
+  container.innerHTML = funnels.map(({label, meta, f}) => renderMiniFunnel(label, meta, f)).join('');
+}
+
+function bindTab2(){
+  document.getElementById('t2-breakdown-toggle').addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    T2.breakdown = b.dataset.v;
+    document.querySelectorAll('#t2-breakdown-toggle button').forEach(x => x.classList.toggle('active', x===b));
+    renderBreakdown(getFilteredData());
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
    Tab 5 · Audience Segments
    Five segments derived from channel composition + retention behavior.
    Calibration anchor: Moloco 2025 State of Mobile Gaming —
@@ -3392,6 +3813,7 @@ function init(){
   bindUploadModal();
   bindDesigner();
   bindTab4();
+  bindTab2();
   bindSkeletonListeners();
   setDataSource(DEMO_DATA, 'demo');
   syncDatePresets();
