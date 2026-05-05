@@ -149,6 +149,56 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 /* utility */
 .kbd{font-family:var(--f-mono);font-size:11px;color:var(--text-mu);background:var(--inset);padding:1px 5px;border-radius:3px;border:1px solid var(--border)}
 
+/* ─── Tab 1 · Portfolio Overview ─── */
+.t1-kpi-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;margin-bottom:24px}
+@media (max-width:1100px){.t1-kpi-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:600px){.t1-kpi-grid{grid-template-columns:repeat(2,1fr)}}
+.t1-kpi-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px}
+.t1-kpi-label{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:7px}
+.t1-kpi-value{font-family:var(--f-display);font-size:22px;font-weight:500;letter-spacing:-0.01em;color:var(--text);line-height:1.05}
+.t1-kpi-delta{font-family:var(--f-mono);font-size:11px;margin-top:6px;display:flex;align-items:center;gap:5px}
+.t1-kpi-delta .arrow{font-size:11px;line-height:1}
+.t1-kpi-delta.good{color:var(--sage)}
+.t1-kpi-delta.bad{color:var(--neg)}
+.t1-kpi-delta.neutral{color:var(--text-mu)}
+.t1-kpi-delta.flat{color:var(--text-faint)}
+
+.t1-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
+.t1-section .plan-h{margin-bottom:14px}
+.t1-game-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:1100px){.t1-game-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.t1-game-grid{grid-template-columns:1fr}}
+.t1-game-card{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:13px 15px}
+.t1-game-name{font-family:var(--f-display);font-size:15px;font-weight:500;color:var(--text);margin-bottom:3px;letter-spacing:-0.005em}
+.t1-game-share{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);margin-bottom:11px;text-transform:uppercase;letter-spacing:0.05em}
+.t1-game-stats{display:grid;grid-template-columns:1fr 1fr;gap:6px 12px;margin-bottom:10px}
+.t1-game-stat{display:flex;flex-direction:column}
+.t1-game-stat-label{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t1-game-stat-val{font-family:var(--f-mono);font-size:13px;color:var(--text);font-weight:500}
+.t1-game-spark{height:26px;display:block}
+.t1-game-spark-label{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-top:4px}
+
+.t1-row{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);gap:18px;align-items:flex-start}
+@media (max-width:980px){.t1-row{grid-template-columns:1fr}}
+.t1-chart-section{margin-bottom:0}
+.t1-movers-section{margin-bottom:0}
+.t1-chart-wrap{position:relative;height:280px;width:100%}
+.t1-movers-list{display:flex;flex-direction:column;gap:9px}
+.t1-mover{display:flex;gap:10px;align-items:flex-start;padding:9px 11px;background:var(--inset);border:1px solid var(--border);border-radius:var(--r);font-size:12.5px;line-height:1.4}
+.t1-mover .m-dot{width:8px;height:8px;border-radius:999px;flex-shrink:0;margin-top:5px}
+.t1-mover .m-dot.good{background:var(--sage)}
+.t1-mover .m-dot.bad{background:var(--terra)}
+.t1-mover .m-body{flex:1;min-width:0}
+.t1-mover .m-tuple{font-family:var(--f-mono);color:var(--text);font-size:11.5px;font-weight:500}
+.t1-mover .m-headline{color:var(--text-2);margin-top:2px;font-size:12px}
+.t1-mover .m-headline strong{color:var(--text);font-weight:500;font-family:var(--f-mono)}
+.t1-mover .m-tag{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;flex-shrink:0;align-self:flex-start;padding:2px 6px;border:1px solid var(--border);border-radius:3px;background:var(--bg);margin-top:2px}
+.t1-mover .m-tag.cpi{color:var(--terra);border-color:rgba(176,122,90,0.35)}
+.t1-mover .m-tag.roas{color:var(--sage);border-color:rgba(106,140,90,0.35)}
+.t1-mover .m-tag.volume{color:var(--slate);border-color:rgba(90,122,149,0.35)}
+.t1-mover .m-tag.retention{color:var(--plum);border-color:rgba(138,106,156,0.35)}
+.t1-movers-empty{padding:14px 11px;background:var(--inset);border:1px dashed var(--border);border-radius:var(--r);color:var(--text-faint);font-size:12px;text-align:center}
+
 /* ─── Tab 6 · Campaign Designer ─── */
 .designer-grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:flex-start}
 @media (max-width:980px){.designer-grid{grid-template-columns:1fr}}
@@ -337,15 +387,22 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
       <h1 class="tab-title">Portfolio Overview</h1>
       <p class="tab-framing">Portfolio-level performance across the selected slice. Every number on this page reacts to the filters above &mdash; change a filter to slice the portfolio.</p>
     </div>
-    <div class="placeholder-card">
-      <div class="ph-row">
-        <div><span class="ph-label">Filtered rows</span><span class="ph-val"><span class="filtered-count">0</span></span></div>
-        <div><span class="ph-label">Spend (sum)</span><span class="ph-val" data-stat="spend">$0</span></div>
-        <div><span class="ph-label">Installs (sum)</span><span class="ph-val" data-stat="installs">0</span></div>
-        <div><span class="ph-label">Blended CPI</span><span class="ph-val" data-stat="cpi">$0.00</span></div>
-        <div><span class="ph-label">Date range</span><span class="ph-val" data-stat="daterange">&mdash;</span></div>
+    <div class="t1-kpi-grid" id="t1-kpis"></div>
+
+    <div class="t1-section">
+      <div class="plan-h"><span>Per-game breakdown</span><span class="h-meta" id="t1-game-count">4 games</span></div>
+      <div class="t1-game-grid" id="t1-games"></div>
+    </div>
+
+    <div class="t1-row">
+      <div class="t1-section t1-chart-section">
+        <div class="plan-h"><span>Daily spend by channel</span><span class="h-meta" id="t1-chart-meta">stacked area</span></div>
+        <div class="t1-chart-wrap"><canvas id="t1-spend-chart"></canvas></div>
       </div>
-      <div style="margin-top:14px;color:var(--text-faint);font-size:11.5px">Tab content lands in checkpoint 5 (Portfolio Overview build). The placeholder above proves the filter pipeline reaches every tab.</div>
+      <div class="t1-section t1-movers-section">
+        <div class="plan-h"><span>Top movers</span><span class="h-meta">w/w · last 7d vs prior 7d</span></div>
+        <div class="t1-movers-list" id="t1-movers"></div>
+      </div>
     </div>
   </section>
   <section class="tab" id="t2">
@@ -569,9 +626,15 @@ function generateDemoData(){
           for(const os of OSES){
             const osW = OS_W[os];
 
-            // Joint daily allocation. Total daily portfolio spend ≈ $850K.
+            // Joint daily allocation. Total daily portfolio spend ≈ $150K.
             // (gw×cw×geoW×osW)/1e8 × budget
-            const baseAlloc = (gw*cw*geoW*osW) / 1e8 * 150000;
+            let baseAlloc = (gw*cw*geoW*osW) / 1e8 * 150000;
+            // Bubble Shooter Pop is creative-led; TikTok is its primary channel
+            // (visual gameplay matches platform). Lift Bubble × TikTok baseline so
+            // emerging-market pilots (BR / MX) sit at meaningful spend even after
+            // the BR under-funding multiplier — preserves the BR < MX ratio while
+            // making BR's absolute scale large enough that w/w lift is detectable.
+            if(game==='Bubble Shooter Pop' && channel==='TikTok') baseAlloc *= 4;
 
             // Activity gating: small combos run sparsely, big combos run daily.
             // Maps baseAlloc=$200 → 100% active; <$200 → fractional active rate.
@@ -584,11 +647,14 @@ function generateDemoData(){
             let spend = baseAlloc * dailyNoise * weekendBoost * seasonal;
 
             // ───── ANOMALY 3: Bubble Shooter Pop / TikTok / BR ─────
-            //   Half-funded emerging-market pilot. Multiplier 0.55 = ~45% under-funded vs MX-equivalent —
-            //   clearly under MX in charts while still firing every day (parity CPI, just less spend).
-            //   This is the "emerging-markets pilots fail by being half-funded" thread from Tab 6.
+            //   Strategic state (Tab 6 diagnostic): historically under-funded vs MX,
+            //   ~58% of MX over the full 90d window.
+            //   Tactical (Tab 1 Top Movers): in the last 7 days the team began lifting
+            //   BR toward parity — a +70% w/w volume signal at near-parity CPI.
+            //   Both stories live on the same data: a structural underrun being
+            //   actively closed in real time.
             if(game==='Bubble Shooter Pop' && channel==='TikTok' && geo==='BR'){
-              spend *= 0.55;
+              spend *= (d>=83 ? 0.95 : 0.55);
             }
 
             if(spend < 4) continue; // below this it's noise, not a campaign
@@ -597,16 +663,18 @@ function generateDemoData(){
             let cpi = CHANNEL_CPI_IOS[channel] * GEO_CPI_MUL[geo] * OS_CPI_MUL[os];
             cpi *= (0.92 + r()*0.16); // ±8% per-row noise
 
-            // ───── ANOMALY 1: Solitaire / Moloco / iOS — CPI spike from day 60+ ─────
-            //   Diagnostic Tab 3 surfaces: probabilistic-to-SKAN ratio drifts toward
+            // ───── ANOMALY 1: Solitaire / Moloco / iOS — CPI spike, intensifies in last 7d ─────
+            //   Strategic (Tab 3, Tab 6): probabilistic-to-SKAN ratio drifts toward
             //   "suspect" (>1.7×) per Aarki/Singular thresholds.
+            //   Tactical (Tab 1): w/w CPI uptick visible in last 7 days as the spike worsens.
             const isAnom1 = (game==='Solitaire' && channel==='Moloco' && os==='iOS' && d>=60);
-            if(isAnom1) cpi *= 1.30;
+            if(isAnom1) cpi *= (d>=83 ? 1.55 : 1.20);
 
-            // ───── ANOMALY 2: TriPeaks / AppLovin / Android — creative win from day 50+ ─────
-            //   eCPI -15%, ROAS lift +20%. Magnitude realistic for a winning concept.
+            // ───── ANOMALY 2: TriPeaks / AppLovin / Android — creative win, intensifies in last 7d ─────
+            //   Strategic (Tab 4 history): eCPI -15%, ROAS +20%. Tactical (Tab 1): w/w
+            //   ROAS uptick visible in last 7 days as the winning concept scales.
             const isAnom2 = (game==='TriPeaks' && channel==='AppLovin' && os==='Android' && d>=50);
-            if(isAnom2) cpi *= 0.85;
+            if(isAnom2) cpi *= (d>=83 ? 0.78 : 0.95);
 
             const installs = Math.max(1, Math.round(spend / cpi));
 
@@ -616,7 +684,7 @@ function generateDemoData(){
             const q = CHANNEL_QUALITY[channel];
             let roasD7 = (0.10 + (q/5)*0.18) * GAME_MON[game] * (os==='iOS'?1.05:0.95);
             roasD7 *= (0.85 + r()*0.30);
-            if(isAnom2) roasD7 *= 1.20;
+            if(isAnom2) roasD7 *= (d>=83 ? 1.30 : 1.10);
             roasD7 = clamp(roasD7, 0.05, 0.45);
 
             // D30 ≈ D7 × 2.5–2.9
@@ -705,15 +773,20 @@ function computeDateRange(){
   return {start: startDate.toISOString().slice(0,10), end};
 }
 
+function matchesNonDateFilters(r){
+  if(FILTERS.game !== 'all' && r.game !== FILTERS.game) return false;
+  if(FILTERS.channels.length && !FILTERS.channels.includes(r.channel)) return false;
+  if(FILTERS.geos.length && !FILTERS.geos.includes(r.geo)) return false;
+  if(FILTERS.os !== 'both' && r.os !== FILTERS.os) return false;
+  return true;
+}
 function getFilteredData(){
   if(!DATA_SOURCE) return [];
   const {start,end} = computeDateRange();
+  const channelSet = FILTERS.channels.length ? new Set(FILTERS.channels) : null;
+  const geoSet = FILTERS.geos.length ? new Set(FILTERS.geos) : null;
   const game = FILTERS.game;
-  const channels = FILTERS.channels;
-  const geos = FILTERS.geos;
   const os = FILTERS.os;
-  const channelSet = channels.length ? new Set(channels) : null;
-  const geoSet = geos.length ? new Set(geos) : null;
   const out = [];
   for(let i=0;i<DATA_SOURCE.length;i++){
     const r = DATA_SOURCE[i];
@@ -727,6 +800,10 @@ function getFilteredData(){
   return out;
   // NOTE: segment filter is intentionally not row-level; it's applied per-tab
   // (segments are derived overlays on the canonical row schema, not row attributes).
+}
+function addDays(dateStr, days){
+  const d = new Date(dateStr); d.setDate(d.getDate()+days);
+  return d.toISOString().slice(0,10);
 }
 
 const bus = new EventTarget();
@@ -931,19 +1008,7 @@ function bindSkeletonListeners(){
     document.querySelectorAll('.filtered-count').forEach(el=>{
       el.textContent = slice.length.toLocaleString();
     });
-    // Tab 1 placeholder: a few summary stats
-    const t1 = document.getElementById('t1');
-    if(t1){
-      const totalSpend = slice.reduce((s,r)=>s+r.spend_usd,0);
-      const totalInst = slice.reduce((s,r)=>s+r.installs,0);
-      const cpi = totalInst>0 ? totalSpend/totalInst : 0;
-      const setStat = (k,v)=>{const el=t1.querySelector(`[data-stat="${k}"]`); if(el) el.textContent=v;};
-      setStat('spend', '$'+Math.round(totalSpend).toLocaleString());
-      setStat('installs', totalInst.toLocaleString());
-      setStat('cpi', '$'+cpi.toFixed(2));
-      const r = e.detail.range;
-      setStat('daterange', r.start+' → '+r.end);
-    }
+    renderTab1(slice);
   });
 }
 
@@ -1207,6 +1272,358 @@ function bindUploadModal(){
   document.addEventListener('keydown', e=>{
     if(e.key==='Escape' && document.getElementById('modal-upload').classList.contains('visible')) closeUploadModal();
   });
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tab 1 · Portfolio Overview
+   ──────────────────────────────────────────────────────────── */
+
+const KPI_DEF = [
+  {key:'spend',    label:'Spend',         dir:'neutral', fmt:v=>'$'+fmtCompact(v)},
+  {key:'installs', label:'Installs',      dir:'goodUp',  fmt:v=>fmtCompact(v)},
+  {key:'cpi',      label:'Blended CPI',   dir:'badUp',   fmt:v=>'$'+(v||0).toFixed(2)},
+  {key:'roasD7',   label:'ROAS D7',       dir:'goodUp',  fmt:v=>(100*v||0).toFixed(1)+'%'},
+  {key:'roasD30',  label:'ROAS D30',      dir:'goodUp',  fmt:v=>(100*v||0).toFixed(1)+'%'},
+  {key:'payback',  label:'Payback',       dir:'badUp',   fmt:v=>v>500?'—':v+'d'}
+];
+
+function fmtCompact(n){
+  if(n==null) return '0';
+  if(Math.abs(n)>=1e6) return (n/1e6).toFixed(1).replace(/\.0$/,'')+'M';
+  if(Math.abs(n)>=1e3) return (n/1e3).toFixed(1).replace(/\.0$/,'')+'K';
+  return Math.round(n).toLocaleString();
+}
+
+function aggregateKpis(rows){
+  let spend=0, installs=0, roasW7=0, roasW30=0;
+  for(const r of rows){
+    spend += r.spend_usd;
+    installs += r.installs;
+    roasW7 += r.roas_d7 * r.installs;
+    roasW30 += r.roas_d30 * r.installs;
+  }
+  const cpi = installs>0 ? spend/installs : 0;
+  const roasD7 = installs>0 ? roasW7/installs : 0;
+  const roasD30 = installs>0 ? roasW30/installs : 0;
+  // Payback days: rough — assume D30 ROAS curve continues, days = 30 / D30_ROAS × decay factor
+  const payback = roasD30 > 0 ? Math.round(30 / roasD30 * 1.4) : 999;
+  return {spend, installs, cpi, roasD7, roasD30, payback};
+}
+
+function priorWindowSlice(){
+  if(!DATA_SOURCE) return [];
+  const {start,end} = computeDateRange();
+  const days = (new Date(end) - new Date(start))/(1000*60*60*24) + 1;
+  const priorEnd = addDays(start, -1);
+  const priorStart = addDays(priorEnd, -(days-1));
+  const out=[];
+  for(const r of DATA_SOURCE){
+    if(r.date < priorStart || r.date > priorEnd) continue;
+    if(!matchesNonDateFilters(r)) continue;
+    out.push(r);
+  }
+  return out;
+}
+
+function pctDelta(cur, prior){
+  if(!prior || prior===0) return null;
+  return (cur - prior) / prior;
+}
+
+function renderKpis(slice){
+  const cur = aggregateKpis(slice);
+  const prior = aggregateKpis(priorWindowSlice());
+  const wrap = document.getElementById('t1-kpis');
+  if(!wrap) return;
+  wrap.innerHTML = KPI_DEF.map(def => {
+    const v = cur[def.key];
+    const pv = prior[def.key];
+    const d = pctDelta(v, pv);
+    let arrow='—', cls='flat', dPct='';
+    if(d != null && Math.abs(d) >= 0.005){
+      arrow = d > 0 ? '↑' : '↓';
+      dPct = (d > 0 ? '+' : '') + (d*100).toFixed(1) + '%';
+      // Direction-of-meaning map:
+      //   goodUp  → up=good, down=bad
+      //   badUp   → up=bad, down=good
+      //   neutral → always neutral color
+      if(def.dir === 'goodUp')      cls = d > 0 ? 'good' : 'bad';
+      else if(def.dir === 'badUp')  cls = d > 0 ? 'bad'  : 'good';
+      else                          cls = 'neutral';
+    }
+    return `<div class="t1-kpi-card">
+      <div class="t1-kpi-label">${esc(def.label)}</div>
+      <div class="t1-kpi-value">${esc(def.fmt(v))}</div>
+      <div class="t1-kpi-delta ${cls}"><span class="arrow">${arrow}</span><span>${esc(dPct||'no change')}</span></div>
+    </div>`;
+  }).join('');
+}
+
+/* ─── Per-game breakdown ─── */
+
+function renderGameCards(slice){
+  const wrap = document.getElementById('t1-games');
+  if(!wrap) return;
+  // Which games to show: respect Game filter
+  const gameList = FILTERS.game === 'all' ? GAMES : [FILTERS.game];
+  // Group rows by game
+  const byGame = new Map();
+  for(const g of gameList) byGame.set(g, []);
+  for(const r of slice){
+    if(byGame.has(r.game)) byGame.get(r.game).push(r);
+  }
+  // Build daily install timeseries per game over filter window for sparkline
+  const {start, end} = computeDateRange();
+  const days = []; let cur = new Date(start);
+  while(cur <= new Date(end)){ days.push(cur.toISOString().slice(0,10)); cur.setDate(cur.getDate()+1); }
+  const totalSpend = slice.reduce((s,r)=>s+r.spend_usd, 0) || 1;
+
+  document.getElementById('t1-game-count').textContent =
+    gameList.length + (gameList.length===1?' game (filtered)':' games');
+
+  wrap.innerHTML = gameList.map(g => {
+    const rows = byGame.get(g) || [];
+    const k = aggregateKpis(rows);
+    const sharePct = (100 * k.spend/totalSpend).toFixed(1);
+    // Sparkline: daily installs
+    const dailyInstalls = days.map(d => {
+      let s = 0;
+      for(const r of rows) if(r.date === d) s += r.installs;
+      return s;
+    });
+    return `<div class="t1-game-card">
+      <div class="t1-game-name">${esc(g)}</div>
+      <div class="t1-game-share">${sharePct}% of filtered spend</div>
+      <div class="t1-game-stats">
+        <div class="t1-game-stat"><span class="t1-game-stat-label">Spend</span><span class="t1-game-stat-val">$${fmtCompact(k.spend)}</span></div>
+        <div class="t1-game-stat"><span class="t1-game-stat-label">Installs</span><span class="t1-game-stat-val">${fmtCompact(k.installs)}</span></div>
+        <div class="t1-game-stat"><span class="t1-game-stat-label">CPI</span><span class="t1-game-stat-val">$${k.cpi.toFixed(2)}</span></div>
+        <div class="t1-game-stat"><span class="t1-game-stat-label">ROAS D7</span><span class="t1-game-stat-val">${(100*k.roasD7).toFixed(1)}%</span></div>
+      </div>
+      ${sparklineSvg(dailyInstalls, 230, 26)}
+      <span class="t1-game-spark-label">daily installs · ${days.length}d</span>
+    </div>`;
+  }).join('');
+}
+
+function sparklineSvg(values, w, h){
+  if(!values.length) return `<svg class="t1-game-spark" width="${w}" height="${h}"></svg>`;
+  const max = Math.max(...values, 1);
+  const stepX = w / Math.max(1, values.length-1);
+  const path = values.map((v,i)=>{
+    const x = (i*stepX).toFixed(1);
+    const y = (h - (v/max)*h).toFixed(1);
+    return (i===0?'M':'L') + x + ',' + y;
+  }).join(' ');
+  const lastX = ((values.length-1)*stepX).toFixed(1);
+  const lastY = (h - (values[values.length-1]/max)*h).toFixed(1);
+  return `<svg class="t1-game-spark" viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <path d="${path} L${lastX},${h} L0,${h} Z" fill="rgba(199,148,58,0.10)"/>
+    <path d="${path}" stroke="${CHANNEL_COLORS['Moloco']}" stroke-width="1.4" fill="none" vector-effect="non-scaling-stroke"/>
+  </svg>`;
+}
+
+/* ─── Stacked area chart: daily spend by channel ─── */
+
+let t1Chart = null;
+function renderSpendChart(slice){
+  const canvas = document.getElementById('t1-spend-chart');
+  if(!canvas) return;
+  if(typeof Chart === 'undefined') return;
+  const {start, end} = computeDateRange();
+  const days = []; const cur = new Date(start);
+  const endD = new Date(end);
+  while(cur <= endD){ days.push(cur.toISOString().slice(0,10)); cur.setDate(cur.getDate()+1); }
+  // Channels present in slice (preserve canonical order)
+  const presentSet = new Set(slice.map(r => r.channel));
+  const channelsToShow = CHANNELS.filter(c => presentSet.has(c));
+  // Daily aggregation: dailyByChannel[channel][dayIdx] = spend
+  const dailyByChannel = {};
+  for(const c of channelsToShow) dailyByChannel[c] = new Array(days.length).fill(0);
+  const dayIdx = Object.create(null);
+  days.forEach((d,i)=>dayIdx[d]=i);
+  for(const r of slice){
+    const i = dayIdx[r.date]; if(i==null) continue;
+    if(!dailyByChannel[r.channel]) continue;
+    dailyByChannel[r.channel][i] += r.spend_usd;
+  }
+  const datasets = channelsToShow.map(c => ({
+    label: c, data: dailyByChannel[c],
+    backgroundColor: CHANNEL_COLORS[c]+'CC',
+    borderColor: CHANNEL_COLORS[c],
+    borderWidth: 0, fill: true, tension: 0.18, pointRadius: 0
+  }));
+  document.getElementById('t1-chart-meta').textContent =
+    `${channelsToShow.length} channel${channelsToShow.length===1?'':'s'} · ${days.length}d`;
+  if(!t1Chart){
+    t1Chart = new Chart(canvas.getContext('2d'), {
+      type: 'line',
+      data: {labels: days, datasets},
+      options: {
+        responsive: true, maintainAspectRatio: false, animation: false,
+        interaction: {mode:'index', intersect:false},
+        plugins: {
+          legend: {position:'bottom', labels:{color:'#C8C5BC', font:{family:"'JetBrains Mono'",size:10}, boxWidth:8, boxHeight:8, padding:8}},
+          tooltip: {
+            backgroundColor:'#0F0F11', titleColor:'#ECEAE3', bodyColor:'#C8C5BC',
+            borderColor:'#3A3A44', borderWidth:1, titleFont:{family:"'Geist'",size:11},
+            bodyFont:{family:"'JetBrains Mono'",size:11}, padding:10,
+            callbacks: {label: ctx => ctx.dataset.label+': $'+fmtCompact(ctx.parsed.y)}
+          }
+        },
+        scales: {
+          x: {stacked:true, ticks:{color:'#8E8C84',font:{family:"'JetBrains Mono'",size:9.5},maxRotation:0,autoSkip:true,maxTicksLimit:10}, grid:{color:'rgba(42,42,50,0.4)',display:false}},
+          y: {stacked:true, ticks:{color:'#8E8C84',font:{family:"'JetBrains Mono'",size:9.5},callback:v=>'$'+fmtCompact(v)}, grid:{color:'rgba(42,42,50,0.5)'}}
+        }
+      }
+    });
+  } else {
+    t1Chart.data.labels = days;
+    t1Chart.data.datasets = datasets;
+    t1Chart.update('none');
+  }
+}
+
+/* ─── Top movers (last 7d vs prior 7d) ─── */
+
+function computeTopMovers(){
+  if(!DATA_SOURCE || !DIMS) return [];
+  const last7End = DIMS.dateMax;
+  const last7Start = addDays(last7End, -6);
+  const prior7End = addDays(last7Start, -1);
+  const prior7Start = addDays(prior7End, -6);
+
+  // Two aggregation levels:
+  //   wide — (game, channel, os):  CPI/ROAS movers (cross-geo aggregate). Lifts
+  //          campaign-efficiency anomalies that span all geos above small-tuple noise.
+  //   geo  — (game, channel, geo): Volume movers (geo-specific, OS-agnostic). Geos
+  //          launch across OS together; aggregating up captures small-pilot lifts
+  //          (e.g., Bubble/TikTok/BR) where one OS may be sparse in either window.
+  const wide = new Map(), byGeo = new Map();
+  for(const r of DATA_SOURCE){
+    if(!matchesNonDateFilters(r)) continue;
+    let bucket;
+    if(r.date >= last7Start && r.date <= last7End) bucket = 'last7';
+    else if(r.date >= prior7Start && r.date <= prior7End) bucket = 'prior7';
+    else continue;
+    const wkey = `${r.game}|${r.channel}|${r.os}`;
+    let wb = wide.get(wkey);
+    if(!wb){ wb = {game:r.game, channel:r.channel, geo:null, os:r.os,
+      last7:{spend:0,installs:0,roasW:0}, prior7:{spend:0,installs:0,roasW:0}}; wide.set(wkey,wb); }
+    const wt = wb[bucket];
+    wt.spend += r.spend_usd; wt.installs += r.installs; wt.roasW += r.roas_d7 * r.installs;
+    const gkey = `${r.game}|${r.channel}|${r.geo}`;
+    let gb = byGeo.get(gkey);
+    if(!gb){ gb = {game:r.game, channel:r.channel, geo:r.geo, os:null,
+      last7:{spend:0,installs:0,roasW:0}, prior7:{spend:0,installs:0,roasW:0}}; byGeo.set(gkey,gb); }
+    const gt = gb[bucket];
+    gt.spend += r.spend_usd; gt.installs += r.installs; gt.roasW += r.roas_d7 * r.installs;
+  }
+
+  const candidates = [];
+  // CPI / ROAS — campaign-quality movers. Boosted ×1.8 vs Volume because efficiency
+  // signals are more strategically actionable than raw volume swings.
+  const QUALITY_BOOST = 1.8;
+  for(const b of wide.values()){
+    const L = b.last7, P = b.prior7;
+    if(L.spend < 1200 || P.spend < 1200) continue;
+    if(L.installs === 0 || P.installs === 0) continue;
+    const cpiL = L.spend/L.installs, cpiP = P.spend/P.installs;
+    const cpiD = (cpiL - cpiP)/cpiP;
+    const roasL = L.roasW/L.installs, roasP = P.roasW/P.installs;
+    const roasD = (roasL - roasP)/roasP;
+    const sw = Math.sqrt(L.spend + P.spend);
+    if(Math.abs(cpiD) >= 0.10){
+      candidates.push({...b, metric:'CPI', lever:'cpi', delta:cpiD,
+        sign: cpiD>0?'bad':'good', score: Math.min(Math.abs(cpiD), 0.50) * sw * QUALITY_BOOST, cpiDelta:cpiD});
+    }
+    if(Math.abs(roasD) >= 0.10){
+      candidates.push({...b, metric:'ROAS D7', lever:'roas', delta:roasD,
+        sign: roasD>0?'good':'bad', score: Math.min(Math.abs(roasD), 0.50) * sw * QUALITY_BOOST, cpiDelta:cpiD});
+    }
+  }
+  // Volume from byGeo aggregation. Lower spend threshold catches small-pilot lifts.
+  for(const b of byGeo.values()){
+    const L = b.last7, P = b.prior7;
+    if(L.spend < 60 || P.spend < 60) continue;
+    if(L.installs === 0 || P.installs === 0) continue;
+    const cpiL = L.spend/L.installs, cpiP = P.spend/P.installs;
+    const cpiD = (cpiL - cpiP)/cpiP;
+    const volD = (L.installs - P.installs)/P.installs;
+    if(Math.abs(volD) < 0.20) continue;
+    const sw = Math.sqrt(L.spend + P.spend);
+    candidates.push({...b, metric:'Volume', lever:'volume', delta:volD,
+      sign: volD>0?'good':'bad', score: Math.min(Math.abs(volD), 0.80) * sw, cpiDelta:cpiD});
+  }
+
+  candidates.sort((a,b) => b.score - a.score);
+
+  // Curated top-5: guarantee at least one of each lever (CPI / ROAS / Volume)
+  // when available, then fill remaining slots by score. Ensures the panel shows
+  // a balanced view rather than 5 of the same lever — a Director needs to see
+  // that the portfolio has efficiency moves AND volume moves.
+  const seen = new Set();
+  const out = [];
+  const need = new Set(['cpi','roas','volume']);
+  const pushIfNew = c => {
+    const k = `${c.game}|${c.channel}|${c.lever}`;
+    if(seen.has(k)) return false;
+    seen.add(k); out.push(c); return true;
+  };
+  // Pass 1: top scorer per missing lever
+  for(const c of candidates){
+    if(need.has(c.lever) && pushIfNew(c)){ need.delete(c.lever); }
+    if(need.size === 0) break;
+  }
+  // Pass 2: fill remaining slots by absolute score
+  for(const c of candidates){
+    if(out.length >= 5) break;
+    pushIfNew(c);
+  }
+  out.sort((a,b) => b.score - a.score);
+  return out;
+}
+
+function renderTopMovers(){
+  const movers = computeTopMovers();
+  const wrap = document.getElementById('t1-movers');
+  if(!wrap) return;
+  if(movers.length === 0){
+    wrap.innerHTML = `<div class="t1-movers-empty">No w/w movements above 10% threshold in current slice.</div>`;
+    return;
+  }
+  wrap.innerHTML = movers.map(m => {
+    // Tuple display reflects aggregation level:
+    //   CPI/ROAS movers: "Game / Channel · OS"  (geo summed)
+    //   Volume movers:   "Game / Channel · Geo" (OS summed)
+    const tuple = m.os
+      ? `${m.game} / ${m.channel} · ${m.os}`
+      : `${m.game} / ${m.channel} · ${m.geo}`;
+    const sign = m.delta > 0 ? '+' : '';
+    const pct = (m.delta * 100).toFixed(0);
+    let extra = '';
+    if(m.lever === 'volume' && Math.abs(m.cpiDelta) < 0.07){
+      extra = ' at parity CPI';
+    }
+    const headline = `<strong>${esc(m.metric)} ${sign}${pct}%</strong> w/w${extra}`;
+    return `<div class="t1-mover">
+      <span class="m-dot ${m.sign}"></span>
+      <div class="m-body">
+        <div class="m-tuple">${esc(tuple)}</div>
+        <div class="m-headline">${headline}</div>
+      </div>
+      <span class="m-tag ${m.lever}">${esc(m.metric)}</span>
+    </div>`;
+  }).join('');
+}
+
+/* ─── Tab 1 orchestrator ─── */
+
+function renderTab1(slice){
+  renderKpis(slice);
+  renderGameCards(slice);
+  renderSpendChart(slice);
+  renderTopMovers();
 }
 
 /* ─────────────────────────────────────────────────────────────
