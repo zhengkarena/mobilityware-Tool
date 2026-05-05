@@ -148,9 +148,101 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 
 /* utility */
 .kbd{font-family:var(--f-mono);font-size:11px;color:var(--text-mu);background:var(--inset);padding:1px 5px;border-radius:3px;border:1px solid var(--border)}
+
+/* ─── Tab 6 · Campaign Designer ─── */
+.designer-grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:flex-start}
+@media (max-width:980px){.designer-grid{grid-template-columns:1fr}}
+.config-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 22px 18px;position:sticky;top:calc(var(--topbar-h,0px) + 56px)}
+.config-eyebrow{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px}
+.config-section{margin-bottom:18px}
+.config-section:last-of-type{margin-bottom:14px}
+.config-label{font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:7px;display:flex;justify-content:space-between;align-items:baseline}
+.config-label .config-val{color:var(--amber);font-size:13px;text-transform:none;letter-spacing:0;font-weight:500}
+.config-section .select{width:100%}
+.slider{-webkit-appearance:none;appearance:none;width:100%;height:4px;background:var(--inset);border-radius:999px;outline:none;border:1px solid var(--border)}
+.slider::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:16px;height:16px;border-radius:999px;background:var(--amber);cursor:pointer;border:2px solid var(--bg);box-shadow:0 0 0 1px var(--amber)}
+.slider::-moz-range-thumb{width:14px;height:14px;border-radius:999px;background:var(--amber);cursor:pointer;border:2px solid var(--bg);box-shadow:0 0 0 1px var(--amber)}
+.slider-bounds{display:flex;justify-content:space-between;font-family:var(--f-mono);font-size:10px;color:var(--text-faint);margin-top:5px}
+.checkbox-row{display:flex;align-items:center;gap:9px;padding:6px 0;cursor:pointer;font-size:12.5px;color:var(--text-2)}
+.checkbox-row:hover{color:var(--text)}
+.checkbox-row input[type=checkbox]{appearance:none;-webkit-appearance:none;width:14px;height:14px;border:1px solid var(--border-strong);background:var(--inset);border-radius:3px;cursor:pointer;margin:0;flex-shrink:0;position:relative}
+.checkbox-row input[type=checkbox]:checked{background:var(--amber);border-color:var(--amber)}
+.checkbox-row input[type=checkbox]:checked::after{content:"";position:absolute;left:3px;top:0;width:4px;height:8px;border:solid #0F0F11;border-width:0 2px 2px 0;transform:rotate(45deg)}
+.config-save{margin-top:6px;width:100%;justify-content:center}
+.config-save.saved{background:var(--sage);border-color:var(--sage);color:#0F0F11}
+.config-saved-count{font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);text-align:center;margin-top:6px;display:block}
+
+.plan-output{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:24px 26px}
+.plan-name{font-family:var(--f-display);font-size:22px;font-weight:500;letter-spacing:-0.01em;line-height:1.2;margin:0 0 4px;color:var(--text)}
+.plan-meta{font-family:var(--f-mono);font-size:11px;color:var(--text-mu);margin-bottom:22px;letter-spacing:0.02em}
+.plan-meta .sep{color:var(--text-faint);margin:0 8px}
+.plan-section{margin-bottom:22px;padding-bottom:18px;border-bottom:1px solid var(--border)}
+.plan-section:last-of-type{margin-bottom:0;padding-bottom:0;border-bottom:none}
+.plan-h{font-family:var(--f-mono);font-size:10px;color:var(--crimson);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:10px;display:flex;justify-content:space-between;align-items:baseline}
+.plan-h .h-meta{color:var(--text-faint);font-size:10px}
+
+.channel-bar{height:14px;border-radius:3px;overflow:hidden;display:flex;background:var(--inset);margin-bottom:12px;border:1px solid var(--border)}
+.channel-bar-segment{height:100%;transition:flex-basis .18s}
+.channel-list{display:flex;flex-direction:column;gap:7px}
+.channel-row{display:flex;align-items:flex-start;gap:10px;font-size:12.5px;line-height:1.4}
+.channel-swatch{width:8px;height:8px;border-radius:2px;margin-top:5px;flex-shrink:0}
+.channel-row .ch-name{font-family:var(--f-mono);font-weight:500;color:var(--text);width:100px;flex-shrink:0;font-size:11.5px}
+.channel-row .ch-pct{font-family:var(--f-mono);color:var(--amber);width:48px;flex-shrink:0;font-size:11.5px}
+.channel-row .ch-amt{font-family:var(--f-mono);color:var(--text-faint);width:72px;flex-shrink:0;font-size:11px}
+.channel-row .ch-rationale{color:var(--text-2);font-size:12.5px;line-height:1.45}
+.channel-row.virtual .ch-amt{color:var(--text-faint);font-style:italic}
+
+.creative-list{display:flex;flex-direction:column;gap:9px}
+.creative-item{display:flex;gap:12px;font-size:12.5px;line-height:1.45;color:var(--text-2)}
+.creative-item .ci-tag{font-family:var(--f-mono);font-size:10.5px;color:var(--plum);text-transform:uppercase;letter-spacing:0.04em;width:108px;flex-shrink:0;margin-top:2px}
+.creative-item .ci-rationale{flex:1}
+.creative-avoid{margin-top:12px;padding:9px 12px;background:rgba(140,64,64,0.08);border-left:2px solid var(--neg);border-radius:0 var(--r) var(--r) 0;font-size:12px;color:var(--text-2);line-height:1.5}
+.creative-avoid .label{font-family:var(--f-mono);font-size:10px;color:var(--neg);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
+
+.audience-grid{display:grid;grid-template-columns:140px 1fr;gap:6px 14px;font-size:12.5px;line-height:1.5}
+.audience-grid dt{font-family:var(--f-mono);font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.audience-grid dd{color:var(--text);margin:0}
+
+.kpi-list{display:flex;flex-direction:column;gap:7px;font-size:12.5px}
+.kpi-row{display:flex;gap:14px;align-items:baseline}
+.kpi-row .kpi-tag{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;width:78px;flex-shrink:0}
+.kpi-row.primary .kpi-tag{color:var(--amber)}
+.kpi-row .kpi-metric{color:var(--text);flex:1}
+.kpi-row .kpi-target{font-family:var(--f-mono);color:var(--sage);font-size:12px}
+
+.test-grid{display:grid;grid-template-columns:140px 1fr;gap:6px 14px;font-size:12.5px;line-height:1.5}
+.test-grid dt{font-family:var(--f-mono);font-size:11px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.test-grid dd{color:var(--text-2);margin:0;font-family:var(--f-mono);font-size:12px}
+
+.risk-list{display:flex;flex-direction:column;gap:9px;font-size:12.5px;line-height:1.45}
+.risk-item{display:flex;gap:11px;align-items:flex-start}
+.risk-item .r-bullet{color:var(--terra);font-weight:700;flex-shrink:0;margin-top:1px}
+.risk-item .r-body{color:var(--text-2)}
+.risk-item .r-mit{color:var(--text-faint);font-size:11.5px;display:block;margin-top:2px}
+.risk-item .r-mit::before{content:"→ ";color:var(--text-faint)}
+
+.outcome-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.outcome-card{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.outcome-label{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.outcome-mid{font-family:var(--f-display);font-size:22px;font-weight:500;letter-spacing:-0.01em;line-height:1.05;color:var(--text);margin-bottom:4px}
+.outcome-range{font-family:var(--f-mono);font-size:10.5px;color:var(--text-mu)}
+.outcome-ci{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);margin-top:14px;text-align:right;letter-spacing:0.04em}
+
+.note-callout{background:var(--inset);border-left:2px solid var(--amber);padding:10px 14px;margin-top:14px;border-radius:0 var(--r) var(--r) 0;font-size:12px;color:var(--text-2);line-height:1.55;font-family:var(--f-body)}
+.note-callout .label{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
+
+.diagnostic-callout{background:var(--inset);border-left:2px solid var(--slate);padding:10px 14px;margin-top:14px;border-radius:0 var(--r) var(--r) 0;font-size:12px;color:var(--text-2);line-height:1.55}
+.diagnostic-callout .label{font-family:var(--f-mono);font-size:10px;color:var(--slate);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
+
+.constraints-applied{margin-top:6px;padding:11px 14px;background:rgba(199,148,58,0.06);border:1px solid rgba(199,148,58,0.32);border-radius:var(--r);font-size:12px}
+.constraints-applied .ca-h{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:6px}
+.constraints-applied .ca-row{color:var(--text-2);line-height:1.5;display:flex;gap:8px}
+.constraints-applied .ca-row::before{content:"·";color:var(--amber);font-weight:700}
+
 @media (max-width:1100px){
   .topbar-row{flex-wrap:wrap}
   .chips{max-width:100%}
+  .outcome-grid{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -273,8 +365,41 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 8.</div>
   </section>
   <section class="tab" id="t6">
-    <div class="tab-header"><div class="tab-eyebrow">Tab 06 &middot; centerpiece</div><h1 class="tab-title">Campaign Designer</h1><p class="tab-framing">Pick an objective, set a budget, generate a plan. Channel mix, creative direction, KPIs, test design, expected outcome.</p></div>
-    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 4 (built first &mdash; centerpiece).</div>
+    <div class="tab-header"><div class="tab-eyebrow">Tab 06 &middot; centerpiece</div><h1 class="tab-title">Campaign Designer</h1><p class="tab-framing">Pick an objective, set a budget, generate a plan. Channel mix, creative direction, KPIs, test design, expected outcome &mdash; all derived from a deterministic decision tree that encodes UA-analyst judgment, not ML.</p></div>
+    <div class="designer-grid">
+      <aside class="config-panel">
+        <div class="config-eyebrow">Configuration</div>
+        <div class="config-section">
+          <div class="config-label">Objective</div>
+          <select class="select" id="cd-objective">
+            <option value="acquire_whales">Acquire whales (high-value users)</option>
+            <option value="reengage_dormant">Re-engage dormant high-value users</option>
+            <option value="expand_geos">Expand to new geos</option>
+            <option value="increase_iap">Increase IAP penetration</option>
+            <option value="reduce_cpi">Reduce blended CPI</option>
+          </select>
+        </div>
+        <div class="config-section">
+          <div class="config-label"><span>Budget</span><span class="config-val" id="cd-budget-val">$200K</span></div>
+          <input type="range" class="slider" id="cd-budget" min="50" max="500" step="10" value="200">
+          <div class="slider-bounds"><span>$50K</span><span>$500K</span></div>
+        </div>
+        <div class="config-section">
+          <div class="config-label"><span>Duration</span><span class="config-val" id="cd-duration-val">6 weeks</span></div>
+          <input type="range" class="slider" id="cd-duration" min="4" max="12" step="1" value="6">
+          <div class="slider-bounds"><span>4w</span><span>12w</span></div>
+        </div>
+        <div class="config-section">
+          <div class="config-label">Constraints</div>
+          <label class="checkbox-row"><input type="checkbox" id="cd-c-nometa"><span>Don't use Meta (low trust)</span></label>
+          <label class="checkbox-row"><input type="checkbox" id="cd-c-privacy"><span>Privacy-first only (no probabilistic-heavy)</span></label>
+          <label class="checkbox-row"><input type="checkbox" id="cd-c-incr"><span>Incrementality required from day 1</span></label>
+        </div>
+        <button class="btn btn-primary config-save" id="cd-save">Save this plan</button>
+        <span class="config-saved-count" id="cd-saved-count">No plans saved yet</span>
+      </aside>
+      <article class="plan-output" id="plan-output"></article>
+    </div>
   </section>
   <section class="tab" id="t7">
     <div class="tab-header"><div class="tab-eyebrow">Tab 07</div><h1 class="tab-title">Compare Plans</h1><p class="tab-framing">Side-by-side comparison of saved plans with a recommended winner.</p></div>
@@ -1085,6 +1210,679 @@ function bindUploadModal(){
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Tab 6 · Campaign Designer
+   Decision tree from Section 8 — encoded as deterministic logic.
+   No ML, no randomness. The rules ARE the analytical framework.
+   ──────────────────────────────────────────────────────────── */
+
+const CHANNEL_COLORS = {
+  'Google UAC':'#5A7A95','ASA':'#6A8C5A','Meta':'#B83A3A','AppLovin':'#8A6A9C',
+  'Unity':'#B07A5A','Moloco':'#C7943A','ironSource':'#5A95A0','TikTok':'#A06A8A',
+  'InMobi':'#7A9A6A','Liftoff':'#9A8A5A','Push':'#5E5C56','Email':'#3A3A44'
+};
+
+// Channel CPI for projection — uses iOS-US as the baseline, adjusted per objective.
+// (Sourced from CHANNEL_CPI_IOS table; objective multipliers below shift per scenario.)
+
+const DESIGNER = {
+  objective: 'acquire_whales',
+  budgetK: 200,
+  durationWeeks: 6,
+  noMeta: false,
+  privacyFirst: false,
+  incrementality: false
+};
+const SAVED_PLANS = []; // in-memory; lost on reload (intentional, per spec)
+
+/* ─── Per-objective generators ─── */
+
+function planAcquireWhales(){
+  return {
+    objective:'acquire_whales',
+    name:'Acquire whales',
+    summary:'High-LTV user acquisition for the top-5% spender cohort. Source: Moloco 2025 — top 5% US iOS players generate ~20% of global gaming revenue.',
+    mix:[
+      {channel:'ASA',       pct:38, reasoning:'Deterministic chain, high D30 retention; whale-rich audience via brand+category keywords'},
+      {channel:'Moloco',    pct:28, reasoning:'Custom audiences with wide linear bid range; SKAN-mature; strong on D7+ payer signal'},
+      {channel:'Meta',      pct:17, reasoning:'CPP retargeting + lookalike; trust score 2/5 — apply incrementality discount (~0.41)'},
+      {channel:'TikTok',    pct:12, reasoning:'Underused for whales but rising; iOS bid floor inflated +140% in 2024 (Moloco) — buy carefully'},
+      {channel:'Google UAC',pct:5,  reasoning:'Default volume hedge; not lookalike-strong but cheap iOS at scale'}
+    ],
+    avoidedChannels:['Unity','AppLovin','ironSource','Liftoff','InMobi'],
+    avoidedReason:'Don\'t index well to whales for casual card; rewarded-video skew over-fits ad-engaged non-payers',
+    creative:[
+      {tag:'Progression',   text:'Collection completion mechanics — surface the 30-day milestone reward at install'},
+      {tag:'Daily challenge',text:'Streak-of-30 urgency — "Don\'t break your streak" CTA. High intent, high D7 lock-in'},
+      {tag:'Achievement',   text:'Badge-reveal sequences from existing whale gameplay. Real screenshots, not stylized'}
+    ],
+    avoidCreative:'free-coins / rewarded-video offers — over-indexes to low-LTV reward seekers and dilutes the cohort',
+    audience:{
+      primary:'Top-5% spender lookalikes (90-day rolling window)',
+      seeds:'Existing whale base (D30 ARPU > 4× portfolio avg) — refresh seeds weekly',
+      geo:'US, UK, CA, AU — T1 only; add JP after week 4 if D7 retention parity holds'
+    },
+    kpis:{
+      primary:{metric:'D30 ROAS', target:'≥ 60%'},
+      guardrails:[
+        {metric:'CPI vs blended', target:'≤ +30%'},
+        {metric:'D7 retention',   target:'≥ portfolio parity'},
+        {metric:'Cohort overlap with existing whales', target:'< 15%'}
+      ]
+    },
+    test:{
+      randomization:'user-level',
+      durationCopy:'4 weeks test + 2 weeks readout',
+      sample:'~ 8,000 / arm',
+      success:'Δ D30 ROAS > 10pp at p < 0.10'
+    },
+    risks:[
+      {risk:'Cohort overlap with existing whales',  mit:'Match against active payer base; suppress matched IDs from prospecting'},
+      {risk:'Attribution noise on whale events',    mit:'Trust SKAN aggregate over MMP last-click; cross-validate weekly'},
+      {risk:'Slow signal — whale events fire D14+', mit:'Hold readout until D30; resist mid-flight optimization'}
+    ],
+    cpiMultiplier: 1.30,            // whale acquisition runs ~30% above blended CPI
+    expectedRoasD30: 0.65,
+    notes:[]
+  };
+}
+
+function planReengageDormant(){
+  return {
+    objective:'reengage_dormant',
+    name:'Re-engage dormant high-value',
+    summary:'Reactivate D7-strong users dormant 14–28 days. Lifecycle lever, not acquisition lever.',
+    mix:[
+      {channel:'Meta',  pct:50, reasoning:'Retargeting via custom audiences from MMP cohort export — best deterministic re-engagement reach'},
+      {channel:'Push',  pct:25, reasoning:'Zero-media-cost; effort allocation. Live-ops anchored payload (no generic "we miss you")', virtual:true},
+      {channel:'Email', pct:25, reasoning:'Zero-media-cost; effort allocation. Use for high-touch whale-tier dormants only',          virtual:true}
+    ],
+    avoidedChannels:['Google UAC','ASA','TikTok','AppLovin','Unity','Moloco','ironSource','InMobi','Liftoff'],
+    avoidedReason:'Prospecting channels can\'t target a known-user cohort efficiently — use them to find new users, not reach old ones',
+    creative:[
+      {tag:'Live-ops reveal', text:'"Solitaire is running its biggest weekly event yet" — anchor to the actual current event, not a generic hook'},
+      {tag:'Progression carry',text:'"Your streak is on hold" — surface the user\'s last-known progression state from the export'},
+      {tag:'Soft return',     text:'Wordless 6-second clip of new mode/feature shipped during their absence'}
+    ],
+    avoidCreative:'discount/cashback hooks — train users to dormant-then-return for rewards, breaks LTV economics',
+    audience:{
+      primary:'D7 retention ≥ 25% AND last session 14–28 days ago',
+      seeds:'MMP cohort export, refreshed every 3 days',
+      geo:'All T1 + LATAM where Meta inventory available'
+    },
+    kpis:{
+      primary:{metric:'Reactivation rate', target:'+5pp vs organic-return baseline'},
+      guardrails:[
+        {metric:'D60 ARPU per reactivated user', target:'≥ baseline-active-user ARPU'},
+        {metric:'Cannibalization of organic returns', target:'< 35% of reactivations'},
+        {metric:'Push opt-out rate spike', target:'< +1pp w/w'}
+      ]
+    },
+    test:{
+      randomization:'user-level — campaign-level invalidates readout',
+      durationCopy:'4 weeks treatment + 2 weeks holdout follow-up',
+      sample:'20% holdout (push + email also paused for them)',
+      success:'Reactivation Δ ≥ +5pp at p < 0.10 AND D60 ARPU non-inferior'
+    },
+    risks:[
+      {risk:'Cannibalization of organic returns', mit:'Holdout cell quantifies — discount uplift by measured cannibalization rate'},
+      {risk:'Creative fatigue on smaller audience',mit:'3-creative rotation, refresh every 5 days; cap exposure at 4/user'},
+      {risk:'Push opt-out blowback',               mit:'Frequency cap 2/week; suppress users who closed last 3 pushes'}
+    ],
+    cpiMultiplier: 0.30,            // Meta retargeting is dramatically cheaper than prospecting
+    expectedRoasD30: 0.40,
+    spendChannelOnly:'Meta',        // only Meta carries spend; Push/Email are zero-cost
+    notes:[]
+  };
+}
+
+function planExpandGeos(){
+  return {
+    objective:'expand_geos',
+    name:'Expand to new geos',
+    summary:'Test-and-scale into BR, MX, ID, PH. Non-negotiable: geo holdout from day 1, full funding (no half-funded pilots).',
+    mix:[
+      {channel:'TikTok',   pct:35, reasoning:'BR/MX local TikTok inventory is dominant for casual; cheaper iOS than T1; localized creatives required'},
+      {channel:'Meta',     pct:25, reasoning:'Local-language Meta + lookalikes from existing T1 active users seeded by language'},
+      {channel:'AppLovin', pct:15, reasoning:'Strong Android reach in SEA (ID/PH); rewarded-video formats convert well at low CPM'},
+      {channel:'ASA',      pct:15, reasoning:'Local-language keywords; ID/PH and BR storefronts have low ASA competition for casual card'},
+      {channel:'Unity',    pct:10, reasoning:'Android volume hedge in SEA; parity bid against AppLovin'}
+    ],
+    avoidedChannels:['Google UAC','Moloco','ironSource','InMobi','Liftoff'],
+    avoidedReason:'UAC requires localized assets we may not have; smaller networks lack T2/T3 inventory at the scale needed',
+    creative:[
+      {tag:'Localized hook', text:'BR Portuguese: "jogo offline" emphasis — 60% of LATAM casual sessions happen on weak/no connectivity'},
+      {tag:'Family framing', text:'MX Spanish: "jugar con la familia" — multi-generational household dynamics drive install + retention'},
+      {tag:'Quick-session',  text:'SEA: 30-second-session highlight — commute-time positioning matches market behavior'}
+    ],
+    avoidCreative:'direct US asset translations — culturally tone-deaf, IPM craters within 5 days',
+    audience:{
+      primary:'BR + MX + ID + PH; 18–55, mobile-only, casual-game adjacent affinities',
+      seeds:'T1 lookalikes mapped to language affinity; refresh after week 2 with local seeds',
+      geo:'4-geo launch, non-negotiable: each geo gets ≥ 20% of total — no half-funded pilots'
+    },
+    kpis:{
+      primary:{metric:'D7 retention', target:'≥ T1 portfolio parity'},
+      guardrails:[
+        {metric:'CPI vs T1 blended',   target:'≤ +50% — LATAM should run -50% to -65%'},
+        {metric:'D1 retention by geo', target:'≥ 28% per geo (no aggregate hiding underperformers)'},
+        {metric:'Localization quality QA pass', target:'100% creatives reviewed by native speaker'}
+      ]
+    },
+    test:{
+      randomization:'geo-holdout — non-negotiable; one US-equivalent T1 holdout cell per launch geo',
+      durationCopy:'6 weeks launch + 2 weeks holdout readout',
+      sample:'80/20 split per geo (treatment/holdout)',
+      success:'Geo CPI < +50% T1 AND D7 retention ≥ T1 parity AND incremental installs measurable'
+    },
+    risks:[
+      {risk:'Half-funded pilots fail by being half-funded — commit fully or don\'t run',
+       mit:'Minimum geo allocation 20% of total; if budget can\'t support 4 geos at 20%, drop one geo entirely'},
+      {risk:'Localization quality bottleneck (native QA capacity)',
+       mit:'Pre-cache 6 weeks of localized variants; if QA slips, pause that geo, don\'t ship inferior creative'},
+      {risk:'Attribution provider geo-coverage gaps',
+       mit:'Pre-validate MMP support for ID + PH currencies and storefronts before launch'}
+    ],
+    cpiMultiplier: 0.45,            // LATAM/SEA significantly cheaper than T1
+    expectedRoasD30: 0.32,
+    notes:['emerging-markets pilots fail by being half-funded — commit fully or don\'t run']
+  };
+}
+
+function planIncreaseIap(){
+  return {
+    objective:'increase_iap',
+    name:'Increase IAP penetration',
+    summary:'Lift IAP-conversion-rate among existing actives. Largely a product lever; UA can support but not solve.',
+    mix:[
+      {channel:'Meta',      pct:40, reasoning:'CPP at scale; payer-lookalike audiences trained on existing IAP cohort'},
+      {channel:'Moloco',    pct:30, reasoning:'Custom audiences from payer cohort export; wide linear bid range absorbs CPI premium'},
+      {channel:'ASA',       pct:20, reasoning:'CPP via brand defense + payer-intent keywords; deterministic chain matters here'},
+      {channel:'TikTok',    pct:10, reasoning:'Modest allocation; payer-conversion creative still nascent on platform for casual'}
+    ],
+    avoidedChannels:['Google UAC','AppLovin','Unity','ironSource','InMobi','Liftoff'],
+    avoidedReason:'UAC and rewarded-video networks systematically over-deliver low-LTV ad-watchers, not payers',
+    creative:[
+      {tag:'Feature reveal',  text:'"What you can do as a payer" — surface premium-only modes, not generic discount messaging'},
+      {tag:'Social proof',    text:'Real-player IAP-tier usage — UGC where allowed, recreated where not'},
+      {tag:'Bundle highlight',text:'Limited-time bundle previews 7 days before drop — drive existing actives to the moment'}
+    ],
+    avoidCreative:'pure discount/sale messaging — trains paywall reactivity, doesn\'t lift baseline propensity',
+    audience:{
+      primary:'Existing actives who haven\'t paid in 30 days, high session count + D7 retention',
+      seeds:'Payer cohort export (D30 paying users, refreshed weekly)',
+      geo:'US, UK, CA, AU, JP, KR — payer-density geos only'
+    },
+    kpis:{
+      primary:{metric:'IAP conversion rate', target:'+1–2pp absolute'},
+      guardrails:[
+        {metric:'IAP ARPU',                target:'+15% w/w by week 4'},
+        {metric:'Non-payer retention',     target:'no decline (avoid coercion)'},
+        {metric:'Refund rate',             target:'< +0.3pp w/w'}
+      ]
+    },
+    test:{
+      randomization:'user-level among existing actives',
+      durationCopy:'5 weeks test + 1 week readout',
+      sample:'~ 12,000 / arm',
+      success:'IAP-CR Δ ≥ +1pp at p < 0.10 AND IAP ARPU lift ≥ +10%'
+    },
+    risks:[
+      {risk:'Meta-game depth caps upside — product roadmap input, not UA',
+       mit:'Coordinate with product on bundle drops; UA campaigns time around content launches, not against them'},
+      {risk:'Payer-cohort export latency creates audience staleness',
+       mit:'Daily refresh job; if delayed >24h, pause campaigns until current'},
+      {risk:'Paywall placement test contamination',
+       mit:'Coordinate with product paywall A/B — don\'t run UA test on top of unrelated paywall test'}
+    ],
+    cpiMultiplier: 1.15,
+    expectedRoasD30: 0.55,
+    notes:['this objective is mostly product, not UA — UA can support but not solve. Meta-game depth in our portfolio sets the LTV ceiling.']
+  };
+}
+
+function planReduceCpi(){
+  return {
+    objective:'reduce_cpi',
+    name:'Reduce blended CPI',
+    summary:'Reallocate from low-trust channels (Meta-like, trust 2/5) toward high-elasticity SKAN-mature partners.',
+    mix:[
+      {channel:'Google UAC', pct:30, reasoning:'Highest-volume cheap-iOS channel; expand share modestly without overreaching auction discipline'},
+      {channel:'Moloco',     pct:20, reasoning:'+30% from baseline; wide linear bid range absorbs incremental spend without CPI inflation'},
+      {channel:'ASA',        pct:15, reasoning:'Lowest-CPT category for casual ($0.40–$0.90 CPT, AppTweak 2025); under-utilized'},
+      {channel:'AppLovin',   pct:12, reasoning:'Maintain at baseline; strong rewarded-video Android economics'},
+      {channel:'Unity',      pct:10, reasoning:'Maintain at baseline; Android volume hedge'},
+      {channel:'TikTok',     pct:5,  reasoning:'Hold at small; CPI pressure on iOS makes TikTok marginal at premium tier'},
+      {channel:'ironSource', pct:5,  reasoning:'Maintain; rewarded ecosystem reach diversifies bid environment'},
+      {channel:'InMobi',     pct:3,  reasoning:'+50% from baseline (still small); SKAN-mature, under-funded historically'}
+    ],
+    avoidedChannels:['Meta','Liftoff'],
+    avoidedReason:'Meta cut to 0 (trust 2/5 + high CPI on iOS post-ATT); Liftoff cut (low volume signal at our scale doesn\'t justify integration overhead)',
+    creative:[
+      {tag:'Mass appeal',       text:'Reuse top-quartile creatives from existing portfolio — don\'t commission new for a CPI play'},
+      {tag:'Hook variation',    text:'4-variant rotation per channel to keep IPM up while shifting volume mix'},
+      {tag:'Storefront tune-up',text:'App Store Page experiment in parallel — CVR lift compounds CPI savings'}
+    ],
+    avoidCreative:'experimental concepts — this is a cost-discipline campaign, not a creative-discovery campaign',
+    audience:{
+      primary:'Broad casual gaming + card game affinities; existing portfolio targeting unchanged',
+      seeds:'No new lookalikes; reuse current production audiences',
+      geo:'Existing T1 + tested LATAM only — no new geos during a CPI reduction phase'
+    },
+    kpis:{
+      primary:{metric:'Blended CPI', target:'-10% vs prior 30d'},
+      guardrails:[
+        {metric:'Install volume',           target:'≥ parity (no volume sacrifice)'},
+        {metric:'D7 ROAS',                  target:'no decline'},
+        {metric:'D30 retention by channel', target:'no channel drops > 2pp'}
+      ]
+    },
+    test:{
+      randomization:'channel-level reallocation, not RCT',
+      durationCopy:'4 weeks reallocation + 4 weeks measurement',
+      sample:'Whole portfolio — no test/control (operational change)',
+      success:'Blended CPI -10% AND volume ≥ parity AND D7 ROAS non-inferior'
+    },
+    risks:[
+      {risk:'Short-term volume dip during reallocation',
+       mit:'Phase reallocation 25% per week over 4 weeks; don\'t hard-cut Meta on day 1'},
+      {risk:'Partner relationship risk pulling spend abruptly from Meta',
+       mit:'Account-team comms in advance; frame as "reallocation against incrementality test", not "we don\'t value Meta"'},
+      {risk:'Attribution noise during transition (channel mix change confuses MMP)',
+       mit:'Hold MMP weights constant during reallocation; revisit attribution model after 8 weeks'}
+    ],
+    cpiMultiplier: 0.85,
+    expectedRoasD30: 0.45,
+    notes:[]
+  };
+}
+
+const PLAN_GENERATORS = {
+  acquire_whales:    planAcquireWhales,
+  reengage_dormant:  planReengageDormant,
+  expand_geos:       planExpandGeos,
+  increase_iap:      planIncreaseIap,
+  reduce_cpi:        planReduceCpi
+};
+
+/* ─── Constraint appliers ─── */
+
+function applyNoMeta(plan){
+  const meta = plan.mix.find(m => m.channel==='Meta');
+  if(!meta || meta.pct === 0) return plan;
+  const removed = meta.pct;
+  const others = plan.mix.filter(m => m.channel !== 'Meta' && !m.virtual);
+  if(others.length === 0) return plan;
+  // Redistribute proportionally to trust (favor higher-trust channels)
+  const weights = others.map(m => CHANNEL_TRUST[m.channel] || 3);
+  const wsum = weights.reduce((a,b)=>a+b,0);
+  others.forEach((m,i) => { m.pct = m.pct + removed * (weights[i]/wsum); });
+  // Drop Meta (and keep virtuals)
+  plan.mix = plan.mix.filter(m => m.channel !== 'Meta');
+  // top-2 absorbers (descending pct delta)
+  const sorted = [...others].sort((a,b)=>b.pct-a.pct).slice(0,2).map(m=>m.channel);
+  plan.constraints = plan.constraints || [];
+  plan.constraints.push({
+    label:'No Meta',
+    detail:`reallocated ${removed.toFixed(0)}pp from Meta to ${sorted.join(' + ')} (trust-weighted)`
+  });
+  plan.avoidedChannels = [...(plan.avoidedChannels||[]), 'Meta'];
+  return plan;
+}
+
+function applyPrivacyFirst(plan){
+  // Reduce probabilistic-heavy networks; boost SKAN-mature.
+  // Anchored: Aarki / Singular SKAN-vs-probabilistic — SKAN underreports 15-30%
+  // but ground truth is more reliable; partners bridging via probabilistic carry
+  // attribution risk Chris Kim flags as low-trust.
+  const probHeavy = ['Liftoff','ironSource','AppLovin','Unity'];
+  const skanMature = ['ASA','Google UAC','Moloco'];
+  let removed = 0;
+  plan.mix.forEach(m => {
+    if(m.virtual) return;
+    if(probHeavy.includes(m.channel)){
+      const cut = m.pct * 0.5;
+      m.pct -= cut;
+      removed += cut;
+    }
+  });
+  if(removed === 0) return plan;
+  const boosters = plan.mix.filter(m => skanMature.includes(m.channel));
+  if(boosters.length === 0){
+    // fall back to non-prob-heavy non-Meta
+    const others = plan.mix.filter(m => !probHeavy.includes(m.channel) && !m.virtual);
+    if(others.length === 0) return plan;
+    others.forEach(m => { m.pct += removed/others.length; });
+  } else {
+    boosters.forEach(m => { m.pct += removed/boosters.length; });
+  }
+  plan.constraints = plan.constraints || [];
+  plan.constraints.push({
+    label:'Privacy-first only',
+    detail:`halved Liftoff/ironSource/AppLovin/Unity allocation (probabilistic-heavy); reallocated ${removed.toFixed(0)}pp to ${boosters.length?boosters.map(b=>b.channel).join(' + '):'remaining mix'}`
+  });
+  return plan;
+}
+
+function applyIncrementality(plan){
+  plan.test = plan.test || {};
+  plan.test.durationCopy = `${plan.durationWeeks||plan.test.durationCopy||''} + 2 weeks for incrementality holdout readout`.trim();
+  plan.test.holdout = '20% geo-holdout cell from day 1; treatment cell measured against holdout';
+  plan.risks = plan.risks || [];
+  plan.risks.unshift({
+    risk:'Holdout consumes 20% of impressions — effective volume drops to 80%',
+    mit:'Increase budget by 25% OR accept 20% volume reduction; don\'t skip holdout to "save volume"'
+  });
+  plan.constraints = plan.constraints || [];
+  plan.constraints.push({
+    label:'Incrementality required',
+    detail:'+2 weeks readout, 20% holdout cell added to test design, additional risk row added'
+  });
+  plan.incrementalityActive = true;
+  return plan;
+}
+
+/* ─── Normalizer ─── */
+function normalizeMix(mix){
+  // Channels with virtual:true don't carry spend but appear in the mix.
+  // Spend channels must sum to 100. Virtual channels keep their effort %.
+  const spend = mix.filter(m => !m.virtual);
+  const virtuals = mix.filter(m => m.virtual);
+  const virtualSum = virtuals.reduce((s,m)=>s+m.pct, 0);
+  const spendTarget = 100 - virtualSum;
+  const spendSum = spend.reduce((s,m)=>s+m.pct, 0);
+  if(spendSum === 0) return mix;
+  spend.forEach(m => { m.pct = m.pct * (spendTarget/spendSum); });
+  return mix;
+}
+
+/* ─── Outcome projection (range, not point) ─── */
+
+function projectOutcome(plan){
+  const budget = DESIGNER.budgetK * 1000;
+  const durationWeeks = DESIGNER.durationWeeks;
+  // Weighted CPI from spend-bearing channels only
+  let weightedCpi = 0; let spendShare = 0;
+  for(const m of plan.mix){
+    if(m.virtual) continue;
+    if(plan.spendChannelOnly && m.channel !== plan.spendChannelOnly) continue;
+    const baseCpi = CHANNEL_CPI_IOS[m.channel] || 4.0;
+    weightedCpi += baseCpi * (m.pct/100);
+    spendShare += m.pct/100;
+  }
+  if(spendShare > 0) weightedCpi /= spendShare;
+  weightedCpi *= (plan.cpiMultiplier || 1.0);
+  if(plan.incrementalityActive) weightedCpi *= 1.05; // holdout overhead
+
+  // Effective spend on media (subtract ops overhead for incrementality)
+  const effectiveSpend = budget * (plan.incrementalityActive ? 0.80 : 1.00) * (plan.spendChannelOnly ? 0.50 : 1.0);
+  // Note: spendChannelOnly halver reflects that re-engage objective doesn't spend full budget on media
+
+  const installsMid = effectiveSpend / weightedCpi;
+  const installsLow = installsMid * 0.72;
+  const installsHigh = installsMid * 1.28;
+
+  const roasMid = plan.expectedRoasD30 || 0.50;
+  const roasLow = roasMid * 0.70;
+  const roasHigh = roasMid * 1.30;
+
+  // Payback days: assuming roasMid by D30, payback ≈ 30 / roasMid scaled by realistic decay
+  const paybackMid = roasMid > 0 ? Math.round(30 / roasMid * 1.4) : 999;
+  const paybackLow = Math.round(paybackMid * 0.7);
+  const paybackHigh = Math.round(paybackMid * 1.5);
+
+  return {
+    installs:{low:installsLow, mid:installsMid, high:installsHigh},
+    cpi:{low:weightedCpi*0.78, mid:weightedCpi, high:weightedCpi*1.32},
+    roasD30:{low:roasLow, mid:roasMid, high:roasHigh},
+    payback:{low:paybackLow, mid:paybackMid, high:paybackHigh},
+    durationWeeks
+  };
+}
+
+/* ─── Diagnostic for Expand objective: surface BR underrun ─── */
+
+function expandDiagnostic(){
+  // Strategic diagnostic — use full-window data, not last-30d (variance flips
+  // the signal in short windows due to sparse activity).
+  if(!DATA_SOURCE) return null;
+  let brSpend=0, mxSpend=0;
+  for(const r of DATA_SOURCE){
+    if(r.game!=='Bubble Shooter Pop' || r.channel!=='TikTok') continue;
+    if(r.geo==='BR') brSpend += r.spend_usd;
+    else if(r.geo==='MX') mxSpend += r.spend_usd;
+  }
+  if(mxSpend===0) return null;
+  const ratio = brSpend/mxSpend;
+  const liftPct = Math.max(0, Math.round((1/ratio - 1) * 100));
+  return {brSpend, mxSpend, ratio, liftPct};
+}
+
+/* ─── Orchestrator ─── */
+
+function generatePlan(){
+  const gen = PLAN_GENERATORS[DESIGNER.objective];
+  if(!gen) return null;
+  const plan = gen();
+  plan.budgetK = DESIGNER.budgetK;
+  plan.durationWeeks = DESIGNER.durationWeeks;
+  plan.constraints = [];
+
+  // Apply constraints in deterministic order (Meta first so Privacy-first sees the post-Meta mix)
+  if(DESIGNER.noMeta) applyNoMeta(plan);
+  if(DESIGNER.privacyFirst) applyPrivacyFirst(plan);
+  if(DESIGNER.incrementality) applyIncrementality(plan);
+  normalizeMix(plan.mix);
+  plan.outcome = projectOutcome(plan);
+  return plan;
+}
+
+/* ─── Renderer ─── */
+
+function renderPlan(){
+  const plan = generatePlan();
+  const out = document.getElementById('plan-output');
+  if(!plan){ out.innerHTML = ''; return; }
+  const fmtK = n => '$'+(n/1000).toFixed(0)+'K';
+  const fmtN = n => Math.round(n).toLocaleString();
+  const fmtPct = n => (n*100).toFixed(0)+'%';
+  const fmtCpi = n => '$'+n.toFixed(2);
+  const budget = DESIGNER.budgetK * 1000;
+
+  // Channel mix bar (spend-bearing only)
+  const spendBarChannels = plan.mix.filter(m=>!m.virtual);
+  const barTotal = spendBarChannels.reduce((s,m)=>s+m.pct,0) || 1;
+  const barSegs = spendBarChannels.map(m =>
+    `<div class="channel-bar-segment" style="flex:${m.pct/barTotal} 0 0;background:${CHANNEL_COLORS[m.channel]||'#444'}" title="${esc(m.channel)} ${m.pct.toFixed(0)}%"></div>`
+  ).join('');
+
+  // Channel rows (incl virtual)
+  const channelRows = plan.mix.map(m => {
+    const cls = m.virtual ? 'channel-row virtual' : 'channel-row';
+    const dollars = m.virtual ? '— zero-cost' : fmtK(budget * m.pct/100);
+    return `<div class="${cls}">
+      <span class="channel-swatch" style="background:${CHANNEL_COLORS[m.channel]||'#444'}"></span>
+      <span class="ch-name">${esc(m.channel)}</span>
+      <span class="ch-pct">${m.pct.toFixed(0)}%</span>
+      <span class="ch-amt">${dollars}</span>
+      <span class="ch-rationale">${esc(m.reasoning)}</span>
+    </div>`;
+  }).join('');
+
+  const avoidNote = plan.avoidedChannels && plan.avoidedChannels.length
+    ? `<div class="creative-avoid" style="margin-top:14px"><span class="label">Avoid</span>${esc(plan.avoidedChannels.join(' / '))} — ${esc(plan.avoidedReason||'')}</div>`
+    : '';
+
+  // Creative
+  const creativeRows = plan.creative.map(c =>
+    `<div class="creative-item"><div class="ci-tag">${esc(c.tag)}</div><div class="ci-rationale">${esc(c.text)}</div></div>`
+  ).join('');
+  const avoidCreative = plan.avoidCreative
+    ? `<div class="creative-avoid"><span class="label">Avoid</span>${esc(plan.avoidCreative)}</div>` : '';
+
+  // Audience
+  const audience = `<dl class="audience-grid">
+    <dt>Primary</dt><dd>${esc(plan.audience.primary)}</dd>
+    <dt>Seeds</dt><dd>${esc(plan.audience.seeds)}</dd>
+    <dt>Geo</dt><dd>${esc(plan.audience.geo)}</dd>
+  </dl>`;
+
+  // KPIs
+  const kpiRows = `
+    <div class="kpi-row primary"><span class="kpi-tag">Primary</span><span class="kpi-metric">${esc(plan.kpis.primary.metric)}</span><span class="kpi-target">${esc(plan.kpis.primary.target)}</span></div>
+    ${plan.kpis.guardrails.map(g => `<div class="kpi-row"><span class="kpi-tag">Guardrail</span><span class="kpi-metric">${esc(g.metric)}</span><span class="kpi-target">${esc(g.target)}</span></div>`).join('')}
+  `;
+
+  // Test design
+  const test = `<dl class="test-grid">
+    <dt>Randomization</dt><dd>${esc(plan.test.randomization)}</dd>
+    <dt>Duration</dt><dd>${esc(plan.test.durationCopy || (plan.durationWeeks+' weeks'))}</dd>
+    <dt>Sample</dt><dd>${esc(plan.test.sample)}</dd>
+    ${plan.test.holdout?`<dt>Holdout</dt><dd>${esc(plan.test.holdout)}</dd>`:''}
+    <dt>Success</dt><dd>${esc(plan.test.success)}</dd>
+  </dl>`;
+
+  // Risks
+  const risks = plan.risks.map(r =>
+    `<div class="risk-item"><span class="r-bullet">·</span><div class="r-body">${esc(r.risk)}<span class="r-mit">${esc(r.mit)}</span></div></div>`
+  ).join('');
+
+  // Outcome
+  const o = plan.outcome;
+  const outcome = `<div class="outcome-grid">
+    <div class="outcome-card"><div class="outcome-label">Installs</div><div class="outcome-mid">${fmtN(o.installs.mid)}</div><div class="outcome-range">${fmtN(o.installs.low)} – ${fmtN(o.installs.high)}</div></div>
+    <div class="outcome-card"><div class="outcome-label">Blended CPI</div><div class="outcome-mid">${fmtCpi(o.cpi.mid)}</div><div class="outcome-range">${fmtCpi(o.cpi.low)} – ${fmtCpi(o.cpi.high)}</div></div>
+    <div class="outcome-card"><div class="outcome-label">ROAS D30</div><div class="outcome-mid">${fmtPct(o.roasD30.mid)}</div><div class="outcome-range">${fmtPct(o.roasD30.low)} – ${fmtPct(o.roasD30.high)}</div></div>
+    <div class="outcome-card"><div class="outcome-label">Payback</div><div class="outcome-mid">${o.payback.mid}d</div><div class="outcome-range">${o.payback.low}d – ${o.payback.high}d</div></div>
+  </div>
+  <div class="outcome-ci">90% CI · range reflects per-channel CPI variance + monetization curve uncertainty</div>`;
+
+  // Notes / framings
+  const notesHtml = (plan.notes||[]).map(n =>
+    `<div class="note-callout"><span class="label">Framing</span>${esc(n)}</div>`).join('');
+
+  // Diagnostic for expand objective
+  let diagnosticHtml = '';
+  if(plan.objective==='expand_geos'){
+    const d = expandDiagnostic();
+    if(d){
+      diagnosticHtml = `<div class="diagnostic-callout"><span class="label">Current state</span>Bubble Shooter Pop / TikTok / BR (last 30d) is at $${d.brSpend.toFixed(0)} vs MX $${d.mxSpend.toFixed(0)} — ${(d.ratio*100).toFixed(0)}% of MX. Recommend +${d.liftPct}% BR allocation lift to reach MX parity, then full launch into ID + PH at MX-equivalent budget.</div>`;
+    }
+  }
+
+  // Constraints applied
+  let constraintsHtml = '';
+  if(plan.constraints && plan.constraints.length){
+    constraintsHtml = `<div class="constraints-applied">
+      <div class="ca-h">Constraints applied</div>
+      ${plan.constraints.map(c => `<div class="ca-row"><span><strong>${esc(c.label)}</strong> — ${esc(c.detail)}</span></div>`).join('')}
+    </div>`;
+  }
+
+  out.innerHTML = `
+    <h2 class="plan-name">${esc(plan.name)}</h2>
+    <div class="plan-meta">${plan.durationWeeks} weeks<span class="sep">·</span>${fmtK(budget)} total budget<span class="sep">·</span>${esc(plan.summary)}</div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>Channel mix</span><span class="h-meta">${spendBarChannels.length} spend channel${spendBarChannels.length===1?'':'s'}${plan.mix.some(m=>m.virtual)?' + '+plan.mix.filter(m=>m.virtual).length+' operational':''}</span></div>
+      <div class="channel-bar">${barSegs}</div>
+      <div class="channel-list">${channelRows}</div>
+      ${avoidNote}
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>Creative direction</span><span class="h-meta">${plan.creative.length} concept${plan.creative.length===1?'':'s'}</span></div>
+      <div class="creative-list">${creativeRows}</div>
+      ${avoidCreative}
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>Audience targeting</span></div>
+      ${audience}
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>KPIs</span></div>
+      <div class="kpi-list">${kpiRows}</div>
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>Test design</span></div>
+      ${test}
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>Risks</span><span class="h-meta">${plan.risks.length} identified</span></div>
+      <div class="risk-list">${risks}</div>
+    </div>
+
+    <div class="plan-section">
+      <div class="plan-h"><span>Expected outcome</span><span class="h-meta">${plan.durationWeeks}-week projection</span></div>
+      ${outcome}
+      ${diagnosticHtml}
+      ${notesHtml}
+      ${constraintsHtml}
+    </div>
+  `;
+}
+
+/* ─── Save store ─── */
+
+function savePlan(){
+  const plan = generatePlan();
+  if(!plan) return;
+  // Snapshot — strip live functions, keep data
+  const snapshot = JSON.parse(JSON.stringify(plan));
+  snapshot.id = 'plan_' + (SAVED_PLANS.length+1);
+  snapshot.savedAt = Date.now();
+  SAVED_PLANS.push(snapshot);
+  const btn = document.getElementById('cd-save');
+  const counter = document.getElementById('cd-saved-count');
+  if(btn){
+    btn.textContent = `Saved (${SAVED_PLANS.length} of 3)`;
+    btn.classList.add('saved');
+    setTimeout(()=>{
+      btn.textContent = SAVED_PLANS.length >= 3 ? 'Limit reached (3/3)' : 'Save this plan';
+      btn.classList.remove('saved');
+    }, 1400);
+    if(SAVED_PLANS.length >= 3) btn.disabled = true;
+  }
+  if(counter){
+    counter.textContent = SAVED_PLANS.length === 0 ? 'No plans saved yet'
+      : `${SAVED_PLANS.length} plan${SAVED_PLANS.length===1?'':'s'} saved · view on Tab 07`;
+  }
+}
+
+function bindDesigner(){
+  const obj = document.getElementById('cd-objective');
+  const bud = document.getElementById('cd-budget');
+  const dur = document.getElementById('cd-duration');
+  const budVal = document.getElementById('cd-budget-val');
+  const durVal = document.getElementById('cd-duration-val');
+  const cNoMeta = document.getElementById('cd-c-nometa');
+  const cPriv = document.getElementById('cd-c-privacy');
+  const cIncr = document.getElementById('cd-c-incr');
+
+  obj.addEventListener('change', ()=>{ DESIGNER.objective = obj.value; renderPlan(); });
+  bud.addEventListener('input', ()=>{
+    DESIGNER.budgetK = +bud.value;
+    budVal.textContent = '$'+DESIGNER.budgetK+'K';
+    renderPlan();
+  });
+  dur.addEventListener('input', ()=>{
+    DESIGNER.durationWeeks = +dur.value;
+    durVal.textContent = DESIGNER.durationWeeks+' weeks';
+    renderPlan();
+  });
+  cNoMeta.addEventListener('change', ()=>{ DESIGNER.noMeta = cNoMeta.checked; renderPlan(); });
+  cPriv.addEventListener('change', ()=>{ DESIGNER.privacyFirst = cPriv.checked; renderPlan(); });
+  cIncr.addEventListener('change', ()=>{ DESIGNER.incrementality = cIncr.checked; renderPlan(); });
+  document.getElementById('cd-save').addEventListener('click', savePlan);
+
+  // initial render
+  renderPlan();
+}
+
+/* ─────────────────────────────────────────────────────────────
    Helpers
    ──────────────────────────────────────────────────────────── */
 
@@ -1107,6 +1905,7 @@ function init(){
   bindFilters();
   bindTabs();
   bindUploadModal();
+  bindDesigner();
   bindSkeletonListeners();
   setDataSource(DEMO_DATA, 'demo');
   syncDatePresets();
