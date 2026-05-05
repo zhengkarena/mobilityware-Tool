@@ -199,6 +199,64 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 .t1-mover .m-tag.retention{color:var(--plum);border-color:rgba(138,106,156,0.35)}
 .t1-movers-empty{padding:14px 11px;background:var(--inset);border:1px dashed var(--border);border-radius:var(--r);color:var(--text-faint);font-size:12px;text-align:center}
 
+/* ─── Tab 3 · Attribution Lab ─── */
+.t3-method-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px}
+@media (max-width:1100px){.t3-method-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:600px){.t3-method-grid{grid-template-columns:1fr}}
+.t3-method-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:16px 18px;display:flex;flex-direction:column;gap:6px;position:relative}
+.t3-method-card.network{border-top:2px solid var(--neg)}
+.t3-method-card.mmp{border-top:2px solid var(--slate)}
+.t3-method-card.skan{border-top:2px solid var(--plum)}
+.t3-method-card.incremental{border-top:2px solid var(--sage)}
+.t3-method-eyebrow{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.07em}
+.t3-method-name{font-family:var(--f-display);font-size:18px;font-weight:500;letter-spacing:-0.005em;color:var(--text);margin:0}
+.t3-method-window{font-family:var(--f-mono);font-size:10.5px;color:var(--text-mu);margin-bottom:4px}
+.t3-method-stat{display:flex;justify-content:space-between;align-items:baseline;padding-top:6px}
+.t3-method-stat-label{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t3-method-stat-val{font-family:var(--f-mono);font-size:14px;color:var(--text);font-weight:500}
+.t3-method-trust-row{display:flex;justify-content:space-between;align-items:center;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+.t3-method-trust-label{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t3-method-trust-dots{display:flex;gap:3px}
+.t3-method-trust-dot{width:7px;height:7px;border-radius:999px;background:var(--border-strong)}
+.t3-method-trust-dot.lit{background:var(--amber)}
+.t3-method-caveat{font-size:11.5px;color:var(--text-2);line-height:1.45;margin-top:8px;padding-top:8px;border-top:1px solid var(--border)}
+
+.t3-suspect-flag{display:inline-flex;align-items:center;gap:5px;padding:3px 8px;background:rgba(176,122,90,0.10);border:1px solid rgba(176,122,90,0.45);border-radius:3px;font-family:var(--f-mono);font-size:10px;color:var(--terra);text-transform:uppercase;letter-spacing:0.05em;margin-top:6px}
+.t3-suspect-flag .dot{width:6px;height:6px;border-radius:999px;background:var(--terra)}
+
+.t3-discount-wrap{margin-bottom:24px}
+.t3-discount-callout{background:rgba(199,148,58,0.06);border:1px solid var(--amber);border-left:3px solid var(--amber);border-radius:var(--r-lg);padding:18px 22px}
+.t3-discount-eyebrow{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:8px}
+.t3-discount-conclusion{font-family:var(--f-display);font-size:20px;font-weight:500;letter-spacing:-0.01em;line-height:1.3;color:var(--text);margin:0 0 12px}
+.t3-discount-conclusion .num{color:var(--amber);font-weight:500}
+.t3-discount-conclusion .num.was{color:var(--text-mu);text-decoration:line-through;text-decoration-color:var(--text-faint);font-weight:400}
+.t3-discount-formula{font-family:var(--f-mono);font-size:11.5px;color:var(--text-mu);background:var(--inset);padding:7px 11px;border-radius:var(--r);border:1px solid var(--border);display:inline-block;margin-top:4px}
+.t3-discount-formula code{color:var(--text-2)}
+.t3-discount-meta{margin-top:10px;font-family:var(--f-mono);font-size:10.5px;color:var(--text-faint);letter-spacing:0.02em}
+
+.t3-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
+.t3-section .plan-h{margin-bottom:14px}
+.t3-explainer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+@media (max-width:760px){.t3-explainer-grid{grid-template-columns:1fr}}
+.t3-explainer-item{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:12px 14px}
+.t3-explainer-h{font-family:var(--f-mono);font-size:11px;color:var(--text);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.t3-explainer-h .accent{font-size:9.5px;color:var(--text-faint)}
+.t3-explainer-h .accent.network{color:var(--neg)}
+.t3-explainer-h .accent.mmp{color:var(--slate)}
+.t3-explainer-h .accent.skan{color:var(--plum)}
+.t3-explainer-h .accent.incremental{color:var(--sage)}
+.t3-explainer-body{color:var(--text-2);font-size:12.5px;line-height:1.5}
+
+.t3-registry{width:100%;border-collapse:collapse;font-size:12px}
+.t3-registry th{text-align:left;padding:8px 12px 8px 0;color:var(--text-faint);font-family:var(--f-mono);font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid var(--border-strong)}
+.t3-registry td{padding:9px 12px 9px 0;color:var(--text-2);border-bottom:1px solid rgba(42,42,50,0.55);vertical-align:top;line-height:1.5}
+.t3-registry td:first-child{font-family:var(--f-display);font-size:14px;color:var(--text);font-weight:500}
+.t3-registry tr:last-child td{border-bottom:none}
+.t3-registry .trust-dots{display:inline-flex;gap:3px;align-items:center}
+.t3-registry .trust-dots .d{width:6px;height:6px;border-radius:999px;background:var(--border-strong)}
+.t3-registry .trust-dots .d.lit{background:var(--amber)}
+.t3-registry td.window{font-family:var(--f-mono);font-size:11px;color:var(--text-mu)}
+
 /* ─── Tab 6 · Campaign Designer ─── */
 .designer-grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:flex-start}
 @media (max-width:980px){.designer-grid{grid-template-columns:1fr}}
@@ -410,8 +468,17 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 9.</div>
   </section>
   <section class="tab" id="t3">
-    <div class="tab-header"><div class="tab-eyebrow">Tab 03</div><h1 class="tab-title">Attribution Lab</h1><p class="tab-framing">Four attribution methods, four numbers, same campaign. The fragmentation problem rendered.</p></div>
-    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 6.</div>
+    <div class="tab-header"><div class="tab-eyebrow">Tab 03</div><h1 class="tab-title">Attribution Lab</h1><p class="tab-framing">Four methods, four numbers, same campaign &mdash; the data-fragmentation problem rendered. Each card shows the method's view of the currently filtered slice. The synthesis below collapses the four into one decision-relevant number.</p></div>
+    <div class="t3-method-grid" id="t3-methods"></div>
+    <div class="t3-discount-wrap" id="t3-discount"></div>
+    <div class="t3-section">
+      <div class="plan-h"><span>Why these differ</span><span class="h-meta">attribution-bias mechanics</span></div>
+      <div class="t3-explainer-grid" id="t3-explainer"></div>
+    </div>
+    <div class="t3-section">
+      <div class="plan-h"><span>Method registry</span><span class="h-meta">pick the right method for the question</span></div>
+      <table class="t3-registry"><thead><tr><th>Method</th><th>Trust</th><th>Window</th><th>Best for</th><th>Misses</th></tr></thead><tbody id="t3-registry"></tbody></table>
+    </div>
   </section>
   <section class="tab" id="t4">
     <div class="tab-header"><div class="tab-eyebrow">Tab 04</div><h1 class="tab-title">A/B Test Lab</h1><p class="tab-framing">Test design, sample size, simulated readout. Bayesian framing alongside frequentist.</p></div>
@@ -1009,6 +1076,7 @@ function bindSkeletonListeners(){
       el.textContent = slice.length.toLocaleString();
     });
     renderTab1(slice);
+    renderTab3(slice);
   });
 }
 
@@ -1624,6 +1692,178 @@ function renderTab1(slice){
   renderGameCards(slice);
   renderSpendChart(slice);
   renderTopMovers();
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tab 3 · Attribution Lab
+   Four methods, four numbers, same campaign — directly addresses
+   the data-fragmentation pain point.
+   Calibrations from research:
+     Aarki 2025 — SKAN underreports installs 15-30% vs MMP probabilistic
+     Aarki "suspect threshold" — probabilistic-to-SKAN ratio > 1.7×
+     AppsFlyer SSOT — combines SKAN + probabilistic to recover the gap
+   ──────────────────────────────────────────────────────────── */
+
+// SKAN-vs-MMP ratio per channel. Lower = more underreported by SKAN
+// (Moloco 0.55 → MMP/SKAN = 1.82× = "suspect" per Aarki threshold —
+//  diagnostic for the planted Sol/Moloco/iOS anomaly).
+const SKAN_RATIO = {
+  'ASA':0.85, 'Google UAC':0.80, 'Moloco':0.55, 'InMobi':0.78, 'Meta':0.72,
+  'AppLovin':0.75, 'TikTok':0.74, 'Unity':0.76, 'ironSource':0.75, 'Liftoff':0.70
+};
+// Per-channel incremental rate (true incremental ROAS / MMP ROAS).
+// Meta=0.41 produces MMP/Incrementality = 2.44× — matches the
+// workbench's 0.41 discount logic. ASA=0.80 produces 1.25× — high
+// trust deterministic chain.
+const INCR_RATE = {
+  'ASA':0.80, 'Google UAC':0.65, 'Moloco':0.55, 'InMobi':0.50, 'Meta':0.41,
+  'AppLovin':0.45, 'TikTok':0.42, 'Unity':0.43, 'ironSource':0.43, 'Liftoff':0.38
+};
+const NETWORK_INFLATION = 1.075;
+const SUSPECT_THRESHOLD = 1.70;
+
+const ATTRIBUTION_METHODS = [
+  {key:'network',     name:'Network self-report', window:'real-time', trust:2,
+    caveat:'Last-touch overclaim. Inflated by every channel that brushed the user.',
+    explainer:'Each ad network reports the installs it touched. With 7-day attribution windows and last-touch logic, a network can claim credit for an install even if the user would have installed organically. Highest number across the four methods, lowest trust.'},
+  {key:'mmp',         name:'MMP (probabilistic)', window:'1-hour deferred', trust:4,
+    caveat:'Last-click within attribution window. Discounts incrementality.',
+    explainer:'MMP (AppsFlyer-style) deduplicates across networks and applies last-click attribution. Better than self-report — eliminates double-counting — but still credits assist channels and counts attributed-but-not-incremental installs.'},
+  {key:'skan',        name:'SKAN', window:'24–72h delayed', trust:3,
+    caveat:'Privacy-preserving but partial. Underreports 15-30% per Singular.',
+    explainer:'Apple\'s SKAdNetwork returns aggregated, delayed, partial postbacks. Null conversion values dominate first postback. Cannot follow users across the funnel. Underreports installs 15-30% vs MMP probabilistic per Singular benchmarks. Most trustworthy under privacy constraints.'},
+  {key:'incremental', name:'Incrementality', window:'4–8 weeks readout', trust:5,
+    caveat:'Causal ground truth. Slow + expensive to measure.',
+    explainer:'Geo-holdout test: compare treatment-cell ROAS to non-treatment-cell ROAS at the same geo. Causal by construction — answers "would these users have come anyway?" Slow (4-8 weeks per readout) and expensive. The ground truth, by definition.'}
+];
+
+function computeAttribution(slice){
+  const byCh = new Map();
+  for(const r of slice){
+    let b = byCh.get(r.channel);
+    if(!b){ b = {channel:r.channel, installs:0, spend:0, roasW:0}; byCh.set(r.channel, b); }
+    b.installs += r.installs; b.spend += r.spend_usd; b.roasW += r.roas_d7 * r.installs;
+  }
+  let totalInstalls = 0, totalSpend = 0, weightedRoasW = 0;
+  let weightedSkanProduct = 0, weightedIncrProduct = 0;
+  for(const b of byCh.values()){
+    totalInstalls += b.installs;
+    totalSpend += b.spend;
+    weightedRoasW += b.roasW;
+    weightedSkanProduct += b.installs * (SKAN_RATIO[b.channel] || 0.75);
+    weightedIncrProduct += b.installs * (INCR_RATE[b.channel] || 0.45);
+  }
+  const mmpRoas = totalInstalls > 0 ? weightedRoasW / totalInstalls : 0;
+  const skanFactor = totalInstalls > 0 ? weightedSkanProduct / totalInstalls : 0.75;
+  const incrFactor = totalInstalls > 0 ? weightedIncrProduct / totalInstalls : 0.45;
+  const mmpOverSkanRatio = skanFactor > 0 ? 1 / skanFactor : null;
+  const methods = {
+    network:     {installs: totalInstalls * NETWORK_INFLATION, roasD7: mmpRoas * NETWORK_INFLATION},
+    mmp:         {installs: totalInstalls,                     roasD7: mmpRoas},
+    skan:        {installs: totalInstalls * skanFactor,        roasD7: mmpRoas * skanFactor},
+    incremental: {installs: totalInstalls * incrFactor,        roasD7: mmpRoas * incrFactor}
+  };
+  return {
+    methods, mmpRoas, skanFactor, incrFactor, mmpOverSkanRatio,
+    suspect: mmpOverSkanRatio !== null && mmpOverSkanRatio > SUSPECT_THRESHOLD,
+    channelsInSlice: [...byCh.keys()],
+    totalInstalls
+  };
+}
+
+function trustDots(level, dotCls){
+  const cls = dotCls || 't3-method-trust-dot';
+  let s = '';
+  for(let i=0;i<5;i++) s += `<span class="${cls}${i<level?' lit':''}"></span>`;
+  return s;
+}
+
+function fmtPct(v){return (v*100).toFixed(1)+'%'}
+
+function describeSlice(){
+  const parts = [];
+  parts.push(FILTERS.game === 'all' ? 'all games' : FILTERS.game);
+  parts.push(FILTERS.os);
+  if(FILTERS.channels.length === 1) parts.push(FILTERS.channels[0]);
+  else if(FILTERS.channels.length > 1) parts.push(FILTERS.channels.length + ' channels');
+  if(FILTERS.geos.length === 1) parts.push(FILTERS.geos[0]);
+  else if(FILTERS.geos.length > 1) parts.push(FILTERS.geos.length + ' geos');
+  parts.push(FILTERS.datePreset === 'custom' ? 'custom range' : FILTERS.datePreset);
+  return parts.join(' · ');
+}
+
+function renderTab3(slice){
+  const grid = document.getElementById('t3-methods');
+  if(!grid) return;
+  const a = computeAttribution(slice);
+
+  grid.innerHTML = ATTRIBUTION_METHODS.map(m => {
+    const d = a.methods[m.key];
+    const installs = a.totalInstalls === 0 ? '—' : fmtCompact(d.installs);
+    const roas = a.totalInstalls === 0 ? '—' : fmtPct(d.roasD7);
+    const suspectFlag = (m.key==='skan' && a.suspect)
+      ? `<div class="t3-suspect-flag" title="MMP/SKAN ratio above the Aarki suspect threshold of 1.7×"><span class="dot"></span>Suspect ratio · MMP/SKAN ${a.mmpOverSkanRatio.toFixed(2)}×</div>`
+      : '';
+    return `<div class="t3-method-card ${m.key}">
+      <div class="t3-method-eyebrow">Method · ${esc(m.key)}</div>
+      <h3 class="t3-method-name">${esc(m.name)}</h3>
+      <div class="t3-method-window">Window: ${esc(m.window)}</div>
+      <div class="t3-method-stat"><span class="t3-method-stat-label">Attributed installs</span><span class="t3-method-stat-val">${installs}</span></div>
+      <div class="t3-method-stat"><span class="t3-method-stat-label">Attributed ROAS D7</span><span class="t3-method-stat-val">${roas}</span></div>
+      <div class="t3-method-trust-row">
+        <span class="t3-method-trust-label">Trust ${m.trust}/5</span>
+        <div class="t3-method-trust-dots">${trustDots(m.trust)}</div>
+      </div>
+      <div class="t3-method-caveat">${esc(m.caveat)}</div>
+      ${suspectFlag}
+    </div>`;
+  }).join('');
+
+  const wrap = document.getElementById('t3-discount');
+  if(a.totalInstalls === 0){
+    wrap.innerHTML = `<div class="t3-discount-callout">
+      <div class="t3-discount-eyebrow">No attribution data</div>
+      <div class="t3-discount-conclusion">Filter slice has zero installs &mdash; broaden the filter to see the discount synthesis.</div>
+    </div>`;
+  } else {
+    const sliceLabel = describeSlice();
+    const mmpPct = (a.mmpRoas*100).toFixed(1);
+    const incrPct = (a.mmpRoas*a.incrFactor*100).toFixed(1);
+    const ratio = a.incrFactor > 0 ? (1/a.incrFactor).toFixed(2) : '—';
+    const channels = a.channelsInSlice.length === 1 ? a.channelsInSlice[0]
+                   : a.channelsInSlice.length <= 3 ? a.channelsInSlice.join(' + ')
+                   : `${a.channelsInSlice.length} channels`;
+    wrap.innerHTML = `<div class="t3-discount-callout">
+      <div class="t3-discount-eyebrow">Discount synthesis</div>
+      <div class="t3-discount-conclusion">If you trust this incrementality test, ${esc(channels)} effective ROAS D7 for this slice is <span class="num">${incrPct}%</span>, not <span class="num was">${mmpPct}%</span>.</div>
+      <div class="t3-discount-formula"><code>incremental_roas = mmp_roas × (incremental_rate / 1.0)</code></div>
+      <div class="t3-discount-meta">slice: ${esc(sliceLabel)}  ·  weighted incrementality rate ${a.incrFactor.toFixed(2)}  ·  MMP-to-incremental ratio ${ratio}×</div>
+    </div>`;
+  }
+
+  const exp = document.getElementById('t3-explainer');
+  exp.innerHTML = ATTRIBUTION_METHODS.map(m =>
+    `<div class="t3-explainer-item">
+      <div class="t3-explainer-h"><span>${esc(m.name)}</span><span class="accent ${m.key}">${esc(m.key)}</span></div>
+      <div class="t3-explainer-body">${esc(m.explainer)}</div>
+    </div>`
+  ).join('');
+
+  const registryRows = [
+    {name:'Network self-report', trust:2, window:'real-time',         best:'Volume signal at the speed of the network dashboard', misses:'Incrementality, double-counting across networks, post-IDFA accuracy'},
+    {name:'MMP (probabilistic)', trust:4, window:'1-hour deferred',   best:'Day-to-day campaign optimization, channel comparison, deduplication', misses:'Causal incrementality; assist credit; user-level under SKAN'},
+    {name:'SKAN',                trust:3, window:'24–72h delayed',    best:'Privacy-compliant signal under iOS ATT; aggregate trust check', misses:'Granular cohort detail; long-funnel events; user-level identity'},
+    {name:'Incrementality',      trust:5, window:'4–8 weeks readout', best:'Causal ground truth; "would they have installed anyway"', misses:'Speed; granularity; cost discipline if run on every campaign'}
+  ];
+  document.getElementById('t3-registry').innerHTML = registryRows.map(r =>
+    `<tr>
+      <td>${esc(r.name)}</td>
+      <td><span class="trust-dots">${trustDots(r.trust, 'd')}</span></td>
+      <td class="window">${esc(r.window)}</td>
+      <td>${esc(r.best)}</td>
+      <td>${esc(r.misses)}</td>
+    </tr>`
+  ).join('');
 }
 
 /* ─────────────────────────────────────────────────────────────
