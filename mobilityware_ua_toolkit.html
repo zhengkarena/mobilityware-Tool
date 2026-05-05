@@ -350,6 +350,54 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 .t4-framing-callout{background:var(--inset);border-left:2px solid var(--amber);padding:11px 16px;margin-top:6px;border-radius:0 var(--r) var(--r) 0;font-size:12.5px;color:var(--text-2);line-height:1.55}
 .t4-framing-callout .label{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
 
+/* ─── Tab 7 · Compare Plans ─── */
+.t7-controls{display:flex;align-items:center;gap:14px;margin-bottom:18px;background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:13px 18px}
+.t7-priority{display:flex;align-items:center;gap:10px}
+.t7-priority .select{min-width:220px}
+.t7-spacer{flex:1}
+.t7-plans-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:18px}
+@media (max-width:1100px){.t7-plans-grid{grid-template-columns:1fr}}
+.t7-plan-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 20px;display:flex;flex-direction:column;gap:9px;border-top:3px solid var(--slate)}
+.t7-plan-card.B{border-top-color:var(--amber)}
+.t7-plan-card.C{border-top-color:var(--sage)}
+.t7-plan-card.winner{box-shadow:0 0 0 1px var(--amber), 0 14px 28px rgba(199,148,58,0.10)}
+.t7-plan-eyebrow{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.07em;display:flex;justify-content:space-between;align-items:baseline}
+.t7-plan-eyebrow .winner-pill{font-family:var(--f-mono);font-size:9.5px;color:#0F0F11;background:var(--amber);padding:2px 8px;border-radius:3px;letter-spacing:0.05em;font-weight:600}
+.t7-plan-name{font-family:var(--f-display);font-size:18px;font-weight:500;letter-spacing:-0.005em;color:var(--text);margin:0;line-height:1.2}
+.t7-plan-meta{font-family:var(--f-mono);font-size:11px;color:var(--text-mu);letter-spacing:0.02em}
+.t7-plan-mix-bar{height:8px;border-radius:3px;overflow:hidden;display:flex;background:var(--inset);border:1px solid var(--border)}
+.t7-plan-mix-bar .seg{height:100%}
+.t7-plan-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px 14px;padding-top:9px;border-top:1px solid var(--border)}
+.t7-plan-stat{display:flex;flex-direction:column;gap:2px}
+.t7-plan-stat .lab{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t7-plan-stat .mid{font-family:var(--f-display);font-size:17px;font-weight:500;color:var(--text);letter-spacing:-0.005em;line-height:1.05}
+.t7-plan-stat .range{font-family:var(--f-mono);font-size:10px;color:var(--text-mu)}
+.t7-plan-constraints{margin-top:6px;padding:7px 11px;background:rgba(199,148,58,0.06);border-left:2px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-family:var(--f-mono);font-size:10.5px;color:var(--text-2)}
+.t7-empty{padding:36px 22px;text-align:center;background:var(--card);border:1px dashed var(--border-strong);border-radius:var(--r-lg);color:var(--text-faint);font-size:13px;line-height:1.6}
+.t7-empty strong{color:var(--amber);font-weight:500;font-family:var(--f-mono)}
+
+.t7-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
+.t7-section .plan-h{margin-bottom:14px}
+.t7-charts{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:1100px){.t7-charts{grid-template-columns:repeat(2,1fr)}}
+.t7-chart-wrap{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:11px 13px}
+.t7-chart-label{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:8px}
+.t7-chart-wrap svg{display:block;width:100%;height:auto;overflow:visible}
+
+.t7-winner{background:rgba(199,148,58,0.06);border:1px solid var(--amber);border-left:3px solid var(--amber);border-radius:var(--r-lg);padding:18px 22px;margin-bottom:18px}
+.t7-winner-eyebrow{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:7px}
+.t7-winner-conclusion{font-family:var(--f-display);font-size:19px;font-weight:500;letter-spacing:-0.01em;line-height:1.35;color:var(--text);margin:0 0 10px}
+.t7-winner-conclusion strong{color:var(--amber);font-weight:500}
+.t7-winner-comparison{display:grid;grid-template-columns:repeat(3,1fr);gap:11px;font-family:var(--f-mono);font-size:11.5px;margin-top:6px}
+.t7-winner-comp-row{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:8px 11px;display:flex;flex-direction:column;gap:3px}
+.t7-winner-comp-row.win{border-color:var(--amber)}
+.t7-winner-comp-row .lab{font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t7-winner-comp-row .val{color:var(--text)}
+.t7-winner-comp-row.win .val{color:var(--amber);font-weight:500}
+.t7-winner-overlap{margin-top:11px;padding:8px 12px;background:var(--inset);border:1px solid var(--border);border-radius:var(--r);font-family:var(--f-mono);font-size:10.5px;color:var(--text-2);line-height:1.5}
+.t7-winner-overlap.warn{border-color:rgba(176,122,90,0.4);background:rgba(176,122,90,0.06);color:var(--text-2)}
+.t7-winner-overlap.warn::before{content:"⚠ ";color:var(--terra)}
+
 /* ─── Tab 2 · Funnel Analyzer ─── */
 .t2-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
 .t2-section .plan-h{margin-bottom:14px}
@@ -816,8 +864,26 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     </div>
   </section>
   <section class="tab" id="t7">
-    <div class="tab-header"><div class="tab-eyebrow">Tab 07</div><h1 class="tab-title">Compare Plans</h1><p class="tab-framing">Side-by-side comparison of saved plans with a recommended winner.</p></div>
-    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 10.</div>
+    <div class="tab-header"><div class="tab-eyebrow">Tab 07</div><h1 class="tab-title">Compare Plans</h1><p class="tab-framing">Save up to three plans on Tab 06, compare them here. Every projection carries its 90% CI &mdash; the recommended winner explains its math, and acknowledges when CIs overlap.</p></div>
+    <div class="t7-controls">
+      <div class="t7-priority">
+        <span class="config-label">Decision priority</span>
+        <select class="select" id="t7-priority">
+          <option value="roas">Best ROAS D30</option>
+          <option value="payback">Fastest payback</option>
+          <option value="volume">Highest install volume</option>
+          <option value="diversified">Most diversified risk</option>
+        </select>
+      </div>
+      <div class="t7-spacer"></div>
+      <button class="btn" id="t7-reset">Reset all plans</button>
+    </div>
+    <div class="t7-plans-grid" id="t7-plans"></div>
+    <div class="t7-section" id="t7-charts-section">
+      <div class="plan-h"><span>Side-by-side projections</span><span class="h-meta">90% CI ranges shown as whiskers</span></div>
+      <div class="t7-charts" id="t7-charts"></div>
+    </div>
+    <div id="t7-winner"></div>
   </section>
 </main>
 
@@ -2527,6 +2593,252 @@ function bindTab4(){
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Tab 7 · Compare Plans
+   Reads SAVED_PLANS from Tab 6. Up to 3 plans displayed side-by-side
+   with projection charts (90% CI whiskers) + transparent winner logic
+   for 4 priority modes including diversified-risk via z-score distance.
+   ──────────────────────────────────────────────────────────── */
+
+const T7 = {priority: 'roas'};
+const T7_PLAN_COLORS = ['#5A7A95', '#C7943A', '#6A8C5A']; // slate, amber, sage
+
+const T7_PRIORITIES = {
+  roas:        {label:'Best ROAS D30', metric:'roasD30',  better:'higher', fmt:v=>(v*100).toFixed(1)+'%'},
+  payback:     {label:'Fastest payback', metric:'payback', better:'lower',  fmt:v=>v+'d'},
+  volume:      {label:'Highest install volume', metric:'installs', better:'higher', fmt:v=>fmtCompact(v)},
+  diversified: {label:'Most diversified risk', metric:null, better:null,    fmt:null}
+};
+
+function t7PickWinner(plans, priority){
+  if(plans.length === 0) return null;
+  if(plans.length === 1) return {idx:0, reason:'only-plan'};
+
+  if(priority === 'diversified'){
+    // Z-score normalize each metric across plans, then pick the plan with
+    // greatest average Euclidean distance from others — most distinct profile.
+    const metrics = ['installs', 'cpi', 'roasD30', 'payback'];
+    const values = metrics.map(m => plans.map(p => p.outcome[m].mid));
+    const stats = metrics.map((m,i) => {
+      const arr = values[i];
+      const mean = arr.reduce((s,v)=>s+v,0) / arr.length;
+      const variance = arr.reduce((s,v)=>s+(v-mean)*(v-mean),0) / arr.length;
+      return {mean, sd: Math.sqrt(variance) || 1};
+    });
+    const zs = plans.map((p,j) => metrics.map((m,i) => (values[i][j] - stats[i].mean) / stats[i].sd));
+    const distances = plans.map((p,j) => {
+      let total = 0;
+      for(let k=0; k<plans.length; k++){
+        if(k===j) continue;
+        let d2 = 0;
+        for(let i=0; i<metrics.length; i++) d2 += (zs[j][i] - zs[k][i])**2;
+        total += Math.sqrt(d2);
+      }
+      return total / Math.max(1, plans.length-1);
+    });
+    const maxIdx = distances.indexOf(Math.max(...distances));
+    return {idx:maxIdx, reason:'diversified', distances};
+  }
+
+  const cfg = T7_PRIORITIES[priority];
+  const vals = plans.map(p => p.outcome[cfg.metric].mid);
+  const winnerIdx = cfg.better === 'higher'
+    ? vals.indexOf(Math.max(...vals))
+    : vals.indexOf(Math.min(...vals));
+  return {idx:winnerIdx, reason:priority, vals};
+}
+
+function t7CiOverlap(rangeA, rangeB){
+  // Returns overlap as a fraction of the smaller range.
+  // 1.0 = identical ranges, 0.0 = no overlap.
+  const overlap = Math.max(0, Math.min(rangeA.high, rangeB.high) - Math.max(rangeA.low, rangeB.low));
+  const minRange = Math.min(rangeA.high - rangeA.low, rangeB.high - rangeB.low);
+  return minRange > 0 ? overlap / minRange : 0;
+}
+
+function t7RenderProjectionChart(metric, plans, label, formatter, betterDir){
+  const w = 200, h = 130, padTop = 24, padBottom = 26, padLeft = 8, padRight = 8;
+  const plotH = h - padTop - padBottom;
+  const colWidth = (w - padLeft - padRight) / plans.length;
+  const allHighs = plans.map(p => p.outcome[metric].high);
+  const allLows  = plans.map(p => p.outcome[metric].low);
+  const max = Math.max(...allHighs) * 1.10;
+  const min = 0;
+  const yScale = v => padTop + plotH * (1 - (v - min)/(max - min));
+  const bars = plans.map((p, i) => {
+    const x = padLeft + i * colWidth + colWidth/2;
+    const o = p.outcome[metric];
+    const yMid = yScale(o.mid);
+    const yLow = yScale(o.low);
+    const yHigh = yScale(o.high);
+    const barW = Math.min(28, colWidth - 14);
+    const color = T7_PLAN_COLORS[i] || '#888';
+    return `
+      <rect x="${x-barW/2}" y="${yMid}" width="${barW}" height="${(padTop+plotH)-yMid}" fill="${color}" opacity="0.78" rx="1"/>
+      <line x1="${x}" y1="${yLow}" x2="${x}" y2="${yHigh}" stroke="${color}" stroke-width="1.5" opacity="0.95"/>
+      <line x1="${x-6}" y1="${yLow}" x2="${x+6}" y2="${yLow}" stroke="${color}" stroke-width="1.5" opacity="0.95"/>
+      <line x1="${x-6}" y1="${yHigh}" x2="${x+6}" y2="${yHigh}" stroke="${color}" stroke-width="1.5" opacity="0.95"/>
+      <text x="${x}" y="${padTop-7}" text-anchor="middle" font-family="JetBrains Mono" font-size="9.5" fill="#ECEAE3">${esc(formatter(o.mid))}</text>
+      <text x="${x}" y="${h-9}" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#8E8C84">${String.fromCharCode(65+i)}</text>
+    `;
+  }).join('');
+  const dirHint = betterDir === 'lower' ? 'lower is better' : 'higher is better';
+  return `<div class="t7-chart-wrap">
+    <div class="t7-chart-label">${esc(label)} <span style="color:var(--text-faint);font-size:9px;float:right">${dirHint}</span></div>
+    <svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="xMidYMid meet">${bars}</svg>
+  </div>`;
+}
+
+function renderTab7(){
+  const plans = SAVED_PLANS.slice(0, 3);
+  const grid = document.getElementById('t7-plans');
+  const winnerEl = document.getElementById('t7-winner');
+  const chartsEl = document.getElementById('t7-charts');
+  const chartsSec = document.getElementById('t7-charts-section');
+  if(!grid) return;
+
+  if(plans.length === 0){
+    grid.innerHTML = `<div class="t7-empty" style="grid-column:1/-1">
+      No plans saved yet. Generate plans on <strong>Tab 06</strong> and click <strong>Save this plan</strong>. You can save up to 3 plans for comparison.
+    </div>`;
+    if(chartsSec) chartsSec.style.display = 'none';
+    if(winnerEl) winnerEl.innerHTML = '';
+    return;
+  }
+  if(chartsSec) chartsSec.style.display = '';
+
+  // Plan cards
+  const fmtK = n => '$'+(n/1000).toFixed(0)+'K';
+  const fmtN = n => Math.round(n).toLocaleString();
+  const winnerPick = t7PickWinner(plans, T7.priority);
+  const winnerIdx = winnerPick ? winnerPick.idx : -1;
+
+  grid.innerHTML = plans.map((p, i) => {
+    const letter = String.fromCharCode(65+i);
+    const cls = `t7-plan-card ${letter}${i===winnerIdx?' winner':''}`;
+    const isWinner = i === winnerIdx;
+    const o = p.outcome;
+    // Mini channel mix bar (spend channels only)
+    const spendCh = p.mix.filter(m => !m.virtual);
+    const total = spendCh.reduce((s,m)=>s+m.pct,0) || 1;
+    const segs = spendCh.map(m =>
+      `<div class="seg" style="flex:${m.pct/total} 0 0;background:${CHANNEL_COLORS[m.channel]||'#888'}"></div>`
+    ).join('');
+    const constraintsHtml = p.constraints && p.constraints.length
+      ? `<div class="t7-plan-constraints">${p.constraints.map(c=>esc(c.label)).join(' · ')}</div>`
+      : '';
+    return `<article class="${cls}">
+      <div class="t7-plan-eyebrow">
+        <span>Plan ${letter} · ${esc(p.objective.replace(/_/g,' '))}</span>
+        ${isWinner ? '<span class="winner-pill">winner</span>' : ''}
+      </div>
+      <h3 class="t7-plan-name">${esc(p.name)}</h3>
+      <div class="t7-plan-meta">${fmtK(p.budgetK*1000)} · ${p.durationWeeks}w · ${spendCh.length} channels</div>
+      <div class="t7-plan-mix-bar">${segs}</div>
+      <div class="t7-plan-stats">
+        <div class="t7-plan-stat">
+          <span class="lab">Installs</span>
+          <span class="mid">${fmtN(o.installs.mid)}</span>
+          <span class="range">${fmtN(o.installs.low)} – ${fmtN(o.installs.high)}</span>
+        </div>
+        <div class="t7-plan-stat">
+          <span class="lab">CPI</span>
+          <span class="mid">$${o.cpi.mid.toFixed(2)}</span>
+          <span class="range">$${o.cpi.low.toFixed(2)} – $${o.cpi.high.toFixed(2)}</span>
+        </div>
+        <div class="t7-plan-stat">
+          <span class="lab">ROAS D30</span>
+          <span class="mid">${(o.roasD30.mid*100).toFixed(0)}%</span>
+          <span class="range">${(o.roasD30.low*100).toFixed(0)}% – ${(o.roasD30.high*100).toFixed(0)}%</span>
+        </div>
+        <div class="t7-plan-stat">
+          <span class="lab">Payback</span>
+          <span class="mid">${o.payback.mid}d</span>
+          <span class="range">${o.payback.low}d – ${o.payback.high}d</span>
+        </div>
+      </div>
+      ${constraintsHtml}
+    </article>`;
+  }).join('');
+
+  // Projection charts
+  if(plans.length >= 2){
+    chartsEl.innerHTML =
+      t7RenderProjectionChart('installs', plans, 'Installs', fmtCompact, 'higher') +
+      t7RenderProjectionChart('cpi', plans, 'Blended CPI', v => '$'+v.toFixed(2), 'lower') +
+      t7RenderProjectionChart('roasD30', plans, 'ROAS D30', v => (v*100).toFixed(0)+'%', 'higher') +
+      t7RenderProjectionChart('payback', plans, 'Payback', v => v+'d', 'lower');
+  } else {
+    chartsEl.innerHTML = `<div class="t7-empty" style="grid-column:1/-1">Save at least 2 plans on Tab 06 to see side-by-side projections.</div>`;
+  }
+
+  // Winner callout
+  if(winnerPick && plans.length >= 2){
+    const winnerPlan = plans[winnerIdx];
+    const cfg = T7_PRIORITIES[T7.priority];
+    const winnerLetter = String.fromCharCode(65+winnerIdx);
+    let conclusion, comparison, overlapHtml = '';
+
+    if(T7.priority === 'diversified'){
+      const dists = winnerPick.distances;
+      conclusion = `<strong>Plan ${esc(winnerLetter)}</strong> wins for <strong>most diversified risk</strong>: lowest pairwise correlation with the other plans (z-score distance ${dists[winnerIdx].toFixed(2)} vs ${dists.filter((_,i)=>i!==winnerIdx).map(d=>d.toFixed(2)).join(', ')}).`;
+      comparison = `<div class="t7-winner-comparison">${plans.map((p,i)=>`
+        <div class="t7-winner-comp-row${i===winnerIdx?' win':''}">
+          <span class="lab">Plan ${String.fromCharCode(65+i)} avg distance</span>
+          <span class="val">${dists[i].toFixed(2)}</span>
+        </div>`).join('')}</div>`;
+    } else {
+      const vals = plans.map(p => p.outcome[cfg.metric].mid);
+      const sortedIdx = vals.map((v,i)=>i).sort((a,b) => cfg.better==='higher' ? vals[b]-vals[a] : vals[a]-vals[b]);
+      const runnerUpIdx = sortedIdx[1];
+      const winnerVal = vals[winnerIdx];
+      const runnerUpVal = vals[runnerUpIdx];
+      const rest = plans.map((p,i) => `Plan ${String.fromCharCode(65+i)} ${cfg.fmt(vals[i])}`).join(', ');
+      conclusion = `<strong>Plan ${esc(winnerLetter)}</strong> wins for <strong>${esc(cfg.label)}</strong>: ${esc(cfg.fmt(winnerVal))} ${cfg.better==='higher'?'vs':'vs'} ${plans.map((p,i)=>i===winnerIdx?null:`Plan ${String.fromCharCode(65+i)} ${esc(cfg.fmt(vals[i]))}`).filter(Boolean).join(', ')}.`;
+      comparison = `<div class="t7-winner-comparison">${plans.map((p,i)=>`
+        <div class="t7-winner-comp-row${i===winnerIdx?' win':''}">
+          <span class="lab">Plan ${String.fromCharCode(65+i)} · ${esc(cfg.label.toLowerCase())}</span>
+          <span class="val">${esc(cfg.fmt(vals[i]))}</span>
+        </div>`).join('')}</div>`;
+      // CI overlap acknowledgment between winner and runner-up on the priority metric
+      const wRange = winnerPlan.outcome[cfg.metric];
+      const rRange = plans[runnerUpIdx].outcome[cfg.metric];
+      const overlap = t7CiOverlap(wRange, rRange);
+      const runnerUpLetter = String.fromCharCode(65+runnerUpIdx);
+      if(overlap > 0.50){
+        overlapHtml = `<div class="t7-winner-overlap warn">CI overlap with Plan ${esc(runnerUpLetter)} is ${(overlap*100).toFixed(0)}% — confidence is <strong>moderate</strong>, not high. The nominal winner may not be a real winner; consider testing both.</div>`;
+      } else if(overlap > 0.20){
+        overlapHtml = `<div class="t7-winner-overlap">CI overlap with Plan ${esc(runnerUpLetter)} is ${(overlap*100).toFixed(0)}% — modest. Lean toward the winner but verify with an in-market test.</div>`;
+      } else {
+        overlapHtml = `<div class="t7-winner-overlap">CI overlap with the runner-up is ${(overlap*100).toFixed(0)}% — low. Confidence in the choice is high.</div>`;
+      }
+    }
+    winnerEl.innerHTML = `<div class="t7-winner-eyebrow">Recommended winner · ${esc(cfg.label)}</div>
+      <div class="t7-winner-conclusion">${conclusion}</div>
+      ${comparison}
+      ${overlapHtml}`;
+  } else {
+    winnerEl.innerHTML = '';
+  }
+}
+
+function bindTab7(){
+  document.getElementById('t7-priority').addEventListener('change', e => {
+    T7.priority = e.target.value;
+    renderTab7();
+  });
+  document.getElementById('t7-reset').addEventListener('click', () => {
+    if(SAVED_PLANS.length === 0) return;
+    SAVED_PLANS.length = 0;
+    // also reset the Tab 6 save button state
+    const btn = document.getElementById('cd-save');
+    if(btn){ btn.textContent = 'Save this plan'; btn.classList.remove('saved'); btn.disabled = false; }
+    const sc = document.getElementById('cd-saved-count');
+    if(sc) sc.textContent = 'No plans saved yet';
+    renderTab7();
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
    Tab 2 · Funnel Analyzer
    6-step funnel: Impression → Click → Install → Onboarding →
    D7 Active → First IAP. Per-channel CTR/CVR drive top-of-funnel,
@@ -3756,6 +4068,7 @@ function savePlan(){
     counter.textContent = SAVED_PLANS.length === 0 ? 'No plans saved yet'
       : `${SAVED_PLANS.length} plan${SAVED_PLANS.length===1?'':'s'} saved · view on Tab 07`;
   }
+  if(typeof renderTab7 === 'function') renderTab7();
 }
 
 function bindDesigner(){
@@ -3814,7 +4127,9 @@ function init(){
   bindDesigner();
   bindTab4();
   bindTab2();
+  bindTab7();
   bindSkeletonListeners();
+  renderTab7();
   setDataSource(DEMO_DATA, 'demo');
   syncDatePresets();
 }
