@@ -350,6 +350,51 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 .t4-framing-callout{background:var(--inset);border-left:2px solid var(--amber);padding:11px 16px;margin-top:6px;border-radius:0 var(--r) var(--r) 0;font-size:12.5px;color:var(--text-2);line-height:1.55}
 .t4-framing-callout .label{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
 
+/* ─── Tab 5 · Audience Segments ─── */
+.t5-segment-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-bottom:18px}
+@media (max-width:1300px){.t5-segment-grid{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:760px){.t5-segment-grid{grid-template-columns:1fr}}
+.t5-segment-card{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:14px 16px;border-top:2px solid var(--amber);display:flex;flex-direction:column;gap:9px}
+.t5-seg-name{font-family:var(--f-display);font-size:17px;font-weight:500;letter-spacing:-0.005em;color:var(--text);margin:0}
+.t5-seg-desc{font-size:11.5px;color:var(--text-mu);line-height:1.4}
+.t5-seg-stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.t5-seg-stat{display:flex;flex-direction:column;gap:2px}
+.t5-seg-stat .lab{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t5-seg-stat .val{font-family:var(--f-display);font-size:17px;font-weight:500;color:var(--text);letter-spacing:-0.005em;line-height:1}
+.t5-seg-stat .sub{font-family:var(--f-mono);font-size:9.5px;color:var(--text-mu)}
+.t5-retention-spark{height:36px;background:var(--inset);border:1px solid var(--border);border-radius:3px;padding:4px 6px}
+.t5-retention-spark svg{display:block;width:100%;height:100%;overflow:visible}
+.t5-retention-label{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;text-align:center;margin-top:-4px}
+.t5-top-ch .lab{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em;display:block;margin-bottom:5px}
+.t5-ch-pills{display:flex;flex-wrap:wrap;gap:4px}
+.t5-ch-pill{font-family:var(--f-mono);font-size:10.5px;padding:3px 7px;border-radius:3px;background:var(--inset);border:1px solid var(--border-strong);color:var(--text-2)}
+.t5-ch-pill .pct{color:var(--amber);font-weight:500;margin-left:3px}
+.t5-action{display:flex;flex-direction:column;gap:3px;padding-top:6px;border-top:1px solid var(--border)}
+.t5-action .lab{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.05em}
+.t5-action .text{font-size:11.5px;color:var(--text-2);line-height:1.45}
+.t5-source-callout{margin-top:6px;padding:9px 11px;background:rgba(199,148,58,0.06);border-left:2px solid var(--amber);border-radius:0 var(--r) var(--r) 0;font-size:11px;color:var(--text);line-height:1.5}
+.t5-source-attr{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;margin-top:5px}
+
+.t5-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
+.t5-section .plan-h{margin-bottom:14px}
+.t5-matrix-wrap{overflow-x:auto}
+.t5-matrix{width:100%;border-collapse:collapse;font-family:var(--f-mono);font-size:11px;min-width:760px}
+.t5-matrix th{text-align:right;padding:7px 8px 7px 0;color:var(--text-faint);font-weight:400;text-transform:uppercase;letter-spacing:0.06em;font-size:10px;border-bottom:1px solid var(--border-strong);white-space:nowrap}
+.t5-matrix th:first-child{text-align:left}
+.t5-matrix td{padding:7px 8px;text-align:right;color:var(--text);border-bottom:1px solid rgba(42,42,50,0.4);font-variant-numeric:tabular-nums}
+.t5-matrix td.seg-cell{text-align:left;color:var(--text);font-family:var(--f-display);font-size:13px;font-weight:500;letter-spacing:-0.005em;padding-left:0;white-space:nowrap}
+.t5-matrix td.heat{font-size:10.5px;border-right:1px solid var(--bg)}
+.t5-matrix td.over{color:var(--text);font-weight:500}
+.t5-matrix tr.portfolio-row td{border-top:1px solid var(--border-strong);background:var(--inset);color:var(--text-mu);font-size:10px}
+.t5-matrix .legend{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);margin-top:8px;display:flex;align-items:center;gap:8px}
+
+.t5-recommendation{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:18px 22px;margin-bottom:18px}
+.t5-rec-eyebrow{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:8px}
+.t5-rec-conclusion{font-family:var(--f-display);font-size:17px;font-weight:500;letter-spacing:-0.005em;line-height:1.4;color:var(--text);margin:0 0 8px}
+.t5-rec-conclusion strong{color:var(--amber);font-weight:500}
+.t5-rec-bridge{font-size:12px;color:var(--text-mu);font-family:var(--f-mono);line-height:1.5}
+.t5-rec-bridge .arrow{color:var(--text-faint);margin:0 6px}
+
 /* ─── Tab 6 · Campaign Designer ─── */
 .designer-grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:flex-start}
 @media (max-width:980px){.designer-grid{grid-template-columns:1fr}}
@@ -633,8 +678,13 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     </div>
   </section>
   <section class="tab" id="t5">
-    <div class="tab-header"><div class="tab-eyebrow">Tab 05</div><h1 class="tab-title">Audience Segments</h1><p class="tab-framing">Five segments, ARPU multipliers, channel composition, recommended actions.</p></div>
-    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 8.</div>
+    <div class="tab-header"><div class="tab-eyebrow">Tab 05</div><h1 class="tab-title">Audience Segments</h1><p class="tab-framing">Five segments, derived from channel composition + retention behavior. ARPU multipliers, acquisition-channel mix per segment, and recommended actions &mdash; the bridge from "what slice is this user" to "where do we find more like them."</p></div>
+    <div class="t5-segment-grid" id="t5-segments"></div>
+    <div class="t5-section">
+      <div class="plan-h"><span>Segment × channel matrix</span><span class="h-meta">% of channel installs falling into each segment</span></div>
+      <div class="t5-matrix-wrap" id="t5-matrix"></div>
+    </div>
+    <div class="t5-recommendation" id="t5-recommendation"></div>
   </section>
   <section class="tab" id="t6">
     <div class="tab-header"><div class="tab-eyebrow">Tab 06 &middot; centerpiece</div><h1 class="tab-title">Campaign Designer</h1><p class="tab-framing">Pick an objective, set a budget, generate a plan. Channel mix, creative direction, KPIs, test design, expected outcome &mdash; all derived from a deterministic decision tree that encodes UA-analyst judgment, not ML.</p></div>
@@ -1225,6 +1275,7 @@ function bindSkeletonListeners(){
     });
     renderTab1(slice);
     renderTab3(slice);
+    renderTab5(slice);
     if(typeof t4RenderSampleReadout === 'function') t4RenderSampleReadout();
   });
 }
@@ -2380,6 +2431,267 @@ function bindTab4(){
   t4RenderSampleReadout();
   t4RenderResultBody();
   t4RenderHistory();
+}
+
+/* ─────────────────────────────────────────────────────────────
+   Tab 5 · Audience Segments
+   Five segments derived from channel composition + retention behavior.
+   Calibration anchor: Moloco 2025 State of Mobile Gaming —
+     "Top 5% of US iOS players (just 0.02% of global installs)
+     generate ~20% of global gaming revenue."
+   The Whales segment lands this stat verbatim with source attribution.
+   ──────────────────────────────────────────────────────────── */
+
+const T5_SEGMENTS = [
+  {
+    key:'whales',
+    name:'Whales',
+    description:'Top 5% by D30 spend',
+    arpuMult: 4.00,
+    retention: {d1:0.55, d7:0.30, d30:0.15},
+    color:'#C7943A',
+    action:'Build lookalike audiences for Moloco custom + ASA CPP. Expect +30% CPI for 4× LTV.',
+    sourceLine:'Top 5% of US iOS players (just 0.02% of global installs) generate ~20% of global gaming revenue.',
+    sourceAttribution:'Moloco · 2025 State of Mobile Gaming'
+  },
+  {
+    key:'engaged_nonpayers',
+    name:'Engaged Non-Payers',
+    description:'High session count, no IAP, D7 retention ≥ 25%',
+    arpuMult: 0.00,
+    retention: {d1:0.45, d7:0.18, d30:0.08},
+    color:'#8A6A9C',
+    action:'Live-ops + push, not paid acquisition. Design events to convert first IAP — meta-game depth bottleneck applies.'
+  },
+  {
+    key:'at_risk',
+    name:'At-Risk',
+    description:'D1 retention ≥ 35%, sharp D7 drop',
+    arpuMult: 0.40,
+    retention: {d1:0.30, d7:0.05, d30:0.012},
+    color:'#B07A5A',
+    action:'D1→D7 funnel intervention; A/B test session-2 onboarding hooks (Tab 4).'
+  },
+  {
+    key:'dormant_high_value',
+    name:'Dormant High-Value',
+    description:'Former whales, no activity 14+ days',
+    arpuMult: 1.83,
+    retention: {d1:0.50, d7:0.25, d30:0.10},
+    color:'#6A8C5A',
+    action:'Re-engagement (Meta retargeting + push + email) on 14–28d windows; expected LTV recovery 30–50%.'
+  },
+  {
+    key:'new_cohort',
+    name:'New Cohort',
+    description:'First 7 days post-install',
+    // 1.16 chosen so the default-filter slice lands Whales ARPU at exactly
+    // 4.00× per the Moloco anchor. Narrow filters will diverge (intrinsic
+    // to filtering — we surface the slice-derived ratio honestly).
+    arpuMult: 1.16,
+    retention: {d1:0.34, d7:0.11, d30:0.045},
+    color:'#5A7A95',
+    action:'Continue current channel mix — segment is portfolio-baseline by definition.'
+  }
+];
+
+// Per-channel segment composition: % of channel's installs falling into each
+// segment. Each channel column sums to 100%. Calibrated so that:
+//   - ASA + Moloco over-index on Whales (high-trust deterministic chain)
+//   - Performance/rewarded networks (UAC/AppLovin/Unity) skew to ENP/At-Risk
+//   - Meta sits in middle (retargeting strength but high prospecting CPI)
+//   - Portfolio aggregate Whales share lands ~5% (matches Moloco anchor)
+const SEG_PER_CHANNEL = {
+  'ASA':         {whales:14, engaged_nonpayers:8,  at_risk:12, dormant_high_value:8, new_cohort:58},
+  'Moloco':      {whales:12, engaged_nonpayers:9,  at_risk:16, dormant_high_value:9, new_cohort:54},
+  'Google UAC':  {whales:3,  engaged_nonpayers:22, at_risk:18, dormant_high_value:3, new_cohort:54},
+  'Meta':        {whales:3,  engaged_nonpayers:20, at_risk:17, dormant_high_value:5, new_cohort:55},
+  'TikTok':      {whales:6,  engaged_nonpayers:16, at_risk:16, dormant_high_value:4, new_cohort:58},
+  'AppLovin':    {whales:2,  engaged_nonpayers:25, at_risk:24, dormant_high_value:4, new_cohort:45},
+  'Unity':       {whales:2,  engaged_nonpayers:28, at_risk:24, dormant_high_value:4, new_cohort:42},
+  'ironSource':  {whales:2,  engaged_nonpayers:28, at_risk:24, dormant_high_value:4, new_cohort:42},
+  'InMobi':      {whales:8,  engaged_nonpayers:14, at_risk:18, dormant_high_value:8, new_cohort:52},
+  'Liftoff':     {whales:3,  engaged_nonpayers:25, at_risk:22, dormant_high_value:5, new_cohort:45}
+};
+
+function computeSegments(slice){
+  // Apportion each row's installs across segments based on channel composition.
+  // Sum of per-segment installs = total installs (by construction: column sums = 100%).
+  const installs = {};
+  for(const s of T5_SEGMENTS) installs[s.key] = 0;
+  let totalInstalls = 0, totalRevenue = 0;
+  const channelInstalls = {};
+  for(const r of slice){
+    totalInstalls += r.installs;
+    totalRevenue += r.spend_usd * r.roas_d30;
+    channelInstalls[r.channel] = (channelInstalls[r.channel] || 0) + r.installs;
+    const pref = SEG_PER_CHANNEL[r.channel];
+    if(!pref) continue;
+    for(const s of T5_SEGMENTS){
+      installs[s.key] += r.installs * (pref[s.key] / 100);
+    }
+  }
+  // Revenue per segment via ARPU-multiplier weighting.
+  // Σ revenue_per_segment = totalRevenue (by construction).
+  let normConstant = 0;
+  for(const s of T5_SEGMENTS) normConstant += installs[s.key] * s.arpuMult;
+  const revenue = {};
+  for(const s of T5_SEGMENTS){
+    revenue[s.key] = normConstant > 0
+      ? totalRevenue * (installs[s.key] * s.arpuMult / normConstant)
+      : 0;
+  }
+  return {installs, revenue, totalInstalls, totalRevenue, channelInstalls};
+}
+
+function segmentChannelShare(segKey, segmentsData){
+  // Of segment S's installs, what fraction came from each channel?
+  // share[c] = (channel_c installs × pref[s][c] / 100) / segment_s_installs
+  const segInstalls = segmentsData.installs[segKey];
+  if(segInstalls === 0) return {};
+  const out = {};
+  for(const ch of Object.keys(segmentsData.channelInstalls)){
+    const pref = SEG_PER_CHANNEL[ch];
+    if(!pref) continue;
+    const fromCh = segmentsData.channelInstalls[ch] * (pref[segKey] / 100);
+    out[ch] = fromCh / segInstalls;
+  }
+  return out;
+}
+
+function segmentRetentionSvg(ret){
+  const w = 100, h = 28;
+  const points = [
+    {x:0,    y:h - ret.d1*h*1.6},
+    {x:w/2,  y:h - ret.d7*h*1.6},
+    {x:w,    y:h - ret.d30*h*1.6}
+  ];
+  const path = points.map((p,i) => (i===0?'M':'L')+p.x.toFixed(1)+','+p.y.toFixed(1)).join(' ');
+  return `<svg viewBox="0 0 ${w} ${h}" preserveAspectRatio="none">
+    <path d="${path} L${w},${h} L0,${h} Z" fill="rgba(199,148,58,0.10)"/>
+    <path d="${path}" stroke="#C7943A" stroke-width="1.5" fill="none" vector-effect="non-scaling-stroke"/>
+    ${points.map(p=>`<circle cx="${p.x}" cy="${p.y}" r="1.6" fill="#C7943A" vector-effect="non-scaling-stroke"/>`).join('')}
+  </svg>`;
+}
+
+function renderTab5(slice){
+  if(!document.getElementById('t5-segments')) return;
+  const data = computeSegments(slice);
+  const portfolioArpu = data.totalInstalls > 0 ? data.totalRevenue / data.totalInstalls : 0;
+
+  // 5 segment cards
+  const cardsHtml = T5_SEGMENTS.map(seg => {
+    const segInstalls = data.installs[seg.key];
+    const sizePct = data.totalInstalls > 0 ? segInstalls / data.totalInstalls : 0;
+    const segRevenue = data.revenue[seg.key];
+    const segArpu = segInstalls > 0 ? segRevenue / segInstalls : 0;
+    // ARPU multiplier vs SLICE average; falls back to definitional anchor
+    // when slice ARPU isn't computable.
+    const arpuRatio = portfolioArpu > 0 ? segArpu / portfolioArpu : seg.arpuMult;
+    const channelShares = segmentChannelShare(seg.key, data);
+    const top3 = Object.entries(channelShares).sort((a,b)=>b[1]-a[1]).slice(0,3);
+    const top3Html = top3.length === 0
+      ? `<span class="t5-ch-pill" style="color:var(--text-faint)">no data</span>`
+      : top3.map(([ch, sh]) => `<span class="t5-ch-pill">${esc(ch)} <span class="pct">${(sh*100).toFixed(0)}%</span></span>`).join('');
+    const sourceCallout = seg.sourceLine
+      ? `<div class="t5-source-callout">${esc(seg.sourceLine)}<div class="t5-source-attr">${esc(seg.sourceAttribution)}</div></div>`
+      : '';
+    return `<div class="t5-segment-card" style="border-top-color:${seg.color}">
+      <div class="t5-seg-name">${esc(seg.name)}</div>
+      <div class="t5-seg-desc">${esc(seg.description)}</div>
+      <div class="t5-seg-stats">
+        <div class="t5-seg-stat">
+          <span class="lab">Size</span>
+          <span class="val">${fmtCompact(segInstalls)}</span>
+          <span class="sub">${(sizePct*100).toFixed(1)}% of slice</span>
+        </div>
+        <div class="t5-seg-stat">
+          <span class="lab">ARPU</span>
+          <span class="val">${arpuRatio.toFixed(2)}×</span>
+          <span class="sub">slice avg</span>
+        </div>
+      </div>
+      <div class="t5-retention-spark">${segmentRetentionSvg(seg.retention)}</div>
+      <div class="t5-retention-label">D1 · D7 · D30 retention</div>
+      <div class="t5-top-ch">
+        <div class="lab">Top channels (acquisition)</div>
+        <div class="t5-ch-pills">${top3Html}</div>
+      </div>
+      <div class="t5-action">
+        <span class="lab">Recommended action</span>
+        <span class="text">${esc(seg.action)}</span>
+      </div>
+      ${sourceCallout}
+    </div>`;
+  }).join('');
+  document.getElementById('t5-segments').innerHTML = cardsHtml;
+
+  // Segment × channel matrix
+  const presentChannels = CHANNELS.filter(c => data.channelInstalls[c] > 0);
+  if(presentChannels.length > 0){
+    const headerCells = presentChannels.map(c => `<th>${esc(c)}</th>`).join('');
+    const segRows = T5_SEGMENTS.map(seg => {
+      const cells = presentChannels.map(ch => {
+        const v = SEG_PER_CHANNEL[ch][seg.key];
+        // Color tint: each segment gets its own hue, intensity proportional to value
+        const intensity = Math.min(0.45, v / 100 * 1.4);
+        const bg = `${seg.color}${Math.round(intensity*255).toString(16).padStart(2,'0')}`;
+        return `<td class="heat" style="background:${bg}">${v}%</td>`;
+      }).join('');
+      return `<tr><td class="seg-cell" style="color:${seg.color}">${esc(seg.name)}</td>${cells}</tr>`;
+    }).join('');
+    const portfolioCells = presentChannels.map(ch => {
+      const share = data.channelInstalls[ch] / data.totalInstalls;
+      return `<td>${(share*100).toFixed(1)}%</td>`;
+    }).join('');
+    document.getElementById('t5-matrix').innerHTML = `<table class="t5-matrix">
+      <thead><tr><th>Segment</th>${headerCells}</tr></thead>
+      <tbody>
+        ${segRows}
+        <tr class="portfolio-row"><td class="seg-cell" style="color:var(--text-mu)">Channel share of portfolio</td>${portfolioCells}</tr>
+      </tbody>
+    </table>
+    <div class="legend">Each cell = % of that channel's installs in the segment. Rows above the divider sum to 100% per channel.</div>`;
+  } else {
+    document.getElementById('t5-matrix').innerHTML = `<div class="t5-history-empty">No channel data in slice.</div>`;
+  }
+
+  // Channel recommendation (Whales-driven)
+  const whales = T5_SEGMENTS[0];
+  const whaleShares = segmentChannelShare(whales.key, data);
+  const portfolioChShare = {};
+  for(const ch of presentChannels){
+    portfolioChShare[ch] = data.channelInstalls[ch] / data.totalInstalls;
+  }
+  // For each channel, compute over-index = whale_share / portfolio_share
+  const overIndex = presentChannels.map(ch => ({
+    channel: ch,
+    whaleShare: whaleShares[ch] || 0,
+    portfolioShare: portfolioChShare[ch] || 0,
+    overIndex: portfolioChShare[ch] > 0 ? (whaleShares[ch] || 0) / portfolioChShare[ch] : 0
+  }));
+  const sortedByOver = [...overIndex].sort((a,b) => b.overIndex - a.overIndex);
+  const top2 = sortedByOver.slice(0,2);
+  const top2WhaleShare = top2.reduce((s,x) => s+x.whaleShare, 0);
+  const top2SpendShare = top2.reduce((s,x) => s+x.portfolioShare, 0);
+  // Worst under-indexer = high spend share but low whale share
+  const sortedByUnder = [...overIndex].filter(x => x.portfolioShare > 0.05 && x.overIndex < 1.0)
+    .sort((a,b) => (a.overIndex - b.overIndex));
+  const under = sortedByUnder[0];
+  let recHtml;
+  if(top2.length >= 2 && top2WhaleShare > 0){
+    const t2names = top2.map(x => x.channel).join(' + ');
+    const underLine = under
+      ? ` Reallocate from <strong>${esc(under.channel)}</strong> (${(under.whaleShare*100).toFixed(0)}% of whales for ${(under.portfolioShare*100).toFixed(0)}% of spend) toward those channels.`
+      : '';
+    recHtml = `<div class="t5-rec-eyebrow">Channel recommendation · whale acquisition</div>
+      <div class="t5-rec-conclusion">If your goal is whale acquisition, <strong>${esc(t2names)}</strong> produce <strong>${(top2WhaleShare*100).toFixed(0)}%</strong> of whales at <strong>${(top2SpendShare*100).toFixed(0)}%</strong> of portfolio spend.${underLine}</div>
+      <div class="t5-rec-bridge">over-index ${top2[0].overIndex.toFixed(1)}× / ${top2[1].overIndex.toFixed(1)}×<span class="arrow">→</span>see Tab 06 · Acquire whales plan over-allocates to these same channels</div>`;
+  } else {
+    recHtml = `<div class="t5-rec-eyebrow">Channel recommendation</div>
+      <div class="t5-rec-conclusion">Slice is too narrow to derive a channel recommendation. Broaden the filter to enable.</div>`;
+  }
+  document.getElementById('t5-recommendation').innerHTML = recHtml;
 }
 
 /* ─────────────────────────────────────────────────────────────
