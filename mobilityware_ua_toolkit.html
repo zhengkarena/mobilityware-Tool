@@ -257,6 +257,99 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 .t3-registry .trust-dots .d.lit{background:var(--amber)}
 .t3-registry td.window{font-family:var(--f-mono);font-size:11px;color:var(--text-mu)}
 
+/* ─── Tab 4 · A/B Test Lab ─── */
+.t4-grid{display:grid;grid-template-columns:320px 1fr;gap:18px;align-items:flex-start;margin-bottom:22px}
+@media (max-width:980px){.t4-grid{grid-template-columns:1fr}}
+.t4-config-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px}
+.t4-radio-stack{display:flex;flex-direction:column;background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);overflow:hidden}
+.t4-radio-stack button{padding:8px 12px;font-size:12px;color:var(--text-mu);text-align:left;border-bottom:1px solid var(--border-strong);font-family:inherit}
+.t4-radio-stack button:last-child{border-bottom:none}
+.t4-radio-stack button.active{background:var(--card);color:var(--text);box-shadow:inset 3px 0 0 var(--amber)}
+.t4-radio-stack button:hover:not(.active){color:var(--text-2)}
+.t4-radio-row{display:inline-flex;background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);overflow:hidden;width:100%}
+.t4-radio-row button{flex:1;padding:7px 10px;font-size:12px;color:var(--text-mu);border-right:1px solid var(--border-strong);font-family:var(--f-mono)}
+.t4-radio-row button:last-child{border-right:none}
+.t4-radio-row button.active{background:var(--card);color:var(--text);box-shadow:inset 0 -2px 0 var(--amber)}
+.t4-radio-row button:hover:not(.active){color:var(--text-2)}
+.t4-num{width:100%;background:var(--inset);border:1px solid var(--border-strong);border-radius:var(--r);padding:7px 10px;color:var(--text);font-size:13px;font-family:var(--f-mono);color-scheme:dark}
+.t4-num:focus{outline:none;border-color:var(--amber)}
+
+.t4-result-panel{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:22px 24px;display:flex;flex-direction:column;gap:14px}
+.t4-sample-readout{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+@media (max-width:760px){.t4-sample-readout{grid-template-columns:repeat(2,1fr)}}
+.t4-sample-card{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:11px 13px}
+.t4-sample-label{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+.t4-sample-val{font-family:var(--f-display);font-size:18px;font-weight:500;color:var(--text);letter-spacing:-0.005em;line-height:1.05}
+.t4-sample-sub{font-family:var(--f-mono);font-size:10px;color:var(--text-mu);margin-top:4px}
+.t4-formula{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:8px 12px;font-family:var(--f-mono);font-size:11px;color:var(--text-mu);overflow-x:auto}
+.t4-formula code{color:var(--text-2)}
+.t4-formula sub,.t4-formula sup{font-size:9px}
+.t4-run{align-self:flex-start;padding:9px 18px}
+.t4-result-body{margin-top:6px}
+.t4-result-empty{padding:24px;border:1px dashed var(--border-strong);border-radius:var(--r);color:var(--text-faint);font-size:12.5px;text-align:center}
+.t4-result-empty strong{color:var(--amber);font-weight:500}
+
+.t4-headline{display:flex;gap:10px;align-items:center;margin-bottom:14px}
+.t4-variant{flex:1;background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px}
+.t4-variant.variant-a{border-left:3px solid var(--slate)}
+.t4-variant.variant-b{border-left:3px solid var(--amber)}
+.t4-variant .vlabel{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:5px}
+.t4-variant .vval{font-family:var(--f-display);font-size:24px;font-weight:500;color:var(--text);letter-spacing:-0.01em}
+.t4-variant .vdelta{font-family:var(--f-mono);font-size:11.5px;margin-top:4px}
+.t4-variant .vdelta.good{color:var(--sage)}
+.t4-variant .vdelta.bad{color:var(--neg)}
+.t4-arrow{color:var(--text-faint);font-family:var(--f-mono);font-size:18px}
+
+.t4-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:14px}
+@media (max-width:760px){.t4-stats{grid-template-columns:1fr}}
+.t4-stat-row{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:9px 12px;display:flex;flex-direction:column;gap:3px}
+.t4-stat-row .lab{font-family:var(--f-mono);font-size:9.5px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em}
+.t4-stat-row .val{font-family:var(--f-mono);font-size:13px;color:var(--text)}
+
+.t4-bayesian{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:14px 16px;margin-bottom:14px}
+.t4-bayes-h{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.07em;margin-bottom:11px}
+.t4-bayes-row{margin-bottom:11px}
+.t4-bayes-row:last-child{margin-bottom:0}
+.t4-bayes-label{font-family:var(--f-mono);font-size:11.5px;color:var(--text-2);margin-bottom:5px;display:flex;justify-content:space-between;align-items:baseline}
+.t4-bayes-num{font-family:var(--f-mono);font-size:14px;color:var(--text);font-weight:500}
+.t4-bayes-bar{height:6px;background:var(--bg);border-radius:999px;overflow:hidden;margin-bottom:5px;border:1px solid var(--border)}
+.t4-bayes-fill{height:100%;background:var(--slate);transition:width .25s}
+.t4-bayes-fill.amber{background:var(--amber)}
+.t4-bayes-interp{font-size:11px;color:var(--text-mu);font-style:italic}
+
+.t4-guardrail{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:10px 14px;margin-bottom:14px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.t4-guard-h{font-family:var(--f-mono);font-size:10px;color:var(--text-faint);text-transform:uppercase;letter-spacing:0.06em}
+.t4-guard-vals{display:flex;gap:14px;font-family:var(--f-mono);font-size:11.5px;color:var(--text-2)}
+.t4-guard-vals .good{color:var(--sage)}
+.t4-guard-vals .bad{color:var(--neg)}
+
+.t4-decision{padding:14px 18px;border-radius:var(--r-lg);border:1px solid var(--border-strong);background:var(--inset);margin-bottom:12px;display:flex;align-items:center;gap:18px}
+.t4-decision.good{border-color:var(--sage);background:rgba(106,140,90,0.08)}
+.t4-decision.bad{border-color:var(--neg);background:rgba(140,64,64,0.08)}
+.t4-decision.neutral{border-color:var(--amber);background:rgba(199,148,58,0.06)}
+.t4-decision-eyebrow{font-family:var(--f-mono);font-size:10px;text-transform:uppercase;letter-spacing:0.07em;color:var(--text-faint)}
+.t4-decision-text{font-family:var(--f-display);font-size:18px;font-weight:500;color:var(--text);letter-spacing:-0.005em;line-height:1.2}
+.t4-decision.good .t4-decision-eyebrow{color:var(--sage)}
+.t4-decision.bad .t4-decision-eyebrow{color:var(--neg)}
+.t4-decision.neutral .t4-decision-eyebrow{color:var(--amber)}
+
+.t4-actions{display:flex;gap:8px;margin-top:6px}
+
+.t4-history-section{background:var(--card);border:1px solid var(--border);border-radius:var(--r-lg);padding:20px 22px;margin-bottom:18px}
+.t4-history-section .plan-h{margin-bottom:14px}
+.t4-history-table{width:100%;border-collapse:collapse;font-size:12px}
+.t4-history-table th{text-align:left;padding:8px 12px 8px 0;color:var(--text-faint);font-family:var(--f-mono);font-size:10px;font-weight:400;text-transform:uppercase;letter-spacing:0.06em;border-bottom:1px solid var(--border-strong)}
+.t4-history-table td{padding:8px 12px 8px 0;color:var(--text-2);border-bottom:1px solid rgba(42,42,50,0.45);font-family:var(--f-mono);font-size:11.5px;vertical-align:top}
+.t4-history-table td.dec{font-family:var(--f-display);font-size:13px;color:var(--text);font-weight:500}
+.t4-history-table td.dec.good{color:var(--sage)}
+.t4-history-table td.dec.bad{color:var(--neg)}
+.t4-history-table td.dec.neutral{color:var(--amber)}
+.t4-history-table tr:last-child td{border-bottom:none}
+.t4-history-empty{padding:18px;border:1px dashed var(--border);border-radius:var(--r);color:var(--text-faint);font-size:12px;text-align:center}
+
+.t4-framing-callout{background:var(--inset);border-left:2px solid var(--amber);padding:11px 16px;margin-top:6px;border-radius:0 var(--r) var(--r) 0;font-size:12.5px;color:var(--text-2);line-height:1.55}
+.t4-framing-callout .label{font-family:var(--f-mono);font-size:10px;color:var(--amber);text-transform:uppercase;letter-spacing:0.06em;margin-right:8px}
+
 /* ─── Tab 6 · Campaign Designer ─── */
 .designer-grid{display:grid;grid-template-columns:340px 1fr;gap:22px;align-items:flex-start}
 @media (max-width:980px){.designer-grid{grid-template-columns:1fr}}
@@ -481,8 +574,63 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     </div>
   </section>
   <section class="tab" id="t4">
-    <div class="tab-header"><div class="tab-eyebrow">Tab 04</div><h1 class="tab-title">A/B Test Lab</h1><p class="tab-framing">Test design, sample size, simulated readout. Bayesian framing alongside frequentist.</p></div>
-    <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 7.</div>
+    <div class="tab-header"><div class="tab-eyebrow">Tab 04</div><h1 class="tab-title">A/B Test Lab</h1><p class="tab-framing">Configure a test, see required sample size, then run a simulated readout. Frequentist and Bayesian framings side-by-side &mdash; the senior read of "did the effect happen" vs "did it happen by enough."</p></div>
+    <div class="t4-grid">
+      <aside class="t4-config-panel">
+        <div class="config-eyebrow">Configuration</div>
+        <div class="config-section">
+          <div class="config-label">Test type</div>
+          <div class="t4-radio-stack" id="t4-type"></div>
+        </div>
+        <div class="config-section">
+          <div class="config-label">Primary metric</div>
+          <select class="select" id="t4-metric"></select>
+        </div>
+        <div class="config-section">
+          <div class="config-label"><span>Baseline rate</span><span class="config-val" id="t4-baseline-val">11.5%</span></div>
+          <input type="number" class="t4-num" id="t4-baseline" min="0.1" max="99" step="0.1" value="11.5">
+        </div>
+        <div class="config-section">
+          <div class="config-label"><span>MDE</span><span class="config-val" id="t4-mde-val">10%</span></div>
+          <input type="number" class="t4-num" id="t4-mde" min="1" max="100" step="1" value="10">
+        </div>
+        <div class="config-section">
+          <div class="config-label">Significance (α)</div>
+          <div class="t4-radio-row" id="t4-alpha">
+            <button data-v="0.10">0.10</button>
+            <button data-v="0.05" class="active">0.05</button>
+            <button data-v="0.01">0.01</button>
+          </div>
+        </div>
+        <div class="config-section">
+          <div class="config-label">Power (1−β)</div>
+          <div class="t4-radio-row" id="t4-power">
+            <button data-v="0.80" class="active">0.80</button>
+            <button data-v="0.90">0.90</button>
+            <button data-v="0.95">0.95</button>
+          </div>
+        </div>
+        <div class="config-section">
+          <label class="checkbox-row"><input type="checkbox" id="t4-guard"><span>Inject guardrail violation in simulation</span></label>
+        </div>
+      </aside>
+      <article class="t4-result-panel" id="t4-result">
+        <div class="t4-sample-readout" id="t4-sample"></div>
+        <div class="t4-formula"><code>n<sub>arm</sub> = (z<sub>α/2</sub> + z<sub>β</sub>)<sup>2</sup> · [p<sub>1</sub>(1−p<sub>1</sub>) + p<sub>2</sub>(1−p<sub>2</sub>)] / (p<sub>2</sub>−p<sub>1</sub>)<sup>2</sup></code></div>
+        <button class="btn btn-primary t4-run" id="t4-run">Run simulation</button>
+        <div class="t4-result-body" id="t4-result-body">
+          <div class="t4-result-empty">Configure the test on the left and click <strong>Run simulation</strong> to draw a randomized 14-day readout.</div>
+        </div>
+      </article>
+    </div>
+    <div class="t4-history-section">
+      <div class="plan-h"><span>Test history</span><span class="h-meta" id="t4-history-meta">in-session · resets on reload</span></div>
+      <div id="t4-history"></div>
+    </div>
+    <div class="t4-framing-callout">
+      <div class="label">Why we test</div>
+      Attribution measures what happened. Incrementality measures what would have happened anyway. Every campaign with &gt;$50K spend should have a holdout &mdash; the most expensive question in UA is &ldquo;is this real.&rdquo;
+    </div>
   </section>
   <section class="tab" id="t5">
     <div class="tab-header"><div class="tab-eyebrow">Tab 05</div><h1 class="tab-title">Audience Segments</h1><p class="tab-framing">Five segments, ARPU multipliers, channel composition, recommended actions.</p></div>
@@ -1077,6 +1225,7 @@ function bindSkeletonListeners(){
     });
     renderTab1(slice);
     renderTab3(slice);
+    if(typeof t4RenderSampleReadout === 'function') t4RenderSampleReadout();
   });
 }
 
@@ -1867,6 +2016,373 @@ function renderTab3(slice){
 }
 
 /* ─────────────────────────────────────────────────────────────
+   Tab 4 · A/B Test Lab
+   Two-proportion sample-size formula + Bayesian readout.
+   Inverse-normal via Beasley-Springer-Moro (computes any α/power
+   combo, no lookup table). Simulator draws realized variant rates
+   from binomial-normal-approx with realistic effect-multiplier
+   noise — the same configuration produces different outcomes on
+   each run, the way real tests do.
+   ──────────────────────────────────────────────────────────── */
+
+const T4_TYPES = [
+  {key:'creative', label:'Creative concept',  defaultMetric:'roas_d7'},
+  {key:'bid',      label:'Bid strategy',      defaultMetric:'cpi_proxy'},
+  {key:'audience', label:'Audience targeting',defaultMetric:'roas_d7'},
+  {key:'geo',      label:'Geo expansion',     defaultMetric:'retention_d7'}
+];
+const T4_METRICS = [
+  {key:'roas_d7',      label:'D7 ROAS',           baselineDefault:18.4, unit:'%'},
+  {key:'volume',       label:'Click→install CVR', baselineDefault:32.0, unit:'%'},
+  {key:'retention_d30',label:'D30 retention',     baselineDefault:4.5,  unit:'%'},
+  {key:'cpi_proxy',    label:'CPI improvement %', baselineDefault:11.5, unit:'%'},
+  {key:'retention_d1', label:'D1 retention',      baselineDefault:34.0, unit:'%'},
+  {key:'retention_d7', label:'D7 retention',      baselineDefault:11.5, unit:'%'}
+];
+
+const T4 = {
+  testType: 'creative',
+  primaryMetric: 'roas_d7',
+  baseline: 0.184,
+  mde: 0.10,
+  alpha: 0.05,
+  power: 0.80,
+  injectGuardrail: false
+};
+const T4_HISTORY = [];
+let T4_LAST_RESULT = null;
+
+/* ─── Stats helpers ─── */
+
+// Beasley-Springer-Moro inverse normal CDF
+function inverseNormal(p){
+  if(p <= 0) return -Infinity;
+  if(p >= 1) return Infinity;
+  const a=[-3.969683028665376e+1,2.209460984245205e+2,-2.759285104469687e+2,1.383577518672690e+2,-3.066479806614716e+1,2.506628277459239];
+  const b=[-5.447609879822406e+1,1.615858368580409e+2,-1.556989798598866e+2,6.680131188771972e+1,-1.328068155288572e+1];
+  const c=[-7.784894002430293e-3,-3.223964580411365e-1,-2.400758277161838,-2.549732539343734,4.374664141464968,2.938163982698783];
+  const d=[7.784695709041462e-3,3.224671290700398e-1,2.445134137142996,3.754408661907416];
+  const plow=0.02425, phigh=1-plow;
+  let q,r;
+  if(p < plow){
+    q = Math.sqrt(-2*Math.log(p));
+    return (((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) / ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+  } else if(p <= phigh){
+    q = p-0.5; r = q*q;
+    return (((((a[0]*r+a[1])*r+a[2])*r+a[3])*r+a[4])*r+a[5])*q / (((((b[0]*r+b[1])*r+b[2])*r+b[3])*r+b[4])*r+1);
+  } else {
+    q = Math.sqrt(-2*Math.log(1-p));
+    return -(((((c[0]*q+c[1])*q+c[2])*q+c[3])*q+c[4])*q+c[5]) / ((((d[0]*q+d[1])*q+d[2])*q+d[3])*q+1);
+  }
+}
+// Standard normal CDF (Abramowitz-Stegun 26.2.17, |error| < 7.5e-8)
+function normalCDF(z){
+  const t = 1/(1+0.2316419*Math.abs(z));
+  const d = 0.3989422804014327*Math.exp(-z*z/2);
+  const p = d*t*(0.31938153 + t*(-0.356563782 + t*(1.781477937 + t*(-1.821255978 + t*1.330274429))));
+  return z > 0 ? 1-p : p;
+}
+function randNormal(){
+  const u1 = Math.max(Math.random(), 1e-10), u2 = Math.random();
+  return Math.sqrt(-2*Math.log(u1))*Math.cos(2*Math.PI*u2);
+}
+
+function t4SampleSize(){
+  const p1 = T4.baseline;
+  const p2 = T4.baseline * (1 + T4.mde);
+  if(p2 <= 0 || p2 >= 1 || p1 <= 0 || p1 >= 1) return null;
+  const zA = inverseNormal(1 - T4.alpha/2);
+  const zB = inverseNormal(T4.power);
+  const numer = Math.pow(zA + zB, 2) * (p1*(1-p1) + p2*(1-p2));
+  const denom = Math.pow(p2 - p1, 2);
+  return Math.ceil(numer/denom);
+}
+
+function t4ExpectedDailyVolume(){
+  const slice = getFilteredData();
+  if(slice.length === 0) return 0;
+  const dates = new Set(slice.map(r => r.date));
+  return Math.round(slice.reduce((s,r)=>s+r.installs, 0) / dates.size);
+}
+
+function t4ExpectedCpi(){
+  const slice = getFilteredData();
+  const tSpend = slice.reduce((s,r)=>s+r.spend_usd, 0);
+  const tInst = slice.reduce((s,r)=>s+r.installs, 0);
+  return tInst > 0 ? tSpend/tInst : 1.80;
+}
+
+/* ─── Simulator: draws realized variant rates from binomial(n, true_rate) ─── */
+
+function t4RunSimulation(){
+  const n = t4SampleSize();
+  if(!n || n > 5e7) return null;
+  const p1 = T4.baseline;
+  // True B = baseline + MDE×effectMultiplier; multiplier ~ U(-0.3, 1.3).
+  // Distribution: ~25% B underperforms, ~50% partial lift, ~25% lands at-or-above MDE.
+  const effectMult = -0.3 + Math.random() * 1.6;
+  const true_p2 = Math.max(0.001, Math.min(0.999, p1 + (p1 * T4.mde * effectMult)));
+
+  const sd1 = Math.sqrt(p1 * (1-p1) / n);
+  const sd2 = Math.sqrt(true_p2 * (1-true_p2) / n);
+  const observed_A = Math.max(0.001, Math.min(0.999, p1 + sd1 * randNormal()));
+  const observed_B = Math.max(0.001, Math.min(0.999, true_p2 + sd2 * randNormal()));
+
+  // Frequentist: pooled-variance two-proportion z
+  const obsSd1 = Math.sqrt(observed_A*(1-observed_A)/n);
+  const obsSd2 = Math.sqrt(observed_B*(1-observed_B)/n);
+  const seDiff = Math.sqrt(obsSd1*obsSd1 + obsSd2*obsSd2);
+  const meanDiff = observed_B - observed_A;
+  const z = meanDiff / seDiff;
+  const pValue = 2 * (1 - normalCDF(Math.abs(z)));
+  const ci95 = [meanDiff - 1.96*seDiff, meanDiff + 1.96*seDiff];
+
+  // Bayesian: posterior of (p_A, p_B) ≈ Normal for large n; difference ~ Normal(meanDiff, seDiff)
+  const mdeAbsolute = p1 * T4.mde;
+  const pBGreater = normalCDF(meanDiff / seDiff);
+  const pBExceedsMde = normalCDF((meanDiff - mdeAbsolute) / seDiff);
+
+  // Guardrail simulation: D1 retention (independent of primary).
+  //   Organic 10% chance: subtle regression (-2.5 to -3.7pp) — sometimes
+  //     catches the 2pp threshold, sometimes doesn't (realistic borderline).
+  //   User-injected: clear regression (-4.5 to -6.0pp) — comfortably above
+  //     the threshold so the decision logic flips deterministically.
+  const guardrailBaseline = 0.34;
+  const guardrailA = Math.max(0.05, guardrailBaseline + 0.012 * randNormal());
+  let guardrailB = Math.max(0.05, guardrailBaseline + 0.012 * randNormal());
+  if(T4.injectGuardrail) guardrailB -= 0.045 + Math.random()*0.015;
+  else if(Math.random() < 0.10) guardrailB -= 0.025 + Math.random()*0.012;
+  const guardrailDrop = guardrailA - guardrailB;
+  const guardrailViolated = guardrailDrop > 0.020;
+
+  // Decision logic: guardrail trumps primary; then Bayesian + MDE thresholds.
+  const decisionThreshold = 1 - T4.alpha; // e.g., 0.95 at α=0.05
+  let decision, tone;
+  if(guardrailViolated){
+    decision = 'Ship neither — guardrail violated';
+    tone = 'bad';
+  } else if(pBGreater <= 1 - decisionThreshold){
+    decision = 'Ship A — treatment regresses on primary';
+    tone = 'bad';
+  } else if(pBGreater >= decisionThreshold && pBExceedsMde >= 0.50){
+    decision = 'Ship B';
+    tone = 'good';
+  } else if(pBGreater >= decisionThreshold && pBExceedsMde < 0.50){
+    decision = 'Inconclusive — wins but below MDE';
+    tone = 'neutral';
+  } else {
+    decision = 'Need more data';
+    tone = 'neutral';
+  }
+
+  return {
+    n, true_p2, observed_A, observed_B, meanDiff, seDiff, pValue, ci95,
+    pBGreater, pBExceedsMde, mdeAbsolute,
+    guardrailA, guardrailB, guardrailDrop, guardrailViolated,
+    decision, tone,
+    ts: Date.now(),
+    config: {testType:T4.testType, primaryMetric:T4.primaryMetric, baseline:T4.baseline, mde:T4.mde, alpha:T4.alpha, power:T4.power}
+  };
+}
+
+/* ─── Renderers ─── */
+
+function t4RenderConfig(){
+  // Test types
+  document.getElementById('t4-type').innerHTML = T4_TYPES.map(t =>
+    `<button data-v="${t.key}"${t.key===T4.testType?' class="active"':''}>${esc(t.label)}</button>`).join('');
+  // Metrics
+  document.getElementById('t4-metric').innerHTML = T4_METRICS.map(m =>
+    `<option value="${m.key}"${m.key===T4.primaryMetric?' selected':''}>${esc(m.label)}</option>`).join('');
+  document.getElementById('t4-baseline').value = (T4.baseline*100).toFixed(1);
+  document.getElementById('t4-baseline-val').textContent = (T4.baseline*100).toFixed(1)+'%';
+  document.getElementById('t4-mde').value = (T4.mde*100).toFixed(0);
+  document.getElementById('t4-mde-val').textContent = (T4.mde*100).toFixed(0)+'%';
+  document.querySelectorAll('#t4-alpha button').forEach(b => b.classList.toggle('active', +b.dataset.v === T4.alpha));
+  document.querySelectorAll('#t4-power button').forEach(b => b.classList.toggle('active', +b.dataset.v === T4.power));
+  document.getElementById('t4-guard').checked = T4.injectGuardrail;
+}
+
+function t4RenderSampleReadout(){
+  const n = t4SampleSize();
+  const dailyVol = t4ExpectedDailyVolume();
+  const cpi = t4ExpectedCpi();
+  const totalSubjects = n ? n * 2 : 0;
+  const days = (n && dailyVol > 0) ? Math.ceil(totalSubjects / dailyVol) : null;
+  const cost = totalSubjects * cpi;
+  const sample = document.getElementById('t4-sample');
+  if(!sample) return;
+  sample.innerHTML = `
+    <div class="t4-sample-card"><div class="t4-sample-label">Sample / arm</div><div class="t4-sample-val">${n ? n.toLocaleString() : '—'}</div><div class="t4-sample-sub">α=${T4.alpha}, power=${T4.power}</div></div>
+    <div class="t4-sample-card"><div class="t4-sample-label">Daily volume</div><div class="t4-sample-val">${dailyVol.toLocaleString()}</div><div class="t4-sample-sub">from current filters</div></div>
+    <div class="t4-sample-card"><div class="t4-sample-label">Duration</div><div class="t4-sample-val">${days ? days+'d' : '—'}</div><div class="t4-sample-sub">both arms combined</div></div>
+    <div class="t4-sample-card"><div class="t4-sample-label">Cost estimate</div><div class="t4-sample-val">$${fmtCompact(cost)}</div><div class="t4-sample-sub">at $${cpi.toFixed(2)} CPI</div></div>
+  `;
+}
+
+function t4RenderResultBody(){
+  const body = document.getElementById('t4-result-body');
+  if(!body) return;
+  const r = T4_LAST_RESULT;
+  if(!r){
+    body.innerHTML = `<div class="t4-result-empty">Configure the test on the left and click <strong>Run simulation</strong> to draw a randomized 14-day readout.</div>`;
+    return;
+  }
+  const fmt = v => (v*100).toFixed(2) + '%';
+  const pct = v => (v*100).toFixed(1) + '%';
+  body.innerHTML = `
+    <div class="t4-headline">
+      <div class="t4-variant variant-a">
+        <div class="vlabel">Variant A · control</div>
+        <div class="vval">${fmt(r.observed_A)}</div>
+        <div class="vdelta" style="color:var(--text-faint)">baseline target ${fmt(T4.baseline)}</div>
+      </div>
+      <span class="t4-arrow">→</span>
+      <div class="t4-variant variant-b">
+        <div class="vlabel">Variant B · treatment</div>
+        <div class="vval">${fmt(r.observed_B)}</div>
+        <div class="vdelta ${r.meanDiff >= 0 ? 'good' : 'bad'}">${r.meanDiff >= 0 ? '+' : ''}${(r.meanDiff*100).toFixed(2)}pp vs A</div>
+      </div>
+    </div>
+    <div class="t4-stats">
+      <div class="t4-stat-row"><span class="lab">95% CI for diff</span><span class="val">[${(r.ci95[0]*100).toFixed(2)}, ${(r.ci95[1]*100).toFixed(2)}]pp</span></div>
+      <div class="t4-stat-row"><span class="lab">p-value (two-sided)</span><span class="val">${r.pValue < 0.0001 ? '<0.0001' : r.pValue.toFixed(4)}</span></div>
+      <div class="t4-stat-row"><span class="lab">MDE absolute</span><span class="val">${(r.mdeAbsolute*100).toFixed(2)}pp</span></div>
+    </div>
+    <div class="t4-bayesian">
+      <div class="t4-bayes-h">Bayesian posterior · the senior read</div>
+      <div class="t4-bayes-row">
+        <div class="t4-bayes-label"><span>P(B &gt; A)</span><span class="t4-bayes-num">${r.pBGreater.toFixed(3)}</span></div>
+        <div class="t4-bayes-bar"><div class="t4-bayes-fill" style="width:${(r.pBGreater*100).toFixed(1)}%"></div></div>
+        <div class="t4-bayes-interp">${pct(r.pBGreater)} confident treatment beats control on this metric</div>
+      </div>
+      <div class="t4-bayes-row">
+        <div class="t4-bayes-label"><span>P(B beats A by ≥ MDE)</span><span class="t4-bayes-num">${r.pBExceedsMde.toFixed(3)}</span></div>
+        <div class="t4-bayes-bar"><div class="t4-bayes-fill amber" style="width:${(r.pBExceedsMde*100).toFixed(1)}%"></div></div>
+        <div class="t4-bayes-interp">${pct(r.pBExceedsMde)} confident the effect is meaningfully large, not just non-zero</div>
+      </div>
+    </div>
+    <div class="t4-guardrail">
+      <div class="t4-guard-h">Guardrail · D1 retention</div>
+      <div class="t4-guard-vals">
+        <span>A ${fmt(r.guardrailA)}</span>
+        <span>B ${fmt(r.guardrailB)}</span>
+        <span class="${r.guardrailViolated ? 'bad' : 'good'}">${r.guardrailDrop > 0 ? '−' : '+'}${(Math.abs(r.guardrailDrop)*100).toFixed(2)}pp · ${r.guardrailViolated ? 'VIOLATED (>2pp drop)' : 'within tolerance'}</span>
+      </div>
+    </div>
+    <div class="t4-decision ${r.tone}">
+      <div>
+        <div class="t4-decision-eyebrow">Recommendation</div>
+        <div class="t4-decision-text">${esc(r.decision)}</div>
+      </div>
+    </div>
+    <div class="t4-actions">
+      <button class="btn btn-sm" id="t4-save">Save this design</button>
+      <button class="btn btn-sm" id="t4-rerun">Re-run with new draw</button>
+    </div>
+  `;
+  // Bind action buttons (re-bound each render)
+  document.getElementById('t4-save').addEventListener('click', t4SaveDesign);
+  document.getElementById('t4-rerun').addEventListener('click', t4Run);
+}
+
+function t4RenderHistory(){
+  const wrap = document.getElementById('t4-history');
+  if(!wrap) return;
+  if(T4_HISTORY.length === 0){
+    wrap.innerHTML = `<div class="t4-history-empty">No tests saved this session. Run a simulation and click <strong>Save this design</strong> to populate.</div>`;
+    return;
+  }
+  const rows = T4_HISTORY.map((h,i) => {
+    const m = T4_METRICS.find(x => x.key === h.config.primaryMetric);
+    const t = T4_TYPES.find(x => x.key === h.config.testType);
+    const time = new Date(h.ts).toLocaleTimeString([], {hour:'2-digit', minute:'2-digit', second:'2-digit'});
+    return `<tr>
+      <td>#${i+1}</td>
+      <td>${esc(t ? t.label : h.config.testType)}</td>
+      <td>${esc(m ? m.label : h.config.primaryMetric)}</td>
+      <td>${(h.observed_A*100).toFixed(2)}% → ${(h.observed_B*100).toFixed(2)}%</td>
+      <td>${h.pBGreater.toFixed(3)} / ${h.pBExceedsMde.toFixed(3)}</td>
+      <td class="dec ${h.tone}">${esc(h.decision)}</td>
+      <td>${time}</td>
+    </tr>`;
+  }).join('');
+  wrap.innerHTML = `<table class="t4-history-table">
+    <thead><tr><th>#</th><th>Type</th><th>Metric</th><th>A → B</th><th>P(B&gt;A) / P(≥MDE)</th><th>Decision</th><th>Time</th></tr></thead>
+    <tbody>${rows}</tbody>
+  </table>`;
+  document.getElementById('t4-history-meta').textContent =
+    `${T4_HISTORY.length} design${T4_HISTORY.length===1?'':'s'} · in-session · resets on reload`;
+}
+
+/* ─── Actions ─── */
+
+function t4Run(){
+  T4_LAST_RESULT = t4RunSimulation();
+  t4RenderResultBody();
+}
+function t4SaveDesign(){
+  if(!T4_LAST_RESULT) return;
+  T4_HISTORY.push(JSON.parse(JSON.stringify(T4_LAST_RESULT)));
+  t4RenderHistory();
+}
+
+function bindTab4(){
+  document.getElementById('t4-type').addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    T4.testType = b.dataset.v;
+    const t = T4_TYPES.find(x => x.key === b.dataset.v);
+    if(t && t.defaultMetric){
+      T4.primaryMetric = t.defaultMetric;
+      const def = T4_METRICS.find(x => x.key === t.defaultMetric);
+      if(def) T4.baseline = def.baselineDefault / 100;
+    }
+    t4RenderConfig(); t4RenderSampleReadout();
+  });
+  document.getElementById('t4-metric').addEventListener('change', e => {
+    T4.primaryMetric = e.target.value;
+    const def = T4_METRICS.find(x => x.key === e.target.value);
+    if(def) T4.baseline = def.baselineDefault / 100;
+    t4RenderConfig(); t4RenderSampleReadout();
+  });
+  document.getElementById('t4-baseline').addEventListener('input', e => {
+    const v = parseFloat(e.target.value);
+    if(Number.isFinite(v) && v > 0 && v < 99){
+      T4.baseline = v / 100;
+      document.getElementById('t4-baseline-val').textContent = v.toFixed(1)+'%';
+      t4RenderSampleReadout();
+    }
+  });
+  document.getElementById('t4-mde').addEventListener('input', e => {
+    const v = parseFloat(e.target.value);
+    if(Number.isFinite(v) && v > 0){
+      T4.mde = v / 100;
+      document.getElementById('t4-mde-val').textContent = v.toFixed(0)+'%';
+      t4RenderSampleReadout();
+    }
+  });
+  document.getElementById('t4-alpha').addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    T4.alpha = parseFloat(b.dataset.v);
+    t4RenderConfig(); t4RenderSampleReadout();
+  });
+  document.getElementById('t4-power').addEventListener('click', e => {
+    const b = e.target.closest('button'); if(!b) return;
+    T4.power = parseFloat(b.dataset.v);
+    t4RenderConfig(); t4RenderSampleReadout();
+  });
+  document.getElementById('t4-guard').addEventListener('change', e => {
+    T4.injectGuardrail = e.target.checked;
+  });
+  document.getElementById('t4-run').addEventListener('click', t4Run);
+
+  t4RenderConfig();
+  t4RenderSampleReadout();
+  t4RenderResultBody();
+  t4RenderHistory();
+}
+
+/* ─────────────────────────────────────────────────────────────
    Tab 6 · Campaign Designer
    Decision tree from Section 8 — encoded as deterministic logic.
    No ML, no randomness. The rules ARE the analytical framework.
@@ -2563,6 +3079,7 @@ function init(){
   bindTabs();
   bindUploadModal();
   bindDesigner();
+  bindTab4();
   bindSkeletonListeners();
   setDataSource(DEMO_DATA, 'demo');
   syncDatePresets();
