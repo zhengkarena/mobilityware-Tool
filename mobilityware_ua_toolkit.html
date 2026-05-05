@@ -104,6 +104,48 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
 .upload-banner .reset-link{color:var(--amber);cursor:pointer;text-decoration:underline;text-decoration-color:rgba(199,148,58,0.4);text-underline-offset:2px}
 .upload-banner .reset-link:hover{text-decoration-color:var(--amber)}
 
+/* upload modal */
+.modal-backdrop{position:fixed;inset:0;background:rgba(15,15,17,0.86);z-index:100;display:none;align-items:flex-start;justify-content:center;padding:48px 16px;overflow-y:auto;backdrop-filter:blur(2px);-webkit-backdrop-filter:blur(2px)}
+.modal-backdrop.visible{display:flex}
+.modal{background:var(--raised);border:1px solid var(--border-strong);border-radius:var(--r-lg);width:min(740px,100%);padding:26px 30px;box-shadow:0 18px 48px rgba(0,0,0,0.45)}
+.modal-header{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:14px}
+.modal-eyebrow{font-family:var(--f-mono);font-size:10.5px;color:var(--crimson);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:5px}
+.modal-title{font-family:var(--f-display);font-size:24px;font-weight:500;margin:0;letter-spacing:-0.012em;line-height:1.15}
+.modal-close{font-size:20px;line-height:1;color:var(--text-mu);width:30px;height:30px;border-radius:var(--r);transition:color .12s,background .12s}
+.modal-close:hover{color:var(--text);background:var(--card)}
+.modal-blurb{color:var(--text-2);margin:0 0 16px;font-size:13.5px;line-height:1.55}
+.modal-schema{background:var(--inset);border:1px solid var(--border);border-radius:var(--r);padding:8px 14px;margin-bottom:14px}
+.modal-schema summary{cursor:pointer;font-size:12.5px;color:var(--text-2);padding:4px 0;outline:none;font-weight:500;list-style:none;display:flex;justify-content:space-between;align-items:center}
+.modal-schema summary::-webkit-details-marker{display:none}
+.modal-schema summary::after{content:"+";color:var(--text-mu);font-family:var(--f-mono);font-size:14px}
+.modal-schema[open] summary::after{content:"−"}
+.modal-schema summary:hover{color:var(--text)}
+.schema-table{width:100%;font-family:var(--f-mono);font-size:11px;border-collapse:collapse;margin-top:8px}
+.schema-table th{text-align:left;padding:6px 12px 6px 0;color:var(--text-faint);font-weight:400;text-transform:uppercase;letter-spacing:0.05em;font-size:10px;border-bottom:1px solid var(--border)}
+.schema-table td{padding:5px 12px 5px 0;color:var(--text-2);border-bottom:1px solid rgba(42,42,50,0.45);vertical-align:top}
+.schema-table td:first-child{color:var(--amber)}
+.schema-table td.req{color:var(--sage)}
+.schema-table td.opt{color:var(--text-faint)}
+.schema-table tr:last-child td{border-bottom:none}
+.modal-sample{display:flex;align-items:center;gap:12px;margin-bottom:14px;padding:10px 14px;background:var(--inset);border:1px solid var(--border);border-radius:var(--r);font-size:12.5px;color:var(--text-2)}
+.modal-sample-label{flex:1}
+.modal-fileinput{padding:18px;border:1px dashed var(--border-strong);border-radius:var(--r);text-align:center;margin-bottom:12px;background:var(--inset)}
+.modal-fileinput input[type=file]{display:block;margin:0 auto 8px;color:var(--text-2);font-size:12.5px;max-width:380px}
+.modal-fileinput input[type=file]::file-selector-button{background:var(--card);color:var(--text);border:1px solid var(--border-strong);border-radius:var(--r);padding:6px 12px;font-family:inherit;font-size:12px;cursor:pointer;margin-right:10px;transition:border-color .12s}
+.modal-fileinput input[type=file]::file-selector-button:hover{border-color:var(--text-faint)}
+.file-hint{font-family:var(--f-mono);font-size:11px;color:var(--text-faint);display:block;margin-top:6px}
+.file-hint.success{color:var(--sage)}
+.modal-errors{background:rgba(140,64,64,0.08);border:1px solid rgba(140,64,64,0.45);border-radius:var(--r);padding:12px 16px;margin-bottom:12px;display:none}
+.modal-errors.visible{display:block}
+.modal-errors-header{color:var(--neg);font-size:11px;font-weight:500;margin-bottom:8px;font-family:var(--f-mono);text-transform:uppercase;letter-spacing:0.05em;display:flex;justify-content:space-between;align-items:baseline}
+.modal-errors-count{color:var(--text-mu);font-weight:400}
+.modal-errors-list{list-style:none;padding:0;margin:0;max-height:240px;overflow-y:auto;font-family:var(--f-mono);font-size:11.5px;line-height:1.5}
+.modal-errors-list li{padding:3px 0;color:var(--text-2);padding-left:14px;position:relative}
+.modal-errors-list li::before{content:"·";color:var(--neg);position:absolute;left:2px;font-weight:700}
+.modal-errors-more{color:var(--text-faint);font-style:italic;padding-top:8px;margin-top:6px;border-top:1px solid var(--border);font-family:var(--f-mono);font-size:11px}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
+.modal-actions .spacer{flex:1}
+
 /* utility */
 .kbd{font-family:var(--f-mono);font-size:11px;color:var(--text-mu);background:var(--inset);padding:1px 5px;border-radius:3px;border:1px solid var(--border)}
 @media (max-width:1100px){
@@ -239,6 +281,64 @@ main{max-width:1480px;margin:0 auto;padding:28px 22px 80px}
     <div class="placeholder-card">Filter pipeline check: <span class="filtered-count">0</span> rows in current slice. Tab build lands in checkpoint 10.</div>
   </section>
 </main>
+
+<div class="modal-backdrop" id="modal-upload" role="dialog" aria-modal="true" aria-labelledby="modal-title" hidden>
+  <div class="modal" role="document">
+    <div class="modal-header">
+      <div>
+        <div class="modal-eyebrow">Data ingestion</div>
+        <h2 id="modal-title" class="modal-title">Upload your portfolio data</h2>
+      </div>
+      <button class="modal-close" aria-label="Close" id="modal-close">×</button>
+    </div>
+    <p class="modal-blurb">Schema-aware ingestion. The 12-column format below is the same one <span class="kbd">Export view</span> produces &mdash; round-trips supported. Headers are case-insensitive; column order is flexible; whitespace is trimmed.</p>
+
+    <details class="modal-schema">
+      <summary>Schema reference (12 columns)</summary>
+      <table class="schema-table">
+        <thead><tr><th>Column</th><th>Type</th><th>Required</th><th>Notes</th></tr></thead>
+        <tbody>
+          <tr><td>date</td><td>ISO YYYY-MM-DD</td><td class="req">yes</td><td>e.g. 2026-04-15</td></tr>
+          <tr><td>game</td><td>string</td><td class="req">yes</td><td>Solitaire / Spider Solitaire / TriPeaks / Bubble Shooter Pop</td></tr>
+          <tr><td>channel</td><td>string</td><td class="req">yes</td><td>Google UAC / ASA / Meta / AppLovin / Unity / Moloco / ironSource / TikTok / InMobi / Liftoff</td></tr>
+          <tr><td>geo</td><td>ISO 3166-1 alpha-2</td><td class="req">yes</td><td>2-letter country code (US, BR, JP, ...)</td></tr>
+          <tr><td>os</td><td>string</td><td class="req">yes</td><td>iOS or Android</td></tr>
+          <tr><td>spend_usd</td><td>decimal</td><td class="req">yes</td><td>non-negative</td></tr>
+          <tr><td>installs</td><td>integer</td><td class="req">yes</td><td>non-negative</td></tr>
+          <tr><td>roas_d7</td><td>decimal [0, 1]</td><td class="req">yes</td><td>0.184 = 18.4%</td></tr>
+          <tr><td>roas_d30</td><td>decimal [0, 1]</td><td class="opt">optional</td><td>projected from D7 if missing</td></tr>
+          <tr><td>retention_d1</td><td>decimal [0, 1]</td><td class="opt">optional</td><td></td></tr>
+          <tr><td>retention_d7</td><td>decimal [0, 1]</td><td class="opt">optional</td><td></td></tr>
+          <tr><td>retention_d30</td><td>decimal [0, 1]</td><td class="opt">optional</td><td></td></tr>
+        </tbody>
+      </table>
+    </details>
+
+    <div class="modal-sample">
+      <span class="modal-sample-label">Need a template? Download a 50-row sample drawn from the demo dataset.</span>
+      <button class="btn btn-sm" id="btn-download-sample">Download sample CSV</button>
+    </div>
+
+    <div class="modal-fileinput">
+      <input type="file" accept=".csv,text/csv" id="csv-input">
+      <span class="file-hint" id="file-hint">No file selected.</span>
+    </div>
+
+    <div class="modal-errors" id="modal-errors">
+      <div class="modal-errors-header">
+        <span>Validation issues &mdash; fix and re-upload</span>
+        <span class="modal-errors-count" id="modal-errors-count"></span>
+      </div>
+      <ul class="modal-errors-list" id="modal-errors-list"></ul>
+    </div>
+
+    <div class="modal-actions">
+      <button class="btn" id="btn-try-again">Reset</button>
+      <div class="spacer"></div>
+      <button class="btn" id="btn-use-demo">Use demo data instead</button>
+    </div>
+  </div>
+</div>
 
 <script>
 'use strict';
@@ -617,12 +717,11 @@ function bindFilters(){
   // top-bar buttons
   document.getElementById('btn-reset').addEventListener('click', resetFilters);
   document.getElementById('btn-export').addEventListener('click', exportCsv);
-  document.getElementById('btn-upload').addEventListener('click', ()=>{
-    alert('Upload modal lands in checkpoint 3. For now: filter pipeline runs on demo data.');
-  });
   document.getElementById('upload-banner-reset').addEventListener('click', ()=>{
     setDataSource(DEMO_DATA,'demo');
-    const b=document.getElementById('upload-banner'); b.classList.remove('visible');
+    document.getElementById('upload-banner').classList.remove('visible');
+    const topbar = document.getElementById('topbar');
+    document.documentElement.style.setProperty('--topbar-h', topbar.offsetHeight+'px');
   });
 }
 
@@ -724,6 +823,268 @@ function bindSkeletonListeners(){
 }
 
 /* ─────────────────────────────────────────────────────────────
+   CSV upload: modal, sample, validator, ingest
+   ──────────────────────────────────────────────────────────── */
+
+const REQ_COLS = ['date','game','channel','geo','os','spend_usd','installs','roas_d7'];
+const OPT_COLS = ['roas_d30','retention_d1','retention_d7','retention_d30'];
+const ERROR_DISPLAY_CAP = 20;
+const MIN_DAYS_REQUIRED = 7;
+// Projection defaults for missing optional columns (post-ATT realistic anchors).
+const PROJECT_ROAS_D30_MULT = 2.7;  // GameAnalytics + AppsFlyer Performance Index lifetime curves
+const PROJECT_RET_D1 = 0.34;        // mid casual card iOS+Android blend
+const PROJECT_RET_D7 = 0.11;
+const PROJECT_RET_D30 = 0.045;
+
+function lookupTable(arr){
+  const m = Object.create(null);
+  arr.forEach(v => m[v.toLowerCase()] = v);
+  return m;
+}
+const GAMES_LC    = lookupTable(GAMES);
+const CHANNELS_LC = lookupTable(CHANNELS);
+const OSES_LC     = lookupTable(OSES);
+
+function validateCsvText(text){
+  // Returns {ok:true, rows} or {ok:false, errors: string[], total: number}
+  const errors = [];
+  const parsed = Papa.parse(text, {
+    header: true,
+    skipEmptyLines: true,
+    transformHeader: h => h.trim().toLowerCase(),
+  });
+
+  if(parsed.errors && parsed.errors.length){
+    parsed.errors.slice(0,5).forEach(e=>{
+      const rn = (typeof e.row==='number') ? e.row+2 : '?';
+      errors.push(`Row ${rn}: parse error — ${e.message}`);
+    });
+  }
+  const fields = (parsed.meta && parsed.meta.fields) || [];
+  const missingReq = REQ_COLS.filter(c => !fields.includes(c));
+  if(missingReq.length){
+    errors.push(`Missing required column${missingReq.length>1?'s':''}: ${missingReq.map(c=>'`'+c+'`').join(', ')}`);
+    return {ok:false, errors, total:errors.length};
+  }
+  if(parsed.data.length === 0){
+    errors.push('File contains no data rows.');
+    return {ok:false, errors, total:1};
+  }
+
+  const rows = [];
+  parsed.data.forEach((raw, idx) => {
+    const rowNum = idx + 2; // +1 for header, +1 for 1-indexed
+    const obj = {};
+    let rowOk = true;
+    const fail = (col, val, expected) => {
+      const shown = (val===undefined||val===null||val==='') ? '(empty)' : String(val);
+      errors.push(`Row ${rowNum}: \`${col}\` value \`${shown}\` ${expected}`);
+      rowOk = false;
+    };
+
+    const date = String(raw.date ?? '').trim();
+    if(!/^\d{4}-\d{2}-\d{2}$/.test(date)) fail('date', date, 'is not ISO YYYY-MM-DD');
+    else obj.date = date;
+
+    const gameRaw = String(raw.game ?? '').trim();
+    const game = GAMES_LC[gameRaw.toLowerCase()];
+    if(!game) fail('game', gameRaw, `is not recognized — must be one of ${GAMES.join(' / ')}`);
+    else obj.game = game;
+
+    const chRaw = String(raw.channel ?? '').trim();
+    const channel = CHANNELS_LC[chRaw.toLowerCase()];
+    if(!channel) fail('channel', chRaw, `is not recognized — must be one of ${CHANNELS.join(' / ')}`);
+    else obj.channel = channel;
+
+    const geo = String(raw.geo ?? '').trim().toUpperCase();
+    if(!/^[A-Z]{2}$/.test(geo)) fail('geo', geo, 'is not a 2-letter ISO 3166-1 alpha-2 code');
+    else obj.geo = geo;
+
+    const osRaw = String(raw.os ?? '').trim();
+    const os = OSES_LC[osRaw.toLowerCase()];
+    if(!os) fail('os', osRaw, 'is not recognized — must be `iOS` or `Android`');
+    else obj.os = os;
+
+    const spendStr = String(raw.spend_usd ?? '').trim();
+    const spend = Number(spendStr);
+    if(spendStr==='' || !Number.isFinite(spend)) fail('spend_usd', spendStr, 'is not a number');
+    else if(spend < 0) fail('spend_usd', spendStr, 'is negative');
+    else obj.spend_usd = spend;
+
+    const installsStr = String(raw.installs ?? '').trim();
+    const installs = Number(installsStr);
+    if(installsStr==='' || !Number.isFinite(installs)) fail('installs', installsStr, 'is not a number');
+    else if(installs < 0) fail('installs', installsStr, 'is negative');
+    else if(!Number.isInteger(installs)) fail('installs', installsStr, 'is not an integer');
+    else obj.installs = installs;
+
+    const r7Str = String(raw.roas_d7 ?? '').trim();
+    const r7 = Number(r7Str);
+    if(r7Str==='' || !Number.isFinite(r7)) fail('roas_d7', r7Str, 'is not a number');
+    else if(r7 < 0 || r7 > 1) fail('roas_d7', r7Str, 'is outside [0, 1]');
+    else obj.roas_d7 = r7;
+
+    for(const c of OPT_COLS){
+      const v = raw[c];
+      if(v===undefined || v===null || String(v).trim()==='') continue;
+      const n = Number(String(v).trim());
+      if(!Number.isFinite(n)) fail(c, v, 'is not a number');
+      else if(n < 0 || n > 1) fail(c, v, 'is outside [0, 1]');
+      else obj[c] = n;
+    }
+
+    if(rowOk){
+      if(obj.roas_d30==null) obj.roas_d30 = clamp(obj.roas_d7 * PROJECT_ROAS_D30_MULT, 0, 0.95);
+      if(obj.retention_d1==null) obj.retention_d1 = PROJECT_RET_D1;
+      if(obj.retention_d7==null) obj.retention_d7 = PROJECT_RET_D7;
+      if(obj.retention_d30==null) obj.retention_d30 = PROJECT_RET_D30;
+      rows.push(obj);
+    }
+  });
+
+  if(rows.length > 0){
+    const distinctDates = new Set(rows.map(r => r.date));
+    if(distinctDates.size < MIN_DAYS_REQUIRED){
+      errors.push(`Date range is only ${distinctDates.size} day${distinctDates.size===1?'':'s'} — minimum ${MIN_DAYS_REQUIRED} days required for meaningful analysis`);
+    }
+  }
+
+  if(errors.length) return {ok:false, errors, total:errors.length};
+  return {ok:true, rows};
+}
+
+function generateSampleCsv(){
+  // 50 rows drawn from DEMO_DATA spanning ~10 distinct dates.
+  // Validator-clean roundtrip — same 12-column schema as Export view.
+  const byDate = {};
+  for(const r of DEMO_DATA){ (byDate[r.date] ||= []).push(r); }
+  const dates = Object.keys(byDate).sort();
+  const dateStep = Math.max(1, Math.floor(dates.length / 10));
+  const picks = [];
+  for(let i=0; i<10 && picks.length<50; i++){
+    const dayRows = byDate[dates[i*dateStep]];
+    const rowStep = Math.max(1, Math.floor(dayRows.length / 5));
+    for(let j=0; j<5 && j*rowStep<dayRows.length && picks.length<50; j++){
+      picks.push(dayRows[j*rowStep]);
+    }
+  }
+  const header = EXPORT_COLS.join(',');
+  const lines = picks.map(r => EXPORT_COLS.map(c => csvCell(r[c])).join(','));
+  return header + '\n' + lines.join('\n') + '\n';
+}
+
+function downloadSampleCsv(){
+  const blob = new Blob([generateSampleCsv()], {type:'text/csv;charset=utf-8'});
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url; a.download = 'mw_ua_sample.csv';
+  document.body.appendChild(a); a.click(); a.remove();
+  setTimeout(()=>URL.revokeObjectURL(url), 1000);
+}
+
+function openUploadModal(){
+  resetModalState();
+  const m = document.getElementById('modal-upload');
+  m.classList.add('visible'); m.removeAttribute('hidden');
+}
+function closeUploadModal(){
+  const m = document.getElementById('modal-upload');
+  m.classList.remove('visible'); m.setAttribute('hidden','');
+}
+function resetModalState(){
+  document.getElementById('csv-input').value = '';
+  const hint = document.getElementById('file-hint');
+  hint.textContent = 'No file selected.'; hint.classList.remove('success');
+  const errBox = document.getElementById('modal-errors');
+  errBox.classList.remove('visible');
+  document.getElementById('modal-errors-list').innerHTML = '';
+  document.getElementById('modal-errors-count').textContent = '';
+}
+
+function showErrors(errors){
+  const errBox = document.getElementById('modal-errors');
+  const list = document.getElementById('modal-errors-list');
+  const count = document.getElementById('modal-errors-count');
+  list.innerHTML = '';
+  const shown = errors.slice(0, ERROR_DISPLAY_CAP);
+  shown.forEach(msg => {
+    const li = document.createElement('li');
+    li.textContent = msg;
+    list.appendChild(li);
+  });
+  if(errors.length > ERROR_DISPLAY_CAP){
+    const more = document.createElement('li');
+    more.className = 'modal-errors-more';
+    more.textContent = `+ ${errors.length - ERROR_DISPLAY_CAP} more error${errors.length-ERROR_DISPLAY_CAP===1?'':'s'} not shown`;
+    list.appendChild(more);
+  }
+  count.textContent = `${errors.length} issue${errors.length===1?'':'s'}`;
+  errBox.classList.add('visible');
+}
+
+function handleCsvFile(file){
+  if(!file) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    const text = String(e.target.result || '');
+    // strip BOM
+    const clean = text.charCodeAt(0)===0xFEFF ? text.slice(1) : text;
+    const result = validateCsvText(clean);
+    if(result.ok){
+      ingestUserData(result.rows, file.name);
+      closeUploadModal();
+    } else {
+      showErrors(result.errors);
+      const hint = document.getElementById('file-hint');
+      hint.textContent = `${file.name} — failed validation`;
+      hint.classList.remove('success');
+    }
+  };
+  reader.onerror = () => {
+    showErrors([`Could not read file ${file.name}: ${reader.error?.message || 'unknown error'}`]);
+  };
+  reader.readAsText(file);
+}
+
+function ingestUserData(rows, filename){
+  // Atomic swap: setDataSource updates DATA_SOURCE, repopulates filter
+  // dropdowns from new dimensions, fires data:changed; all charts re-render.
+  setDataSource(rows, filename);
+  const dims = DIMS;
+  const banner = document.getElementById('upload-banner');
+  document.getElementById('upload-banner-text').textContent =
+    `Showing your data: ${filename} · ${rows.length.toLocaleString()} rows · ${dims.dateMin} to ${dims.dateMax}`;
+  banner.classList.add('visible');
+  // recalculate sticky offset since banner adds height under the topbar
+  const topbar = document.getElementById('topbar');
+  document.documentElement.style.setProperty('--topbar-h', (topbar.offsetHeight + banner.offsetHeight)+'px');
+}
+
+function bindUploadModal(){
+  document.getElementById('btn-upload').addEventListener('click', openUploadModal);
+  document.getElementById('modal-close').addEventListener('click', closeUploadModal);
+  document.getElementById('btn-use-demo').addEventListener('click', closeUploadModal);
+  document.getElementById('btn-try-again').addEventListener('click', resetModalState);
+  document.getElementById('btn-download-sample').addEventListener('click', downloadSampleCsv);
+  document.getElementById('csv-input').addEventListener('change', e => {
+    const file = e.target.files && e.target.files[0];
+    if(file){
+      const hint = document.getElementById('file-hint');
+      hint.textContent = `${file.name} — validating…`;
+      hint.classList.remove('success');
+      // small async tick so the hint paints
+      setTimeout(()=>handleCsvFile(file), 30);
+    }
+  });
+  document.getElementById('modal-upload').addEventListener('click', e=>{
+    if(e.target.id === 'modal-upload') closeUploadModal();
+  });
+  document.addEventListener('keydown', e=>{
+    if(e.key==='Escape' && document.getElementById('modal-upload').classList.contains('visible')) closeUploadModal();
+  });
+}
+
+/* ─────────────────────────────────────────────────────────────
    Helpers
    ──────────────────────────────────────────────────────────── */
 
@@ -745,6 +1106,7 @@ function init(){
   console.info('[UA Toolkit] generated demo data:', DEMO_DATA.length, 'rows');
   bindFilters();
   bindTabs();
+  bindUploadModal();
   bindSkeletonListeners();
   setDataSource(DEMO_DATA, 'demo');
   syncDatePresets();
